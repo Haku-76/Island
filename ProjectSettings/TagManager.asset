@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Lord
+  - NPC
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -13,7 +16,7 @@ TagManager:
   - Water
   - UI
   - Background
-  - 
+  - NPC
   - 
   - 
   - 
@@ -41,4 +44,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3654240621
+    locked: 0
+  - name: NPC
+    uniqueID: 1634435995
+    locked: 0
+  - name: Player
+    uniqueID: 1793595993
+    locked: 0
+  - name: Item
+    uniqueID: 4113689285
     locked: 0
