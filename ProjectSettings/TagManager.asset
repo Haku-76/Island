@@ -48,6 +48,9 @@ TagManager:
   - name: Background
     uniqueID: 3654240621
     locked: 0
+  - name: SceneProps
+    uniqueID: 123198453
+    locked: 0
   - name: NPC
     uniqueID: 1634435995
     locked: 0
