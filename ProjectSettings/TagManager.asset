@@ -60,3 +60,6 @@ TagManager:
   - name: Item
     uniqueID: 4113689285
     locked: 0
+  - name: Front
+    uniqueID: 2156727833
+    locked: 0
