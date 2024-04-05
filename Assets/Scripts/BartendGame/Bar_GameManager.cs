@@ -29,7 +29,7 @@ public class Bar_GameManager : MonoBehaviour
 
     public event Action FinishGameEvent;
 
-    public Image drinks_DragUI;
+    public DrinksUI drinks_DragUI;
 
     public void EnterGame()
     {

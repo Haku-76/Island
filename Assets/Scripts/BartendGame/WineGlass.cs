@@ -27,7 +27,10 @@ public class WineGlass : MonoBehaviour
         if(drinksData.drinksType == DrinksType.wine)
         {
             if(alcohol == 0)
+            {
                 alcohol += drinksData.alcohol;
+                
+            }
             else
                 Debug.Log("已经加过酒了");
         }
