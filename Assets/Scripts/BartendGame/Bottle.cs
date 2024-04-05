@@ -37,9 +37,9 @@ public class Bottle : MonoBehaviour
 
     IEnumerator FillGlass(WineGlass target)
     {
-        target.FillGlass(drinksData);
         Bar_GameManager.Instance.drinks_DragUI.PourOut();
         yield return new WaitForSeconds(0.5f);
+        target.FillGlass(drinksData);
         Bar_GameManager.Instance.drinks_DragUI.image.enabled = false;
         Bar_GameManager.Instance.drinks_DragUI.EndPourOut();
     }

@@ -26,17 +26,30 @@ public class WineGlass : MonoBehaviour
     {
         if(drinksData.drinksType == DrinksType.wine)
         {
-            if(alcohol == 0)
+            if(!Bar_GameManager.Instance.isAddWine)
             {
                 alcohol += drinksData.alcohol;
-                
+                Bar_GameManager.Instance.progressUI.AddWine();
             }
             else
                 Debug.Log("已经加过酒了");
         }
         else if(drinksData.drinksType == DrinksType.Water)
         {
-            Debug.Log("添加了 " + drinksData.drinkName);
+            if(!Bar_GameManager.Instance.isAddWater)
+            {
+                Bar_GameManager.Instance.progressUI.AddWater();
+                Debug.Log("添加了 " + drinksData.drinkName);
+            }
+            else
+            {
+                Debug.Log("已经加过饮料了");
+            }
         }
+    }
+
+    public float GetAlcohol()
+    {
+        return alcohol;
     }
 }
