@@ -9,11 +9,27 @@ public class DrinksDataSO : ScriptableObject
     public string description;
     public DrinksType drinksType;
     public float alcohol;
+    public WaterTag taste;
 }
 
+public class MixedWine_Data
+{
+    public float alcohol;
+    public WaterTag taste;
+}
 
+[System.Serializable]
 public enum DrinksType
 {
     wine,
-    Water,
+    water,
+}
+
+[System.Serializable]
+public enum WaterTag
+{
+    probiotics,
+    soda,
+    sprite,
+    lemonade
 }
