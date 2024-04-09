@@ -11,13 +11,20 @@ public class GOmovement : MonoBehaviour
     public float jumpDuration = 3f;
     public float InBarDuration = 5f;
     public Vector3 targetPosition2;
-    public GameObject barGamePrefab;
+    public GameRoot gameRootInstance;
+    
+    
 
     void Start()
     {
         StartCoroutine(MoveCoroutine());
+        gameRootInstance = GameRoot.Instance;
+        if (gameObject.name == "NPC")
+        {
+            gameRootInstance.FinishGameEvent -= HandleFinishGameEvent;
+            gameRootInstance.FinishGameEvent += HandleFinishGameEvent;
+        }
     }
-
     IEnumerator MoveCoroutine()
     {
         yield return new WaitForSeconds(7f); 
@@ -57,8 +64,14 @@ public class GOmovement : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        
-        NPC.AddComponent<OnClickEvent>();
+        if (NPC.GetComponent<OnClickEvent>() == null)
+        {
+            NPC.AddComponent<OnClickEvent>();
+        }
+        else
+        {
+            Debug.LogWarning("OnClickEvent component already exists on NPC.");
+        }
     }
 
     void Update()
@@ -69,10 +82,23 @@ public class GOmovement : MonoBehaviour
         }
     }
 
+    void HandleFinishGameEvent(MixedWine_Data mixedWineData)
+    {
+        // 在这里处理传递过来的 MixedWine_Data 对象
+        Debug.Log("Received mixed wine data: Alcohol - " + mixedWineData.alcohol + ", Taste - " + mixedWineData.taste);
+    }
+    
     public void WantAWine()
     {
-        Vector3 screenCenter = new Vector3(0f,0f, 0f);
-        Instantiate(barGamePrefab, screenCenter, Quaternion.identity);
+        if (gameRootInstance != null)
+        {
+            // 调用进入游戏的方法
+            gameRootInstance.EnterGame();
+        }
+        else
+        {
+            Debug.LogError("GameRoot instance is null. Make sure GameRoot object exists in the scene.");
+        }
     }
 }
 

@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class Bar_GameManager : MonoBehaviour
 {
+    
+    private bool isGameFinished = false;
+    
 #region Singleton
     private static Bar_GameManager _instance;
-
+    
     public static Bar_GameManager Instance{
         get => _instance;
     }
@@ -47,8 +50,9 @@ public class Bar_GameManager : MonoBehaviour
 
     void Update()
     {
-        if(isFinished)
+        if(isFinished && !isGameFinished)
         {
+            isGameFinished = true;
             StartCoroutine(FinishGame());
         }
     }
