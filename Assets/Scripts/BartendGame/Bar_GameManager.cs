@@ -31,8 +31,6 @@ public class Bar_GameManager : MonoBehaviour
 
     public ProgressUI progressUI;
 
-    public SettlementPanel settlementUI;
-
     public WineGlass wineGlass;
 
     
@@ -43,7 +41,6 @@ public class Bar_GameManager : MonoBehaviour
 
     void Start()
     {
-        settlementUI.gameObject.SetActive(false);
         isAddWater = false;
         isAddWine = false;
     }
@@ -58,8 +55,7 @@ public class Bar_GameManager : MonoBehaviour
     
     IEnumerator FinishGame()
     {
-        settlementUI.gameObject.SetActive(true);
-        settlementUI.Settle(wineGlass.GetAlcohol());
+        GameRoot.Instance.CallFinishGameEvent(wineGlass.GetResult());
         yield return new WaitForSeconds(3f);
 
         GameRoot.Instance.CloseGame();

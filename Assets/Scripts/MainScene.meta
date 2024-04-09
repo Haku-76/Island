@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/MainScene.meta
 guid: e0808d3c5de7c6e4eb80f18d96eb8a20
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
+========
+guid: dc6cbb8901ea44547abfc7d1204388c2
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+>>>>>>>> origin/XY:Assets/GameSOData/Drinks/Water/Lemonade.asset.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 

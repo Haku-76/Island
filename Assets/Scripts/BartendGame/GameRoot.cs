@@ -19,7 +19,14 @@ public class GameRoot : MonoBehaviour
     #endregion
     public event Action EnterGameEvent;
 
+    public event Action<MixedWine_Data> FinishGameEvent;
+
+    public void CallFinishGameEvent(MixedWine_Data data)
+    {
+        FinishGameEvent?.Invoke(data);
+    }
     public event Action CloseGameEvent;
+    
 
     public GameObject bar_Game;
 

@@ -6,6 +6,7 @@ using UnityEngine;
 public class WineGlass : MonoBehaviour
 {
     [SerializeField]private float alcohol;
+    [SerializeField]private WaterTag taste;
 
     void OnMouseDown()
     {
@@ -34,10 +35,11 @@ public class WineGlass : MonoBehaviour
             else
                 Debug.Log("已经加过酒了");
         }
-        else if(drinksData.drinksType == DrinksType.Water)
+        else if(drinksData.drinksType == DrinksType.water)
         {
             if(!Bar_GameManager.Instance.isAddWater)
             {
+                taste = drinksData.taste;
                 Bar_GameManager.Instance.progressUI.AddWater();
                 Debug.Log("添加了 " + drinksData.drinkName);
             }
@@ -48,8 +50,13 @@ public class WineGlass : MonoBehaviour
         }
     }
 
-    public float GetAlcohol()
+    public MixedWine_Data GetResult()
     {
-        return alcohol;
+        MixedWine_Data mixedWine = new MixedWine_Data();
+        mixedWine.alcohol = alcohol;
+        mixedWine.taste = taste;
+        return mixedWine;
     }
 }
+
+
