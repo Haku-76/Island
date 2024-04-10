@@ -17,8 +17,22 @@ public class GameRoot : MonoBehaviour
             _instance = null;
     }
     #endregion
-    public event Action EnterGameEvent;
 
+    /// <summary>
+    /// 进入调酒游戏的事件
+    /// </summary>
+    public event Action EnterGameEvent;
+    public void CallEnterGameEvent()
+    {
+        EnterGameEvent?.Invoke();
+    }
+
+
+
+    /// <summary>
+    /// 结束游戏的事件
+    /// </summary>
+    /// <param name="data">游戏结果数据 ： 酒精度， 口感</param>
     public event Action<MixedWine_Data> FinishGameEvent;
 
     public void CallFinishGameEvent(MixedWine_Data data)
@@ -29,7 +43,6 @@ public class GameRoot : MonoBehaviour
     
 
     public GameObject bar_Game;
-
     private GameObject barGame_instance;
 
     void OnEnable()
@@ -63,12 +76,6 @@ public class GameRoot : MonoBehaviour
         {
             Destroy(barGame_instance);
         }
-    }
-
-
-    public void EnterGame()
-    {
-        EnterGameEvent?.Invoke();
     }
 
     public void CloseGame()
