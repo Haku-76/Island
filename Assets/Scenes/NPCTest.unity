@@ -960,8 +960,9 @@ GameObject:
   - component: {fileID: 2022237054}
   - component: {fileID: 2022237053}
   - component: {fileID: 2022237052}
+  - component: {fileID: 2022237055}
   m_Layer: 7
-  m_Name: Eddie
+  m_Name: NPC1
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1079,6 +1080,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2022237055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022237051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e5054356c9c084f98fec7d33a9e7e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scheduleData: {fileID: 11400000, guid: 4eac4ebb6628b924589bcda667b4cec8, type: 2}
+  move_Speed: 3
+  interactable: 1
+  isMoving: 0
 --- !u!1 &2101086885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,6 +1186,6 @@ SceneRoots:
   - {fileID: 2101086887}
   - {fileID: 1892698280}
   - {fileID: 318770708}
-  - {fileID: 2022237054}
   - {fileID: 587349510}
   - {fileID: 1116781243}
+  - {fileID: 2022237054}
