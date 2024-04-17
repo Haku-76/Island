@@ -248,7 +248,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3, z: 0}
-  m_LocalScale: {x: 11.6283, y: 1, z: 1}
+  m_LocalScale: {x: 34.20697, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -277,10 +277,6 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 2226001511037430823, guid: d64840190e344b440934fc9d7518ad27, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2226001511037430824, guid: d64840190e344b440934fc9d7518ad27, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -317,10 +313,6 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 2226001511757329481, guid: d64840190e344b440934fc9d7518ad27, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2226001511757329482, guid: d64840190e344b440934fc9d7518ad27, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -353,10 +345,6 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 2226001512223085546, guid: d64840190e344b440934fc9d7518ad27, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2226001512223085547, guid: d64840190e344b440934fc9d7518ad27, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -403,10 +391,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2226001512781634401, guid: d64840190e344b440934fc9d7518ad27, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4952605533309187021, guid: d64840190e344b440934fc9d7518ad27, type: 3}
-      propertyPath: startAutomatically
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5990225974589488048, guid: d64840190e344b440934fc9d7518ad27, type: 3}
@@ -429,10 +413,6 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 6388210476050161153, guid: d64840190e344b440934fc9d7518ad27, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6388210476050161154, guid: d64840190e344b440934fc9d7518ad27, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1095,6 +1075,7 @@ MonoBehaviour:
   scheduleData: {fileID: 11400000, guid: 4eac4ebb6628b924589bcda667b4cec8, type: 2}
   move_Speed: 3
   interactable: 1
+  dialogueRunner: {fileID: 587349511}
   isMoving: 0
 --- !u!1 &2101086885
 GameObject:

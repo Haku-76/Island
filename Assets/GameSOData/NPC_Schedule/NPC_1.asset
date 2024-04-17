@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scheduleList:
   - day: 1
-    time: 0
+    time: 1
     priority: 1
     burnPosition: {x: -4, y: -1.5, z: 0}
     targetPosition: {x: 2, y: -1.5, z: 0}
+    dialogueStartNode: Start
     interactable: 0

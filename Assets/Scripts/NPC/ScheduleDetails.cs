@@ -15,18 +15,20 @@ public class ScheduleDetails : IComparable<ScheduleDetails>
     public Vector3 targetPosition;
 
     //TODO:对话匣
+    public string dialogueStartNode;
 
     public bool interactable;
 
     
 
-    public ScheduleDetails(int day, TimeQuantum time, int priority, Vector3 burnPosition, Vector3 targetPosition, bool interactable)
+    public ScheduleDetails(int day, TimeQuantum time, int priority, Vector3 burnPosition, Vector3 targetPosition,string dialogueStartNode, bool interactable)
     {
         this.day = day;
         this.time = time;
         this.priority = priority;
         this.burnPosition = burnPosition;
         this.targetPosition = targetPosition;
+        this.dialogueStartNode = dialogueStartNode;
         this.interactable = interactable;
     }
     public int Time => day * 100 + (int)time;

@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     [Space(15)]
     public Vector3 targetPosition;
-    public GameObject targetNPC;
+    public NPC targetNPC;
     public bool isMovingToNPC;
     public bool isMovingToNull;
     
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
             if (Vector3.Distance(this.transform.position, targetPosition) > interactionDistance)
             {
-                targetNPC = hit.collider.gameObject;
+                targetNPC = hit.collider.gameObject.GetComponent<NPC>();
                 isMovingToNPC = true;
                 isMovingToNull = false;
             }
@@ -97,20 +97,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void InteractWithNPC(GameObject npc)
+    private void InteractWithNPC(NPC npc)
     {
-        switch (npc.name)
-        {
-            case "Eddie":
-                Debug.Log("Interacting with Eddie");
-                dialogueRunner.StartDialogue("Start");
-                break;
-            case "NPC2":
-                Debug.Log("Interacting with NPC2");
-                break;
-            default:
-                Debug.Log("Interacting with a generic NPC");
-                break;
-        }
+        npc.StartDialogue();
     }
 }

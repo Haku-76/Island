@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Yarn.Unity;
 
 public class NPC : MonoBehaviour
 {
@@ -13,12 +14,15 @@ public class NPC : MonoBehaviour
     [Header("NPC 参数")]
     public float move_Speed;
     public bool interactable;
+    private bool canStartDialogue;
+    private string dialogueStartNode;
 
     private float dir;
 
     [Header("组件")]
     private Animator anim;
     private SpriteRenderer sprite;
+    public DialogueRunner dialogueRunner;
 
     private Vector3 targetPosition;
     private Vector3 startPosition;
@@ -59,7 +63,7 @@ public class NPC : MonoBehaviour
     [ContextMenu("测试NPC 行为1")]
     public void Test()
     {
-        OnTimeUpdateEvent(1, TimeQuantum.DayTime);
+        OnTimeUpdateEvent(1, TimeQuantum.Dusk);
     }
 
 
@@ -94,10 +98,15 @@ public class NPC : MonoBehaviour
             {
                 targetPosition = targetPositions.Pop();
                 
-                StartCoroutine(BurnNPC(() => {StartCoroutine(MoveRoutine(targetPosition, move_Speed));} ));
+                MoveToTarget(targetPosition, move_Speed);
             }
             
         }
+    }
+
+    private void MoveToTarget(Vector3 target, float speed)
+    {
+        StartCoroutine(BurnNPC(() => {StartCoroutine(MoveRoutine(target, speed));}));
     }
 
     private IEnumerator BurnNPC(System.Action onBurnComplete)
@@ -116,11 +125,6 @@ public class NPC : MonoBehaviour
         }
         sprite.color = targetColor;
         onBurnComplete?.Invoke();
-    }
-
-    private void MoveToTargetPosition(Vector3 target, float speed)
-    {
-        npcMoveRoutine = StartCoroutine(MoveRoutine(target, speed));
     }
 
     private IEnumerator MoveRoutine(Vector3 targetPos, float speed)
@@ -143,7 +147,9 @@ public class NPC : MonoBehaviour
         
         transform.position = targetPos;
         interactable = true;
+        canStartDialogue = true;
         npcMove = false;
+        OnMoveEndEvent();
     }
 
     public void BuildPath(ScheduleDetails schedule)
@@ -153,6 +159,17 @@ public class NPC : MonoBehaviour
 
         targetPositions.Push(currentSchedule.targetPosition);
         startPosition = schedule.burnPosition;
+        dialogueStartNode = schedule.dialogueStartNode;
+    }
+
+    private void OnMoveEndEvent()
+    {
+        // dialogueRunner.StartDialogue(dialogueStartNode);
+    }
+
+    public void StartDialogue()
+    {
+        dialogueRunner.StartDialogue(dialogueStartNode);
     }
 
     public void SwitchAnimation()
