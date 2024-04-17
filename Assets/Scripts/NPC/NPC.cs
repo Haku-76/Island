@@ -169,7 +169,8 @@ public class NPC : MonoBehaviour
 
     public void StartDialogue()
     {
-        dialogueRunner.StartDialogue(dialogueStartNode);
+        if(interactable)
+            dialogueRunner.StartDialogue(dialogueStartNode);
     }
 
     public void SwitchAnimation()
