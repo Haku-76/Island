@@ -82,10 +82,7 @@ public class Sun : MonoBehaviour
             transform.position = path.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
 
             Follow();
-        }
-
-
-        
+        }     
     }
 
     void Follow()
