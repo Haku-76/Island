@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,6 @@ public class Bar_GameManager : MonoBehaviour
     public static Bar_GameManager Instance{
         get => _instance;
     }
-    #endregion
 
     void Awake()
     {
@@ -24,21 +24,40 @@ public class Bar_GameManager : MonoBehaviour
         if(_instance == this)
             _instance = null;
     }
+    #endregion
 
-    public event Action EnterGameEvent;
 
-    public event Action FinishGameEvent;
+    public DrinksUI drinks_DragUI;
 
-    public Image drinks_DragUI;
+    public ProgressUI progressUI;
 
-    public void EnterGame()
+    public WineGlass wineGlass;
+
+    
+    public bool isFinished => isAddWine & isAddWater;
+
+    public bool isAddWine;
+    public bool isAddWater; 
+
+    void Start()
     {
-        EnterGameEvent?.Invoke();
+        isAddWater = false;
+        isAddWine = false;
     }
 
-    public void FinishGame()
+    void Update()
     {
-        FinishGameEvent?.Invoke();
+        if(isFinished)
+        {
+            StartCoroutine(FinishGame());
+        }
     }
     
+    IEnumerator FinishGame()
+    {
+        GameRoot.Instance.CallFinishGameEvent(wineGlass.GetResult());
+        yield return new WaitForSeconds(3f);
+
+        GameRoot.Instance.CloseGame();
+    }
 }
