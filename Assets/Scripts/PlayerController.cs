@@ -16,11 +16,11 @@ public class PlayerController : MonoBehaviour
     public bool isMovingToNPC;
     public bool isMovingToNull;
 
-    private bool isTalking;
+    private bool isLocking;
     
     void Update()
     {
-        if(isTalking)
+        if(isLocking)
             return;
         if (Input.GetMouseButtonDown(0))
         {
@@ -103,7 +103,16 @@ public class PlayerController : MonoBehaviour
 
     private void InteractWithNPC(NPC npc)
     {
-        isTalking = true;
+        LockPlayer();
         npc.StartDialogue();
+    }
+
+    public void LockPlayer()
+    {
+        isLocking = true;
+    }
+    public void UnLockPlayer()
+    {
+        isLocking = false;
     }
 }
