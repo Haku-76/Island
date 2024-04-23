@@ -14,7 +14,7 @@ public class ScheduleDetails : IComparable<ScheduleDetails>
     public Vector3 burnPosition;
     public Vector3 targetPosition;
 
-    //TODO:对话匣
+    public AnimationClip clipAfterArive;
     public string dialogueStartNode;
 
     public bool interactable;

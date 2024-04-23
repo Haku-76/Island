@@ -15,9 +15,13 @@ public class PlayerController : MonoBehaviour
     public NPC targetNPC;
     public bool isMovingToNPC;
     public bool isMovingToNull;
+
+    private bool isTalking;
     
     void Update()
     {
+        if(isTalking)
+            return;
         if (Input.GetMouseButtonDown(0))
         {
             HandleMouseClick();
@@ -99,6 +103,7 @@ public class PlayerController : MonoBehaviour
 
     private void InteractWithNPC(NPC npc)
     {
+        isTalking = true;
         npc.StartDialogue();
     }
 }

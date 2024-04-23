@@ -16,7 +16,16 @@ MonoBehaviour:
   - day: 1
     time: 1
     priority: 1
-    burnPosition: {x: -4, y: -1.5, z: 0}
-    targetPosition: {x: 2, y: -1.5, z: 0}
+    burnPosition: {x: -4, y: -1.18, z: 0}
+    targetPosition: {x: 2, y: -1.18, z: 0}
+    clipAfterArive: {fileID: 7838799202339853923, guid: 7e5d03e800f67e84db9de241001d191c, type: 2}
+    dialogueStartNode: Start
+    interactable: 0
+  - day: 2
+    time: 1
+    priority: 1
+    burnPosition: {x: -4, y: -1.18, z: 0}
+    targetPosition: {x: 2, y: -1.18, z: 0}
+    clipAfterArive: {fileID: -6935544129753806801, guid: 7e5d03e800f67e84db9de241001d191c, type: 2}
     dialogueStartNode: Start
     interactable: 0
