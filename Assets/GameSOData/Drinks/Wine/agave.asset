@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab68328618337204cadb2608e92b9a0c, type: 3}
   m_Name: agave
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1386075830, guid: df0ac3ccf5b70d94fae2a871e2caf25f, type: 3}
   drinkName: "\u9F99\u820C\u5170"
   description: 
   drinksType: 0
   alcohol: 0.55
+  taste: 0

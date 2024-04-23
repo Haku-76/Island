@@ -12,7 +12,8 @@ public class Bottle : MonoBehaviour
     {
         var image = Bar_GameManager.Instance.drinks_DragUI.image;
         image.enabled = true;
-        // image.sprite = drinksData.icon;
+        image.sprite = drinksData.icon;
+        image.SetNativeSize();
     }
 
     public void OnMouseDrag()

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab68328618337204cadb2608e92b9a0c, type: 3}
   m_Name: Whiskey
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: -1854700686, guid: 001ccfd1854e609489ddc9b2446c23c5, type: 3}
   drinkName: "\u5A01\u58EB\u5FCC"
   description: 
   drinksType: 0
   alcohol: 0.6
+  taste: 0

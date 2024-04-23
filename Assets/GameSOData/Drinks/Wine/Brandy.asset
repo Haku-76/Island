@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab68328618337204cadb2608e92b9a0c, type: 3}
   m_Name: Brandy
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1690805254, guid: ede66b7f50c88904aa32050bde6253c4, type: 3}
   drinkName: "\u767D\u5170\u5730"
   description: 
   drinksType: 0
   alcohol: 0.4
+  taste: 0
