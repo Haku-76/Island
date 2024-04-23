@@ -1,0 +1,60 @@
+﻿title: Novelist_Start
+position: 0,0
+---
+<<Scene background>>
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 主角 主角 right bottom>>
+主角: 先生，这里有什么问题吗？
+<<Act 小说家 小说家 left bottom>>
+小说家: 没有，我只是看到这个地方想起了一些往事。
+-> 往事？我这个酒馆刚开业没多久。
+    <<adjustEmotion -5>>
+    <<jump Novelist_A1>>
+-> 这是触景生情了吧？
+    <<adjustEmotion +5>>
+    <<jump Novelist_A2>>
+===
+
+title: Novelist_A1
+position: -150,300
+---
+小说家: 这座岛的确和我没什么关系，但这片海却有我不少回忆。 
+-> 原来如此。
+    <<adjustEmotion -3>>
+    小说家: ...
+-> 不好意思，是我唐突了，我为我刚才的言语道歉。
+    <<adjustEmotion +3>>
+    小说家: 那可是我唯一的牵挂了。
+    <<Hide 小说家>>
+    <<Hide 主角>>
+    <<jump Novelist_Letter>>
+
+===
+
+title: Novelist_Letter
+position: -150,500
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 小说家 小说家 left bottom>>
+小说家: 请问你们这边有捡到一封信吗，寄件人叫玛丽？
+<<Act 主角 主角 right bottom>>
+-> 抱歉，我没有看见，我会帮您留意的。
+    小说家: ...
+    <<Hide 小说家>>
+    <<Hide 主角>>
+-> 有，给。
+    小说家: 感谢，这是我妻子最后对我说的话了，看来要找个地方放好了...
+    <<Hide 小说家>>
+    <<Hide 主角>>
+===
+
+title: Novelist_A2
+position: 150,300
+---
+小说家: 是啊，我和的爱人曾经在这片海域周围居住过一段时间，她很喜欢这里。
+-> 那位也和您一起来了吗？
+-> 那她现在在哪呢？
+
+===
