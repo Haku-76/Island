@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public bool isMovingToNull;
 
     private bool isLocking;
-    
+
     void Update()
     {
         if(isLocking)

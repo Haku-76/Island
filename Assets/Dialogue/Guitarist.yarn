@@ -110,7 +110,7 @@ position: -150,1300
 -> 这跟我有什么关系？她只是我的员工。
     吉他手母亲: 不好意思打扰了，她之后应该不会再来了。
 -> 所以，是出什么事了吗？
-        <<jump Guitarist_A521>>
+    <<jump Guitarist_A521>>
 ===
 
 title: Guitarist_A5

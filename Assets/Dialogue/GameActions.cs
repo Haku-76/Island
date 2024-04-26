@@ -2,9 +2,11 @@
 using UnityEngine;
 using Yarn.Unity;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameActions : MonoBehaviour
 {
+    public GameObject player;
     public DialogueRunner dialogueRunner;
     public TextMeshProUGUI emotionTip;
     public TextMeshProUGUI acceptanceTip;
@@ -16,6 +18,9 @@ public class GameActions : MonoBehaviour
     {
         dialogueRunner.AddCommandHandler<string>("adjustEmotion", AdjustEmotion);
         dialogueRunner.AddCommandHandler<string>("adjustAcceptance", AdjustAcceptance);
+        dialogueRunner.AddCommandHandler<string>("changeScene", ChangeScene);
+        dialogueRunner.AddCommandHandler("lock_player", LockPlayer);
+        dialogueRunner.AddCommandHandler("unlock_player", UnLockPlayer);
     }
 
     private void AdjustEmotion(string changeValue)
@@ -32,6 +37,22 @@ public class GameActions : MonoBehaviour
         acceptanceTip.text = "认同感 " + changeValue;
         Debug.Log($"New acceptance: {value.acceptance}");
         StartCoroutine(FadeText(acceptanceTip, true));
+    }
+
+    private void ChangeScene(string sceneName)
+    {
+        Debug.Log($"Changing to scene: {sceneName}");
+        SceneManager.LoadScene(sceneName);
+    }
+
+    private void LockPlayer()
+    {
+        player.GetComponent<PlayerController>().LockPlayer();
+    }
+
+    private void UnLockPlayer()
+    {
+        player.GetComponent<PlayerController>().UnLockPlayer();
     }
 
     private IEnumerator FadeText(TextMeshProUGUI textMesh, bool fadeIn)
