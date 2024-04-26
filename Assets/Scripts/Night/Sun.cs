@@ -58,7 +58,7 @@ public class Sun : MonoBehaviour
         if (transform.position.y>horizonHeight)
         {
             float sunPos = (transform.position.x - path.transform.position.x - minX) / (maxX - minX);
-            Debug.Log(sunPos);
+            //Debug.Log(sunPos);
             sunLight.intensity = curve.Evaluate(sunPos);
             for (int i = 0; i < Stars.Length; i++)
             {
