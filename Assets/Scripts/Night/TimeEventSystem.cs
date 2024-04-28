@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class TimeEventSystem : MonoBehaviour
 {
-    //public static TimeEventSystem instance;
+    public static TimeEventSystem instance;
 
-    public static Action onTimeChange;
+    public event Action<int, int, TimeQuantum> onTimeChange;
 
     public static int Day { get; private set; }
     public static int Month { get; private set; }
     public static TimeQuantum timeQuantum { get; private set; }
-    
-    /*private void Awake()
+
+    private void Awake()
     {
         if (instance == null)
         {
@@ -27,7 +27,7 @@ public class TimeEventSystem : MonoBehaviour
             }
         }
         DontDestroyOnLoad(gameObject);
-    }*/
+    }
 
     public void Start()
     {
@@ -47,10 +47,10 @@ public class TimeEventSystem : MonoBehaviour
         {
             Month++;
         }
+        if (onTimeChange != null)
+        {
+            onTimeChange(Month, Day, timeQuantum);
+        }
     }
 
-    public void Update()
-    {
-        onTimeChange?.Invoke();
-    }
 }

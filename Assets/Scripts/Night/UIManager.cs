@@ -8,15 +8,15 @@ public class UIManager : MonoBehaviour
     public Text timeText;
     private void OnEnable()
     {
-        TimeEventSystem.onTimeChange += UpDateTimeUI;
+        TimeEventSystem.instance.onTimeChange += UpDateTimeUI;
     }
 
     private void OnDisable()
     {
-        //TimeEventSystem.instance.onTimeChange -= UpDateTimeUI;
+        TimeEventSystem.instance.onTimeChange -= UpDateTimeUI;
     }
 
-    private void UpDateTimeUI()
+    private void UpDateTimeUI(int Day,int Month,TimeQuantum timeQuantum)
     {
         //Debug.Log("1");
         timeText.text = string.Format("Month:{0} Day:{1} TimeQuantum:{2}", TimeEventSystem.Month,
