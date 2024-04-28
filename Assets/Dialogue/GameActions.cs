@@ -99,19 +99,19 @@ public class GameActions : MonoBehaviour
 
     private void PlankSpanker_PlayRecital()
     {
-        var currentChar = currentNPC as PlankSpanker;
+        var currentChar = currentNPC as Guitarist;
         currentChar.PlayAni();
     }
 
     private void PlankSpanker_StopPlayRecital()
     {
-        var currentChar = currentNPC as PlankSpanker;
+        var currentChar = currentNPC as Guitarist;
         currentChar.StopPlayAni();
     }
 
     private void PlankSpanker_StartWork()
     {
-        var currentChar = currentNPC as PlankSpanker;
+        var currentChar = currentNPC as Guitarist;
         currentChar.StartWork();
     }
 #endregion

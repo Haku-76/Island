@@ -103,8 +103,7 @@ public class PlayerController : MonoBehaviour
 
     private void InteractWithNPC(NPC npc)
     {
-        LockPlayer();
-        npc.StartDialogue();
+        npc.StartDialogue(this);
     }
 
     public void LockPlayer()

@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable]
 public class ScheduleDetails : IComparable<ScheduleDetails>
 {
+    public int month;
     public int day;
     public TimeQuantum time;
 
@@ -17,11 +18,9 @@ public class ScheduleDetails : IComparable<ScheduleDetails>
     public AnimationClip clipAfterArive;
     public string dialogueStartNode;
 
-    public bool interactable;
-
     
 
-    public ScheduleDetails(int day, TimeQuantum time, int priority, Vector3 burnPosition, Vector3 targetPosition,string dialogueStartNode, bool interactable)
+    public ScheduleDetails(int day, TimeQuantum time, int priority, Vector3 burnPosition, Vector3 targetPosition,string dialogueStartNode)
     {
         this.day = day;
         this.time = time;
@@ -29,9 +28,8 @@ public class ScheduleDetails : IComparable<ScheduleDetails>
         this.burnPosition = burnPosition;
         this.targetPosition = targetPosition;
         this.dialogueStartNode = dialogueStartNode;
-        this.interactable = interactable;
     }
-    public int Time => day * 100 + (int)time;
+    public int Time => month * 10000 + day * 100 + (int)time;
     public int CompareTo(ScheduleDetails other)
     {
         if(Time == other.Time)

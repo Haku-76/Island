@@ -34,9 +34,10 @@ public class NPC : MonoBehaviour
 
     private Stack<Vector3> targetPositions;
     private Coroutine npcMoveRoutine;
-    private bool npcMove;
+    private bool npc_isActive;
     protected bool isMoving;
     protected bool spAnimation;
+    private bool isInteracted;
     private AnimationClip afterMoveClip;
     public AnimationClip blankAnimationClip;
     private AnimatorOverrideController animOverride;
@@ -56,6 +57,18 @@ public class NPC : MonoBehaviour
         }
     }
 
+    void OnEnable()
+    {
+        TimeEventSystem.onTimeChange += OnTimeUpdateEvent;
+        TimeEventSystem.onLastTimeEnd += OnLastTimeEnd;
+    }
+
+    void OnDisable()
+    {
+        TimeEventSystem.onTimeChange -= OnTimeUpdateEvent;
+        TimeEventSystem.onLastTimeEnd -= OnLastTimeEnd;
+    }
+
     void Update()
     {
         SwitchAnimation();
@@ -69,25 +82,27 @@ public class NPC : MonoBehaviour
 
     private void InitNPC()
     {
-        targetPosition = transform.position;
+        isMoving = false;
+        spAnimation = false;
+        isInteracted = false;
     }
 
     [ContextMenu("测试NPC 行为1")]
     public void Test1()
     {
-        OnTimeUpdateEvent(0, TimeQuantum.Dusk);
+        OnTimeUpdateEvent(7, 0, TimeQuantum.Dusk);
     }
 
 
     [ContextMenu("测试NPC 行为2")]
     public void Test2()
     {
-        OnTimeUpdateEvent(1, TimeQuantum.Dusk);
+        OnTimeUpdateEvent(7, 1, TimeQuantum.Dusk);
     }
 
-    private void OnTimeUpdateEvent(int day, TimeQuantum timeQuantum)
+    private void OnTimeUpdateEvent(int month, int day, TimeQuantum timeQuantum)
     {
-        int time = day * 100 + (int)timeQuantum;
+        int time = month * 10000 + day * 100 + (int)timeQuantum;
 
         ScheduleDetails matchSchedule = null;
         foreach(var schedule in scheduleSet)
@@ -107,6 +122,16 @@ public class NPC : MonoBehaviour
             BuildPath(matchSchedule);
         }
     }
+
+    private void OnLastTimeEnd(int month, int day, TimeQuantum timeQuantum)
+    {
+        if(npc_isActive)
+        {
+            StartCoroutine(NPCExit());
+        }
+    }
+
+
 #region NPCActions
     public void exitBar()
     {
@@ -118,7 +143,7 @@ public class NPC : MonoBehaviour
 
     private void Movement()
     {
-        if(!npcMove)
+        if(!isMoving)
         {
             if(targetPositions.Count > 0)
             {
@@ -137,6 +162,8 @@ public class NPC : MonoBehaviour
 
     private IEnumerator BurnNPC(System.Action onComplete)
     {
+        npc_isActive = true;
+        InitNPC();
         transform.position = startPosition;
         sprite.SetActive(true);
         float startAlpha = 0;
@@ -169,12 +196,12 @@ public class NPC : MonoBehaviour
         }
         mat.SetFloat("_Alpha", targetAlpha);
         sprite.SetActive(false);
+        npc_isActive = false;
     }
 
     private IEnumerator MoveRoutine(Vector3 targetPos, float speed, Action onComplete)
     {
         targetPosition = targetPos;
-        npcMove = true;
         interactable = false;
         Vector3 startPos = transform.position;
         Debug.Log($"StartPos{startPos}; targetPos{targetPos}");
@@ -194,7 +221,6 @@ public class NPC : MonoBehaviour
         transform.position = targetPos;
         interactable = true;
         canStartDialogue = true;
-        npcMove = false;
         onComplete?.Invoke();
         // StartCoroutine(OnMoveEndEvent());
     }
@@ -225,10 +251,12 @@ public class NPC : MonoBehaviour
         }
     }
 
-    public void StartDialogue()
+    public void StartDialogue(PlayerController player)
     {
-        if(interactable)
+        if(interactable && !isInteracted)
         {
+            isInteracted = true;
+            player.LockPlayer();
             dialogueRunner.StartDialogue(dialogueStartNode);
             gameActions.currentNPC = this;
         }

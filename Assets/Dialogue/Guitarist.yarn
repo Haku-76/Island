@@ -61,6 +61,7 @@ position: 0,400
 吉他手: 明白明白，这是我第一次迟到，也会是最后一次，老板你放心吧。
 主角: 好吧，相信你。
 <<plankSpankerStartWork>>
+<<unlock_player>>
 <<Hide 吉他手>>
 <<Hide 主角>>
 ===
@@ -77,9 +78,10 @@ position: 0,600
 吉他手:可能是昨天唱得太用力了，今天早上起来就觉得喉咙痛，感觉像是发炎了。
 主角: 那你今天就别勉强了，你去喝点柠檬水，或者吃点润喉糖缓解一下。今天的歌曲你就随便选一些你觉得舒服的，不用太在意客人的反应，我会替你解释的。
 吉他手: 谢谢老板，我会尽量把歌唱好的，不让你失望的。
+<<plankSpankerStartWork>>
+<<unlock_player>>
 <<Hide 吉他手>>
 <<Hide 主角>>
-<<jump Guitarist_ThirdDay>>
 ===
 
 title: Guitarist_ThirdDay
@@ -95,9 +97,10 @@ position: 0,800
 吉他手: 其实我最近想学一些爵士歌曲，我觉得那种风格很适合酒吧的氛围。
 主角: 爵士歌曲啊，那你得多练习一下你的节奏感和即兴能力，不过我觉得你有潜力。
 主角: 真的吗？还是感谢老板您给的这个机会。
+<<plankSpankerStartWork>>
+<<unlock_player>>
 <<Hide 吉他手>>
 <<Hide 主角>>
-<<jump Guitarist_GuitaristMom>>
 ===
 
 title: Guitarist_GuitaristMom
@@ -122,6 +125,10 @@ position: -150,1300
 吉他手母亲: 我知道她在这里工作，我是她的母亲，她一直躲着我们。
 -> 这跟我有什么关系？她只是我的员工。
     吉他手母亲: 不好意思打扰了，她之后应该不会再来了。
+    <<exitBar>>
+    <<onDialogueEnd>>
+    <<Hide 吉他手母亲>>
+    <<Hide 主角>>
 -> 所以，是出什么事了吗？
     <<jump Guitarist_A521>>
 ===
@@ -133,6 +140,10 @@ position: 150,1300
 -> 她现在没在这里，你可以下次再来。
     <<adjustEmotion -3>>
     吉他手母亲: 对不起，打扰了，那我下次再来。
+    <<exitBar>>
+    <<onDialogueEnd>>
+    <<Hide 吉他手母亲>>
+    <<Hide 主角>>
 -> 她没在这里，我可以替你转达。
     <<adjustEmotion +3>>
     吉他手母亲: 我就是希望她能够回家，我们可以再商量。
@@ -142,6 +153,10 @@ position: 150,1300
     -> 好的我会替你转达的。
         <<adjustEmotion -5>>
         吉他手母亲: 感谢，那我先离开了。
+        <<exitBar>>
+        <<onDialogueEnd>>
+        <<Hide 吉他手母亲>>
+        <<Hide 主角>>
 ===
 
 title: Guitarist_A521
@@ -153,15 +168,18 @@ position: 0,1600
 -> 那孩子......我跟她说说吧。
     <<adjustEmotion -5>>
     <<adjustAcceptance +5>>
+    <<exitBar>>
+    <<onDialogueEnd>>
     <<Hide 吉他手母亲>>
     <<Hide 主角>>
 -> 其实我觉得.....喜欢音乐也不见得是件坏事，我觉得她挺有天赋，搞不好未来能在这条路上获得成就。
     <<adjustEmotion +5>>
     <<adjustAcceptance +5>>
     吉他手母亲: ... 
+    <<exitBar>>
+    <<onDialogueEnd>>
     <<Hide 吉他手母亲>>
     <<Hide 主角>>
-    <<jump Guitarist_A422>>
 ===
 
 title: Guitarist_A422
@@ -182,6 +200,8 @@ position: 0,1800
     <<adjustEmotion -5>>
     <<adjustAcceptance -5>>
     吉他手: ...
+<<plankSpankerStartWork>>
+<<onDialogueEnd>>
 <<Hide 吉他手>>
 <<Hide 主角>>
 

@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlankSpanker : NPC
+public class Guitarist : NPC
 {   
-    [Header("PlankSpanker_Pos")]
+    [Header("Guitarist_Pos")]
     public Vector3 workPos;
+
 
     public void PlayAni()
     {
