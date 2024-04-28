@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: NPC_1
   m_EditorClassIdentifier: 
   scheduleList:
-  - day: 1
+  - day: 0
     time: 1
     priority: 1
     burnPosition: {x: -4, y: -1.18, z: 0}
     targetPosition: {x: 2, y: -1.18, z: 0}
     clipAfterArive: {fileID: 7838799202339853923, guid: 7e5d03e800f67e84db9de241001d191c, type: 2}
-    dialogueStartNode: Start
+    dialogueStartNode: Guitarist_Start
     interactable: 0
-  - day: 2
+  - day: 1
     time: 1
     priority: 1
     burnPosition: {x: -4, y: -1.18, z: 0}
     targetPosition: {x: 2, y: -1.18, z: 0}
-    clipAfterArive: {fileID: -6935544129753806801, guid: 7e5d03e800f67e84db9de241001d191c, type: 2}
-    dialogueStartNode: Start
+    clipAfterArive: {fileID: 0}
+    dialogueStartNode: Guitarist_FirstDay
     interactable: 0

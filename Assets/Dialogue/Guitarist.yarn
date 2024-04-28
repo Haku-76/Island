@@ -11,28 +11,41 @@ position: 0,0
     <<adjustEmotion -5>>
     <<Hide 吉他手>>
     <<Hide 主角>>
+    <<exitBar>>
+    <<onDialogueEnd>>
 -> 你有什么拿手的曲子吗，弹来听听我愿意给你这个机会。
     <<adjustEmotion +3>>
+    <<Hide 吉他手>>
+    <<Hide 主角>>
     <<jump Guitarist_A2>>
 -> 酒吧确实需要一些能活跃氛围的东西，欢迎你的加入！
     <<adjustEmotion +5>>
     <<Hide 吉他手>>
     <<Hide 主角>>
+    <<exitBar>>
+    <<onDialogueEnd>>
 ===
 
 title: Guitarist_A2
 position: 0,200
 ---
 // <<PlayAudio music_romantic>>
-<<wait 1.5>>
+<<plankSpankerPlayAni>>
+<<wait 5>>
+<<plankSpankerStopPlayAni>>
 -> 好，弹得真不错！这都快赶上专业的吉他手了吧？，你演奏的这种感觉让我想起了我大学那会儿玩乐队的时光，欢迎你的加入，对了能否告知一下你的姓名？
     <<adjustEmotion +2>>
     <<adjustAcceptance +5>>
     吉他手: 那我简单介绍一下我自己吧，我叫艾迪， 目前已经没上学了，在自己混饭吃的阶段，哈哈。
     <<Hide 吉他手>>
     <<Hide 主角>>
-    <<jump Guitarist_FirstDay>>
+    <<exitBar>>
+    <<onDialogueEnd>>
 -> 嗯，你的风格可能不太适合。
+    <<Hide 吉他手>>
+    <<Hide 主角>>
+    <<exitBar>>
+    <<onDialogueEnd>>
 ===
 
 title: Guitarist_FirstDay
@@ -47,9 +60,9 @@ position: 0,400
 主角: 以后记得提前检查好，别再影响你的演出。 
 吉他手: 明白明白，这是我第一次迟到，也会是最后一次，老板你放心吧。
 主角: 好吧，相信你。
+<<plankSpankerStartWork>>
 <<Hide 吉他手>>
 <<Hide 主角>>
-<<jump Guitarist_SecondDay>>
 ===
 
 title: Guitarist_SecondDay

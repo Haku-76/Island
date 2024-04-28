@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class GameActions : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     public DialogueRunner dialogueRunner;
     public TextMeshProUGUI emotionTip;
     public TextMeshProUGUI acceptanceTip;
     public Value value;
     public float displayTime = 1.0f;
     public float fadeTime = 0.5f;
+    public NPC currentNPC;
 
     void Awake()
     {
@@ -21,6 +22,13 @@ public class GameActions : MonoBehaviour
         dialogueRunner.AddCommandHandler<string>("changeScene", ChangeScene);
         dialogueRunner.AddCommandHandler("lock_player", LockPlayer);
         dialogueRunner.AddCommandHandler("unlock_player", UnLockPlayer);
+        dialogueRunner.AddCommandHandler("onDialogueEnd", OnDialogueEnd);
+        dialogueRunner.AddCommandHandler("exitBar", ExitBar);
+        dialogueRunner.AddCommandHandler("plankSpankerPlayAni", PlankSpanker_PlayRecital);
+        dialogueRunner.AddCommandHandler("plankSpankerStopPlayAni", PlankSpanker_StopPlayRecital);
+        dialogueRunner.AddCommandHandler("plankSpankerStartWork", PlankSpanker_StartWork);
+
+        player = GameObject.FindWithTag("Player");
     }
 
     private void AdjustEmotion(string changeValue)
@@ -50,6 +58,11 @@ public class GameActions : MonoBehaviour
         player.GetComponent<PlayerController>().LockPlayer();
     }
 
+    private void OnDialogueEnd()
+    {
+        UnLockPlayer();
+    }
+
     private void UnLockPlayer()
     {
         player.GetComponent<PlayerController>().UnLockPlayer();
@@ -77,4 +90,29 @@ public class GameActions : MonoBehaviour
             StartCoroutine(FadeText(textMesh, false));
         }
     }
+
+#region NPC_Actions
+    private void ExitBar()
+    {
+        currentNPC.exitBar();
+    }
+
+    private void PlankSpanker_PlayRecital()
+    {
+        var currentChar = currentNPC as PlankSpanker;
+        currentChar.PlayAni();
+    }
+
+    private void PlankSpanker_StopPlayRecital()
+    {
+        var currentChar = currentNPC as PlankSpanker;
+        currentChar.StopPlayAni();
+    }
+
+    private void PlankSpanker_StartWork()
+    {
+        var currentChar = currentNPC as PlankSpanker;
+        currentChar.StartWork();
+    }
+#endregion
 }

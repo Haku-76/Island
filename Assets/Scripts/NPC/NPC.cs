@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Spine.Unity;
+using Unity.VisualScripting;
 using UnityEngine;
 using Yarn.Unity;
 
@@ -22,10 +23,11 @@ public class NPC : MonoBehaviour
     private float dir;
 
     [Header("组件")]
-    private Animator anim;
+    protected Animator anim;
     [SerializeField]private GameObject sprite;
     [SerializeField]private Material mat;
     public DialogueRunner dialogueRunner;
+    public GameActions gameActions;
 
     private Vector3 targetPosition;
     private Vector3 startPosition;
@@ -33,7 +35,8 @@ public class NPC : MonoBehaviour
     private Stack<Vector3> targetPositions;
     private Coroutine npcMoveRoutine;
     private bool npcMove;
-    public bool isMoving;
+    protected bool isMoving;
+    protected bool spAnimation;
     private AnimationClip afterMoveClip;
     public AnimationClip blankAnimationClip;
     private AnimatorOverrideController animOverride;
@@ -72,14 +75,14 @@ public class NPC : MonoBehaviour
     [ContextMenu("测试NPC 行为1")]
     public void Test1()
     {
-        OnTimeUpdateEvent(1, TimeQuantum.Dusk);
+        OnTimeUpdateEvent(0, TimeQuantum.Dusk);
     }
 
 
     [ContextMenu("测试NPC 行为2")]
     public void Test2()
     {
-        OnTimeUpdateEvent(2, TimeQuantum.Dusk);
+        OnTimeUpdateEvent(1, TimeQuantum.Dusk);
     }
 
     private void OnTimeUpdateEvent(int day, TimeQuantum timeQuantum)
@@ -104,6 +107,14 @@ public class NPC : MonoBehaviour
             BuildPath(matchSchedule);
         }
     }
+#region NPCActions
+    public void exitBar()
+    {
+        spAnimation = false;
+        StartCoroutine(MoveRoutine(startPosition, move_Speed, () => {StartCoroutine(NPCExit());}));
+    } 
+
+#endregion
 
     private void Movement()
     {
@@ -121,10 +132,10 @@ public class NPC : MonoBehaviour
 
     private void MoveToTarget(Vector3 target, float speed)
     {
-        StartCoroutine(BurnNPC(() => {StartCoroutine(MoveRoutine(target, speed));}));
+        StartCoroutine(BurnNPC(() => {StartCoroutine(MoveRoutine(target, speed, () => {StartCoroutine(OnMoveEndEvent());}));}));
     }
 
-    private IEnumerator BurnNPC(System.Action onBurnComplete)
+    private IEnumerator BurnNPC(System.Action onComplete)
     {
         transform.position = startPosition;
         sprite.SetActive(true);
@@ -136,19 +147,37 @@ public class NPC : MonoBehaviour
         {
             var alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime/burnDuration);
             mat.SetFloat("_Alpha", alpha);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        mat.SetFloat("_Alpha", targetAlpha);
+        onComplete?.Invoke();
+    }
+    private IEnumerator NPCExit()
+    {
+        float startAlpha = 1;
+        float targetAlpha = 0;
+        float burnDuration = 1.0f;
+        float elapsedTime = 0f;
+        while(elapsedTime < burnDuration)
+        {
+            var alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime/burnDuration);
+            mat.SetFloat("_Alpha", alpha);
             Debug.Log(mat == null);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
         mat.SetFloat("_Alpha", targetAlpha);
-        onBurnComplete?.Invoke();
+        sprite.SetActive(false);
     }
 
-    private IEnumerator MoveRoutine(Vector3 targetPos, float speed)
+    private IEnumerator MoveRoutine(Vector3 targetPos, float speed, Action onComplete)
     {
+        targetPosition = targetPos;
         npcMove = true;
         interactable = false;
         Vector3 startPos = transform.position;
+        Debug.Log($"StartPos{startPos}; targetPos{targetPos}");
         float distance = Vector3.Distance(startPos, targetPos);
         float journeyTime = distance / speed;
         float elapsedTime = 0f;
@@ -166,7 +195,8 @@ public class NPC : MonoBehaviour
         interactable = true;
         canStartDialogue = true;
         npcMove = false;
-        StartCoroutine(OnMoveEndEvent());
+        onComplete?.Invoke();
+        // StartCoroutine(OnMoveEndEvent());
     }
 
     public void BuildPath(ScheduleDetails schedule)
@@ -183,29 +213,31 @@ public class NPC : MonoBehaviour
     {
         if(afterMoveClip != null)
         {
-            Debug.Log($" == OnMoveEndEvent == afterMoveClip != null");
             animOverride[blankAnimationClip] = afterMoveClip;
-            anim.SetBool("EventAnimation", true);
+            spAnimation = true;
             yield  return null;
             // anim.SetBool("EventAnimation", false);
         }
         else
         {
-            Debug.Log($" == OnMoveEndEvent == afterMoveClip == null");
             animOverride[afterMoveClip] = blankAnimationClip;
-            anim.SetBool("EventAnimation", false);
+            spAnimation = false;
         }
     }
 
     public void StartDialogue()
     {
         if(interactable)
+        {
             dialogueRunner.StartDialogue(dialogueStartNode);
+            gameActions.currentNPC = this;
+        }
     }
 
     public void SwitchAnimation()
     {
         anim.SetBool("isMoving", isMoving);
+        anim.SetBool("EventAnimation", spAnimation);
 
         // if(isMoving)
         // {
@@ -228,4 +260,5 @@ public class NPC : MonoBehaviour
             transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
         }
     }
+
 }
