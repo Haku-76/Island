@@ -8,7 +8,13 @@ public class TimeEventSystem : MonoBehaviour
     private static TimeEventSystem _instance;
     public static TimeEventSystem instance{get => _instance;}
 
+/// <summary>
+/// 时间更新时触发（更新过后的时间 Month, Day, TimeQuantum)
+/// </summary>
     public static event Action<int, int, TimeQuantum> onTimeChange;
+/// <summary>
+/// 时间更新前触发 （更新前的时间 Month, Day, TimeQuantum)
+/// </summary>
     public static event Action<int, int, TimeQuantum> onLastTimeEnd;
 
     public int Day { get; private set; }
