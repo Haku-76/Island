@@ -24,6 +24,7 @@ public class GameActions : MonoBehaviour
         dialogueRunner.AddCommandHandler("unlock_player", UnLockPlayer);
         dialogueRunner.AddCommandHandler("onDialogueEnd", OnDialogueEnd);
         dialogueRunner.AddCommandHandler("exitBar", ExitBar);
+        
         dialogueRunner.AddCommandHandler("plankSpankerPlayAni", PlankSpanker_PlayRecital);
         dialogueRunner.AddCommandHandler("plankSpankerStopPlayAni", PlankSpanker_StopPlayRecital);
         dialogueRunner.AddCommandHandler("plankSpankerStartWork", PlankSpanker_StartWork);
@@ -107,6 +108,7 @@ public class GameActions : MonoBehaviour
     {
         var currentChar = currentNPC as Guitarist;
         currentChar.PlayAni();
+        
     }
 
     private void PlankSpanker_StopPlayRecital()
