@@ -11,6 +11,7 @@ position: 0,0
     <<adjustEmotion -5>>
     <<Hide 吉他手>>
     <<Hide 主角>>
+    <<npcOver>>
     <<exitBar>>
     <<onDialogueEnd>>
 -> 你有什么拿手的曲子吗，弹来听听我愿意给你这个机会。
@@ -44,6 +45,7 @@ position: 0,200
 -> 嗯，你的风格可能不太适合。
     <<Hide 吉他手>>
     <<Hide 主角>>
+    <<npcOver>>
     <<exitBar>>
     <<onDialogueEnd>>
 ===
@@ -125,6 +127,7 @@ position: -150,1300
 吉他手母亲: 我知道她在这里工作，我是她的母亲，她一直躲着我们。
 -> 这跟我有什么关系？她只是我的员工。
     吉他手母亲: 不好意思打扰了，她之后应该不会再来了。
+    <<npcOver>>
     <<exitBar>>
     <<onDialogueEnd>>
     <<Hide 吉他手母亲>>

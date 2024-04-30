@@ -15,6 +15,7 @@ public class NPC : MonoBehaviour
     private ScheduleDetails currentSchedule;
 
     [Header("NPC 参数")]
+    public NPCCourse npc_Course;
     public float move_Speed;
     public bool interactable;
     private bool canStartDialogue;
@@ -38,6 +39,7 @@ public class NPC : MonoBehaviour
     protected bool isMoving;
     protected bool spAnimation;
     private bool isInteracted;
+    private bool isOver = false;
     private AnimationClip afterMoveClip;
     public AnimationClip blankAnimationClip;
     private AnimatorOverrideController animOverride;
@@ -102,24 +104,27 @@ public class NPC : MonoBehaviour
 
     private void OnTimeUpdateEvent(int month, int day, TimeQuantum timeQuantum)
     {
-        int time = month * 10000 + day * 100 + (int)timeQuantum;
-
-        ScheduleDetails matchSchedule = null;
-        foreach(var schedule in scheduleSet)
+        if(NPCManager.Instance.GetNPCCourse(npc_Course))
         {
-            if(schedule.Time == time)
-            {
-                matchSchedule = schedule;
-            }
-            else if(schedule.Time > time)
-            {
-                break;
-            }
-        }
+            int time = month * 10000 + day * 100 + (int)timeQuantum;
 
-        if(matchSchedule != null)
-        {
-            BuildPath(matchSchedule);
+            ScheduleDetails matchSchedule = null;
+            foreach(var schedule in scheduleSet)
+            {
+                if(schedule.Time == time)
+                {
+                    matchSchedule = schedule;
+                }
+                else if(schedule.Time > time)
+                {
+                    break;
+                }
+            }
+
+            if(matchSchedule != null)
+            {
+                BuildPath(matchSchedule);
+            }
         }
     }
 
@@ -289,4 +294,8 @@ public class NPC : MonoBehaviour
         }
     }
 
+    public void NPCOver()
+    {
+        isOver = true;
+    }
 }

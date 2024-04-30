@@ -20,13 +20,14 @@ public class GameActions : MonoBehaviour
         dialogueRunner.AddCommandHandler<string>("adjustEmotion", AdjustEmotion);
         dialogueRunner.AddCommandHandler<string>("adjustAcceptance", AdjustAcceptance);
         dialogueRunner.AddCommandHandler<string>("changeScene", ChangeScene);
-        dialogueRunner.AddCommandHandler("lock_player", LockPlayer);
+        dialogueRunner.AddCommandHandler("lock_player", LockPlayer); 
         dialogueRunner.AddCommandHandler("unlock_player", UnLockPlayer);
         dialogueRunner.AddCommandHandler("onDialogueEnd", OnDialogueEnd);
         dialogueRunner.AddCommandHandler("exitBar", ExitBar);
         dialogueRunner.AddCommandHandler("plankSpankerPlayAni", PlankSpanker_PlayRecital);
         dialogueRunner.AddCommandHandler("plankSpankerStopPlayAni", PlankSpanker_StopPlayRecital);
         dialogueRunner.AddCommandHandler("plankSpankerStartWork", PlankSpanker_StartWork);
+        dialogueRunner.AddCommandHandler("npcOver", NPCOver);
 
         player = GameObject.FindWithTag("Player");
     }
@@ -95,6 +96,11 @@ public class GameActions : MonoBehaviour
     private void ExitBar()
     {
         currentNPC.exitBar();
+    }
+
+    private void NPCOver()
+    {
+        NPCManager.Instance.SetNPCCourseOver(currentNPC.npc_Course);
     }
 
     private void PlankSpanker_PlayRecital()
