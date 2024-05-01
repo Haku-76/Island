@@ -516,6 +516,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4177294032883503085, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
+      propertyPath: loadSprites.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: 273f52cc0bc8e7f4e9d1ece885f6c943, type: 3}
     - target: {fileID: 5279350309467548309, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
       propertyPath: startAutomatically
       value: 0

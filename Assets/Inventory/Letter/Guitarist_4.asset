@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84332a1766292414d80d3511938f2b31, type: 3}
+  m_Name: Guitarist_4
+  m_EditorClassIdentifier: 
+  itemName: Guitarist_4
+  itemImage: {fileID: 21300000, guid: faa1c314b9b29a047bf0af0088fef30f, type: 3}
+  itemHeld: 0
+  itemInfo: "\u5148\u751F\u60A8\u597D\uFF0C\u597D\u4E45\u6CA1\u8DDF\u60A8\u5199\u4FE1\u4E86\uFF0C\u6211\u51B3\u8D5B\u62FF\u4E86\u5B63\u519B\uFF0C\u867D\u7136\u7B97\u4E0D\u4E0A\u592A\u597D\u7684\u6210\u7EE9\uFF0C\u4F46\u81F3\u5C11\u8FBE\u5230\u4E86\u7EC4\u5EFA\u4E50\u961F\u7684\u6807\u51C6\uFF0C\u6240\u4EE5\u6211\u7684\u56E2\u961F\u51B3\u5B9A\u53BB\u56FD\u5916\u53D1\u5C55\uFF0C\u6211\u8FD8\u6CA1\u7CFB\u7EDF\u6027\u7684\u5B66\u8FC7\u4E50\u7406\u5462\uFF0C\u6253\u7B97\u51FA\u56FD\u6DF1\u9020\uFF0C\u6700\u8FD1\u5C0F\u5C9B\u8FD8\u597D\u5417\uFF1F\u975E\u5E38\u60F3\u5FF5\u5C9B\u4E0A\u7684\u751F\u6D3B\uFF0C\u603B\u6709\u4E00\u5929\u4F1A\u518D\u56DE\u6765\u62DC\u8BBF\u60A8\u7684\u3002"
