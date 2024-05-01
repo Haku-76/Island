@@ -17,7 +17,7 @@ MonoBehaviour:
     day: 30
     time: 0
     priority: 1
-    burnPosition: {x: -4, y: -1.18, z: 0}
-    targetPosition: {x: 2.1, y: -1.18, z: 0}
+    burnPosition: {x: -19, y: -1.5, z: 0}
+    targetPosition: {x: -0.14, y: -1.5, z: 0}
     clipAfterArive: {fileID: 5309296874153760823, guid: 9f0bb437a60f93d448ee118d0c653edc, type: 2}
     dialogueStartNode: Guitarist_GuitaristMom_1
