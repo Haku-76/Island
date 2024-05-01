@@ -11,6 +11,13 @@ public class GameRoot : MonoBehaviour
     public static GameRoot Instance{
         get => _instance;
     }
+    void Awake()
+    {
+        if(_instance != null)
+            Destroy(gameObject);
+        else
+            _instance = this;
+    }
     void OnDestroy()
     {
         if(_instance == this)
@@ -21,25 +28,22 @@ public class GameRoot : MonoBehaviour
     /// <summary>
     /// 进入调酒游戏的事件
     /// </summary>
-    public event Action EnterGameEvent;
+    public static event Action EnterGameEvent;
     public void CallEnterGameEvent()
     {
         EnterGameEvent?.Invoke();
     }
 
-
-
     /// <summary>
     /// 结束游戏的事件
     /// </summary>
     /// <param name="data">游戏结果数据 ： 酒精度， 口感</param>
-    public event Action<MixedWine_Data> FinishGameEvent;
+    public static event Action<MixedWine_Data> FinishGameEvent;
 
     public void CallFinishGameEvent(MixedWine_Data data)
     {
         FinishGameEvent?.Invoke(data);
     }
-    public event Action CloseGameEvent;
     
 
     public GameObject bar_Game;
@@ -48,39 +52,24 @@ public class GameRoot : MonoBehaviour
     void OnEnable()
     {
         EnterGameEvent += OnEnterGameEvent;
-        CloseGameEvent += OnCloseGameEvent;
     }
 
     void OnDisable()
     {
         EnterGameEvent -= OnEnterGameEvent;
-        CloseGameEvent -= OnCloseGameEvent;
     }
 
-    void Awake()
-    {
-        if(_instance != null)
-            Destroy(gameObject);
-        else
-            _instance = this;
-    }
 
     void OnEnterGameEvent()
     {
         barGame_instance = Instantiate(bar_Game, transform);
     }
-
-    void OnCloseGameEvent()
+    public void CloseGame()
     {
         if(barGame_instance != null)
         {
             Destroy(barGame_instance);
         }
-    }
-
-    public void CloseGame()
-    {
-        CloseGameEvent?.Invoke();
     }
 
 

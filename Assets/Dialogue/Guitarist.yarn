@@ -211,3 +211,96 @@ position: 0,1800
 
 ===
 
+title: Guitarist_GuitaristMom_1
+position: 0,2000
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 吉他手母亲 吉他手妈妈 left bottom>>
+吉他手母亲: 您好，请问有个 20 多岁的吉他女孩有来过这里吗？
+<<Act 主角 主角 right bottom>>
+-> 不好意思，这里没出现过您说的吉他女孩。
+    主角: 请问您需要来一杯吗？
+    吉他手母亲: 来一杯吧。口味清爽一点的，酒精不要太重。
+    <<startBartten>>
+    <<moveToBartten>>
+-> 她在这里做驻唱，请问您有什么事吗？
+    <<adjustEmotion +5>>
+<<Hide 吉他手母亲>>
+<<Hide 主角>>
+===
+
+title: Guitarist_GuitaristMom_drink_0
+position: 0,2100
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 吉他手母亲 吉他手妈妈 left bottom>>
+<<Act 主角 主角 right bottom>>
+吉他手母亲: emmm，口感清爽，味道微甜，嗯，很好喝。
+主角: 谢谢惠顾。
+<<Hide 吉他手母亲>>
+<<Hide 主角>>
+<<exitBar>>
+<<onDialogueEnd>>
+===
+
+title: Guitarist_GuitaristMom_drink_1
+position: 0,2100
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 吉他手母亲 吉他手妈妈 left bottom>>
+<<Act 主角 主角 right bottom>>
+吉他手母亲: emmm，好晕，这酒太烈了，太差劲了。
+主角: 谢谢惠顾。
+<<Hide 吉他手母亲>>
+<<Hide 主角>>
+<<exitBar>>
+<<onDialogueEnd>>
+===
+
+title: Guitarist_GuitaristMom_drink_2
+position: 0,2100
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 吉他手母亲 吉他手妈妈 left bottom>>
+<<Act 主角 主角 right bottom>>
+吉他手母亲: emmm，一般般吧，没啥味儿，没感觉。
+主角: 谢谢惠顾。
+<<Hide 吉他手母亲>>
+<<Hide 主角>>
+<<exitBar>>
+<<onDialogueEnd>>
+===
+
+title: Guitarist_GuitaristMom_drink_3
+position: 0,2100
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 吉他手母亲 吉他手妈妈 left bottom>>
+<<Act 主角 主角 right bottom>>
+吉他手母亲: 啧，好酸，你在酒里加了什么？！
+主角: 不好意思。
+<<Hide 吉他手母亲>>
+<<Hide 主角>>
+<<exitBar>>
+<<onDialogueEnd>>
+===
+
+title: Guitarist_GuitaristMom_drink_4
+position: 0,2100
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 吉他手母亲 吉他手妈妈 left bottom>>
+<<Act 主角 主角 right bottom>>
+吉他手母亲: 噗，你调的都是些什么呀。
+主角: 不好意思。
+<<Hide 吉他手母亲>>
+<<Hide 主角>>
+<<exitBar>>
+<<onDialogueEnd>>
+===
