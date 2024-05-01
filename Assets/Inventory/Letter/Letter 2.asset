@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Letter2
   itemImage: {fileID: 21300000, guid: cf7d666ef64c25e4da84fef8414e0e4b, type: 3}
-  itemHeld: 3
+  itemHeld: 0
   itemInfo: Letter2

@@ -23,14 +23,33 @@ public class GameActions : MonoBehaviour
         dialogueRunner.AddCommandHandler("lock_player", LockPlayer); 
         dialogueRunner.AddCommandHandler("unlock_player", UnLockPlayer);
         dialogueRunner.AddCommandHandler("onDialogueEnd", OnDialogueEnd);
+        dialogueRunner.AddCommandHandler("startBartten", StartBartten);
+
+        dialogueRunner.AddCommandHandler("moveToBartten", MoveToBartten);
+
         dialogueRunner.AddCommandHandler("exitBar", ExitBar);
+        dialogueRunner.AddCommandHandler("npcOver", NPCOver);
         
         dialogueRunner.AddCommandHandler("plankSpankerPlayAni", PlankSpanker_PlayRecital);
         dialogueRunner.AddCommandHandler("plankSpankerStopPlayAni", PlankSpanker_StopPlayRecital);
         dialogueRunner.AddCommandHandler("plankSpankerStartWork", PlankSpanker_StartWork);
-        dialogueRunner.AddCommandHandler("npcOver", NPCOver);
 
         player = GameObject.FindWithTag("Player");
+    }
+
+    void OnEnable()
+    {
+        GameRoot.FinishGameEvent += OnFinishGameEvent;
+    }
+
+    void OnDisable()
+    {
+        GameRoot.FinishGameEvent -= OnFinishGameEvent;
+    }
+
+    private void OnFinishGameEvent(MixedWine_Data wine_data)
+    {
+        currentNPC.OnFinishGameEvent(wine_data);
     }
 
     private void AdjustEmotion(string changeValue)
@@ -53,6 +72,16 @@ public class GameActions : MonoBehaviour
     {
         Debug.Log($"Changing to scene: {sceneName}");
         SceneManager.LoadScene(sceneName);
+    }
+
+    private void StartBartten()
+    {
+        GameRoot.Instance.CallEnterGameEvent();
+    }
+
+    private void MoveToBartten()
+    {
+        player.transform.position = Position_Data.Bartten_Pos;
     }
 
     private void LockPlayer()

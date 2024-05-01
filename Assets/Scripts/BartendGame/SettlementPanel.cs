@@ -18,17 +18,17 @@ public class SettlementPanel : MonoBehaviour
 
     void OnEnable()
     {
-        GameRoot.Instance.FinishGameEvent += Settle;
+        GameRoot.FinishGameEvent += Settle;
+    }
+
+    void OnDisable()
+    {
+        GameRoot.FinishGameEvent -= Settle;
     }
 
     void Start()
     {
         entry.SetActive(false);
-    }
-
-    void OnDisable()
-    {
-        GameRoot.Instance.FinishGameEvent -= Settle;
     }
 
     public void Settle(MixedWine_Data data)

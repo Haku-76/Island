@@ -22,6 +22,7 @@ public class InventoryManager : MonoBehaviour
         instance = this;
     }
 
+
     private void OnEnable()
     {
         RefreshItem();
@@ -59,5 +60,11 @@ public class InventoryManager : MonoBehaviour
         {
             CreateNewItem(instance.myBag.itemList[i]);
         }
+    }
+
+    public void TestButton(string mailname)
+    {
+        var mailBox = FindAnyObjectByType<ClickDetection>();
+        mailBox.AddMail(mailname);
     }
 }
