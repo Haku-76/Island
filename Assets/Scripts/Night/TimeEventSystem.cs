@@ -44,10 +44,7 @@ public class TimeEventSystem : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F1))
-        {
-            Skip();
-        }
+        
     }
 
     private void OnDisable()
@@ -57,6 +54,7 @@ public class TimeEventSystem : MonoBehaviour
             _instance = null;
         }
     }
+
     [ContextMenu("SkipTime")]
     public void Skip()
     {
@@ -72,6 +70,11 @@ public class TimeEventSystem : MonoBehaviour
             Month++;
             Day = 1;
         }
+        onTimeChange.Invoke(Month, Day, timeQuantum);
+    }
+
+    public void BedEvent()
+    {
         onTimeChange.Invoke(Month, Day, timeQuantum);
     }
 
