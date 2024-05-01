@@ -30,6 +30,22 @@ public class NPC : MonoBehaviour
     public DialogueRunner dialogueRunner;
     public GameActions gameActions;
 
+    [Header("动画")]
+    public AnimationClip blankAnimationClip;
+
+    [Header("酒精相关")]
+    public float adapted_Alcohol;
+    public WaterTag adapted_Taste;
+    
+    /// <summary>
+    /// 0 => 完全合适= =
+    /// 1 => 酒精偏多= =
+    /// 2 => 酒精偏少= =
+    /// 3 => 口感不对= =
+    /// 4 => 两种要求都不满足
+    /// </summary>
+    public string[] dialogueStartNodes_AfterDrinking = new string[5];
+
     private Vector3 targetPosition;
     private Vector3 startPosition;
 
@@ -41,7 +57,6 @@ public class NPC : MonoBehaviour
     private bool isInteracted;
     private bool isOver = false;
     private AnimationClip afterMoveClip;
-    public AnimationClip blankAnimationClip;
     private AnimatorOverrideController animOverride;
 
     void Awake()
@@ -52,7 +67,8 @@ public class NPC : MonoBehaviour
         animOverride = new AnimatorOverrideController(anim.runtimeAnimatorController);
         anim.runtimeAnimatorController = animOverride;
         
-        sprite.SetActive(false);
+        // sprite.SetActive(false);
+        SetNPCActive(false);
         foreach(var schedule in scheduleData.scheduleList)
         {
             scheduleSet.Add(schedule);
@@ -136,6 +152,41 @@ public class NPC : MonoBehaviour
         }
     }
 
+    public void OnFinishGameEvent(MixedWine_Data wine)
+    {
+        Debug.Log($"NPC_OnFinishGameEvent{this.gameObject.name}");
+        float curAlcohol = wine.alcohol;
+        WaterTag curTaste = wine.taste;
+
+        bool isAlcoholRight = Math.Abs(curAlcohol - adapted_Alcohol) < 0.1f;
+        bool isTasteRight = curTaste == adapted_Taste;
+
+        if(isAlcoholRight && isTasteRight)
+        {
+            dialogueRunner.StartDialogue(dialogueStartNodes_AfterDrinking[0]);
+        }
+        else if(!isAlcoholRight && !isTasteRight)
+        {
+            dialogueRunner.StartDialogue(dialogueStartNodes_AfterDrinking[4]);
+        }
+        else if(!isAlcoholRight)
+        {
+            //酒精过多
+            if((curAlcohol - adapted_Alcohol) > 0f)
+            {
+                dialogueRunner.StartDialogue(dialogueStartNodes_AfterDrinking[1]);
+            }
+            else//酒精过少
+            {
+                dialogueRunner.StartDialogue(dialogueStartNodes_AfterDrinking[2]);
+            }
+        }
+        else if(!isTasteRight)
+        {
+            dialogueRunner.StartDialogue(dialogueStartNodes_AfterDrinking[3]);
+        }
+    }
+
 
 #region NPCActions
     public void exitBar()
@@ -145,6 +196,12 @@ public class NPC : MonoBehaviour
     } 
 
 #endregion
+
+    private void SetNPCActive(bool value)
+    {
+        sprite.SetActive(value);
+        GetComponent<Collider2D>().enabled = value;
+    }
 
     private void Movement()
     {
@@ -170,7 +227,8 @@ public class NPC : MonoBehaviour
         npc_isActive = true;
         InitNPC();
         transform.position = startPosition;
-        sprite.SetActive(true);
+        // sprite.SetActive(true);
+        SetNPCActive(true);
         float startAlpha = 0;
         float targetAlpha = 1;
         float burnDuration = 1.0f;
@@ -200,7 +258,8 @@ public class NPC : MonoBehaviour
             yield return null;
         }
         mat.SetFloat("_Alpha", targetAlpha);
-        sprite.SetActive(false);
+        // sprite.SetActive(false);
+        SetNPCActive(false);
         npc_isActive = false;
     }
 

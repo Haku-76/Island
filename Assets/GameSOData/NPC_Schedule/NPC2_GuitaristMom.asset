@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: NPC2_GuitaristMom
   m_EditorClassIdentifier: 
   scheduleList:
-  - month: 7
-    day: 4
+  - month: 6
+    day: 30
     time: 0
     priority: 1
     burnPosition: {x: -4, y: -1.18, z: 0}
-    targetPosition: {x: 2, y: -1.18, z: 0}
+    targetPosition: {x: 2.1, y: -1.18, z: 0}
     clipAfterArive: {fileID: 5309296874153760823, guid: 9f0bb437a60f93d448ee118d0c653edc, type: 2}
-    dialogueStartNode: Guitarist_GuitaristMom
-    interactable: 0
+    dialogueStartNode: Guitarist_GuitaristMom_1
