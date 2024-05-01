@@ -74,6 +74,8 @@ public class Sun : MonoBehaviour
                 MainModule main = Stars[i].main;
                 main.maxParticles = MaxStarNum;
             }
+            MainModule mainModule = Cloud.main;
+            mainModule.startColor = Color.Lerp(Color.black, Color.white, 0.5f);
         }
 
         if (path!=null)

@@ -44,7 +44,7 @@ public class TimeEventSystem : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
             Skip();
         }
@@ -57,6 +57,7 @@ public class TimeEventSystem : MonoBehaviour
             _instance = null;
         }
     }
+
     [ContextMenu("SkipTime")]
     public void Skip()
     {
