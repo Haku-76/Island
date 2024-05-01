@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84332a1766292414d80d3511938f2b31, type: 3}
-  m_Name: Letter 4
+  m_Name: Guitarist_1
   m_EditorClassIdentifier: 
-  itemName: Letter4
-  itemImage: {fileID: 21300000, guid: 419e3f19529c3c54bb10f92bd1c12056, type: 3}
-  itemHeld: 3
-  itemInfo: Letter4
+  itemName: Guitarist_1
+  itemImage: {fileID: 21300000, guid: faa1c314b9b29a047bf0af0088fef30f, type: 3}
+  itemHeld: 0
+  itemInfo: "\u8001\u677F\uFF0C\u4E0D\u597D\u610F\u601D\u6211\u6709\u4E00\u4E9B\u6025\u4E8B\u9700\u8981\u8BF7\u5047\u4E24\u5929\uFF0C\u5728\u4E94\u53F7\u4E4B\u524D\u4F1A\u56DE\u6765\u3002"
