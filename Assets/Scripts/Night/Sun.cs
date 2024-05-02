@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using static UnityEngine.ParticleSystem;
 using PathCreation;
+using System;
 
 public class Sun : MonoBehaviour
 {
     public Light2D sunLight;
-    public Transform startPoint;
+    public Transform WeekPoint;
+    public Transform DayPoint;
 
     [Header("曲线部分")]
     public AnimationCurve curve;
@@ -45,7 +47,7 @@ public class Sun : MonoBehaviour
 
         if (path != null)
         {
-            gameObject.transform.position= startPoint.position; 
+            //gameObject.transform.position= WeekPoint.position; 
             path.pathUpdated +=OnPathChanged;
 
             horizonHeight = path.bezierPath.PathBounds.center.y;
@@ -57,8 +59,62 @@ public class Sun : MonoBehaviour
 
     private void Update()
     {
+        if (TimeEventSystem.instance.timeQuantum == TimeQuantum.DayTime)
+        {
+            if (transform.position.x<DayPoint.position.x)
+            {
+                if (path != null)
+                {
+                    distanceTravelled += speed * Time.deltaTime * 1.2f;
+                    transform.position = path.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
+                    Follow();
+                    Daytime();
+                }
+            }
+            else
+            {
+                //distanceTravelled = 0;
+                transform.position = DayPoint.position;
+            }
+        }
+
+        if (TimeEventSystem.instance.timeQuantum == TimeQuantum.WeekHours)
+        {
+            if (transform.position.x > WeekPoint.position.x)
+            {
+                if (path != null)
+                {
+                    distanceTravelled += speed * Time.deltaTime * 1.2f;
+                    transform.position = path.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
+                    Follow();
+                    Daytime();
+                }
+            }
+            else
+            {
+                distanceTravelled = 0;
+                transform.position = WeekPoint.position;
+            }
+        }   
+    }
+
+
+    void Follow()
+    {
+        path.transform.position = new Vector3(MainCamera.position.x + offset.x, path.transform.position.y, 0);//只会变化x保持摄像机运动;
+    }
+
+    public void OnPathChanged()
+    {
+        distanceTravelled = path.path.GetClosestDistanceAlongPath(transform.position);
+    }
+
+    void Daytime()
+    {
         if (transform.position.y > horizonHeight)
         {
+
+
             float sunPos = (transform.position.x - path.transform.position.x - minX) / (maxX - minX);
             sunLight.intensity = curve.Evaluate(sunPos);
 
@@ -76,40 +132,19 @@ public class Sun : MonoBehaviour
         }
         else
         {
-            sunLight.intensity = 0.08f;
-            for (int i = 0; i < Stars.Length; i++)
-            {
-                MainModule main = Stars[i].main;
-                main.maxParticles = MaxStarNum;
-            }
-            MainModule mainModule = Cloud.main;
-            mainModule.startColor = Color.Lerp(new Color(0.89f, 0.89f, 0.89f), Color.white, 0.5f);
-            
-        }
-
-        if (TimeEventSystem.instance.timeQuantum==TimeQuantum.DayTime)
-        {
-            if (path != null)
-            {
-                distanceTravelled += speed * Time.deltaTime;
-                transform.position = path.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
-                Follow();
-            }
-        }
-        else
-        {
-            transform.position = startPoint.position;
+            WeekDay();
         }
     }
 
-
-    void Follow()
+    void WeekDay()
     {
-        path.transform.position = new Vector3(MainCamera.position.x + offset.x, path.transform.position.y, 0);//只会变化x保持摄像机运动;
-    }
-
-    public void OnPathChanged()
-    {
-        distanceTravelled = path.path.GetClosestDistanceAlongPath(transform.position);
+        sunLight.intensity = 0.08f;
+        for (int i = 0; i < Stars.Length; i++)
+        {
+            MainModule main = Stars[i].main;
+            main.maxParticles = MaxStarNum;
+        }
+        MainModule mainModule = Cloud.main;
+        mainModule.startColor = Color.Lerp(new Color(0.89f, 0.89f, 0.89f), Color.white, 0.5f);
     }
 }

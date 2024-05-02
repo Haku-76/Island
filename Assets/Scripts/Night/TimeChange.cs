@@ -33,7 +33,7 @@ public class TimeChange : MonoBehaviour
         MouseRaycast(TimeEventSystem.instance.Day, TimeEventSystem.instance.Month, TimeEventSystem.instance.timeQuantum);
         if (canChange&&isPlayer)
         {
-            TimeEventSystem.instance.Skip();
+            TimeEventSystem.instance.SkipTime();
         }
     }
 

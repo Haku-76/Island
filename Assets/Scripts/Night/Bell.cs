@@ -6,7 +6,7 @@ public class Bell : TimeChange
 {
     public override void Update()
     {
-        if (TimeEventSystem.instance.timeQuantum == TimeQuantum.WeeHours)
+        if (TimeEventSystem.instance.timeQuantum == TimeQuantum.WeekHours)
         {
             base.Update();
         }

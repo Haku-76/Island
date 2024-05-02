@@ -34,7 +34,7 @@ public class TimeEventSystem : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void Start()
+    public void OnEnable()
     {
         Day = 30;
         Month = 6;
@@ -62,18 +62,24 @@ public class TimeEventSystem : MonoBehaviour
     public void SkipTime()
     {
         onLastTimeEnd?.Invoke(Month, Day, timeQuantum);
-        timeQuantum++;
-        if ((int)timeQuantum == 3)
+
+        switch (timeQuantum)
         {
-            Day++;
-            timeQuantum = TimeQuantum.DayTime;
+            case TimeQuantum.DayTime:
+                timeQuantum = TimeQuantum.WeekHours;
+                break;
+            case TimeQuantum.WeekHours:
+                timeQuantum = TimeQuantum.DayTime;
+                Day++;
+                if (Day > 30)
+                {
+                    Month++;
+                    Day = 1;
+                }
+                break;
         }
-        if (Day > 30)
-        {
-            Month++;
-            Day = 1;
-        }
-        onTimeChange.Invoke(Month, Day, timeQuantum);
+
+        onTimeChange?.Invoke(Month, Day, timeQuantum);
     }
 
     IEnumerator SkipRoutine()
