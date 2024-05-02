@@ -108,14 +108,14 @@ public class NPC : MonoBehaviour
     [ContextMenu("测试NPC 行为1")]
     public void Test1()
     {
-        OnTimeUpdateEvent(7, 0, TimeQuantum.Dusk);
+        //OnTimeUpdateEvent(7, 0, TimeQuantum.Dusk);
     }
 
 
     [ContextMenu("测试NPC 行为2")]
     public void Test2()
     {
-        OnTimeUpdateEvent(7, 1, TimeQuantum.Dusk);
+       // OnTimeUpdateEvent(7, 1, TimeQuantum.Dusk);
     }
 
     private void OnTimeUpdateEvent(int month, int day, TimeQuantum timeQuantum)

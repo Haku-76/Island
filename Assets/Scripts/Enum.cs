@@ -1,6 +1,5 @@
 public enum TimeQuantum
 {
     DayTime,
-    Dusk,
-    WeeHours
+    WeeHours,
 }

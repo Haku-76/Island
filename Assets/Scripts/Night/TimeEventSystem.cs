@@ -19,7 +19,7 @@ public class TimeEventSystem : MonoBehaviour
 
     public int Day { get; private set; }
     public int Month { get; private set; }
-    public TimeQuantum timeQuantum { get; private set; }
+    public TimeQuantum timeQuantum { get; set; }
 
     private void Awake()
     {
@@ -44,7 +44,10 @@ public class TimeEventSystem : MonoBehaviour
 
     private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            SkipTime();
+        }
     }
 
     private void OnDisable()
@@ -56,7 +59,7 @@ public class TimeEventSystem : MonoBehaviour
     }
 
     [ContextMenu("SkipTime")]
-    public void Skip()
+    public void SkipTime()
     {
         onLastTimeEnd?.Invoke(Month, Day, timeQuantum);
         timeQuantum++;
@@ -73,9 +76,14 @@ public class TimeEventSystem : MonoBehaviour
         onTimeChange.Invoke(Month, Day, timeQuantum);
     }
 
-    public void BedEvent()
+    IEnumerator SkipRoutine()
     {
-        onTimeChange.Invoke(Month, Day, timeQuantum);
+        SkipTime();
+        yield return null;
     }
 
+    public void Skip()
+    {
+        StartCoroutine(SkipRoutine());
+    }
 }
