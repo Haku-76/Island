@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Art/Spine/Character/actor_dark/actor.atlas.txt.meta
 guid: aab9843a083f8494cb667b969bdfc25a
 TextScriptImporter:
+========
+guid: 953d7bc7d2c16ca4ca9006bcb7c9ee65
+PrefabImporter:
+>>>>>>>> Stashed changes:Assets/Resources/UI/UIPopEmail.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
