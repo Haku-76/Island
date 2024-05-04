@@ -41,6 +41,12 @@ public class Sun : MonoBehaviour
 
     public PathCreator path;
 
+
+    void Awake()
+    {
+        sunLight = FindAnyObjectByType<Light2D>();
+    }
+
     private void Start()
     {
         offset = Sprite.position - path.transform.position;
