@@ -27,7 +27,7 @@ public class Sun : MonoBehaviour
 
     public EndOfPathInstruction endOfPathInstruction;
 
-    public float speed = 5;
+    public float speed = 10;
 
     private float horizonHeight;
 
@@ -80,7 +80,7 @@ public class Sun : MonoBehaviour
 
         if (TimeEventSystem.instance.timeQuantum == TimeQuantum.WeekHours)
         {
-            if (transform.position.x > WeekPoint.position.x)
+            if (transform.position.y > WeekPoint.position.y)
             {
                 if (path != null)
                 {
@@ -95,7 +95,7 @@ public class Sun : MonoBehaviour
                 distanceTravelled = 0;
                 transform.position = WeekPoint.position;
             }
-        }   
+        }
     }
 
 
@@ -113,7 +113,6 @@ public class Sun : MonoBehaviour
     {
         if (transform.position.y > horizonHeight)
         {
-
 
             float sunPos = (transform.position.x - path.transform.position.x - minX) / (maxX - minX);
             sunLight.intensity = curve.Evaluate(sunPos);
