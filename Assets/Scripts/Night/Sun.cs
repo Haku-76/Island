@@ -23,7 +23,7 @@ public class Sun : MonoBehaviour
     [Tooltip("最大粒子数")]
     public int MaxStarNum;
 
-    public Transform MainCamera;
+    public Transform Sprite;
 
     public EndOfPathInstruction endOfPathInstruction;
 
@@ -41,14 +41,9 @@ public class Sun : MonoBehaviour
 
     public PathCreator path;
 
-    void Awake()
-    {
-        sunLight = FindAnyObjectByType<Light2D>();
-    }
-
     private void Start()
     {
-        // offset = MainCamera.position - path.transform.position;
+        offset = Sprite.position - path.transform.position;
 
         if (path != null)
         {
@@ -106,7 +101,7 @@ public class Sun : MonoBehaviour
 
     void Follow()
     {
-        path.transform.position = new Vector3(MainCamera.position.x + offset.x, path.transform.position.y, 0);//只会变化x保持摄像机运动;
+        path.transform.position = new Vector3(Sprite.position.x + offset.x, path.transform.position.y, 0);//只会变化x保持摄像机运动;
     }
 
     public void OnPathChanged()
