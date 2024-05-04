@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneManager : MonoBehaviour
+public class ScenesManager : MonoBehaviour
 {
-    private static SceneManager _instance;
-    public static SceneManager Instance{get => _instance;}
+    private static ScenesManager _instance;
+    public static ScenesManager Instance{get => _instance;}
 
     void Awake()
     {
