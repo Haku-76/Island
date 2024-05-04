@@ -39,10 +39,6 @@ public class TimeEventSystem : MonoBehaviour
         Day = 30;
         Month = 6;
         timeQuantum = TimeQuantum.DayTime;
-    }
-
-    public void Start()
-    {
         onTimeChange?.Invoke(Month, Day, timeQuantum);
     }
 
