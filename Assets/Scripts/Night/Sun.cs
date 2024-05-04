@@ -41,9 +41,14 @@ public class Sun : MonoBehaviour
 
     public PathCreator path;
 
+    void Awake()
+    {
+        sunLight = FindAnyObjectByType<Light2D>();
+    }
+
     private void Start()
     {
-        offset = MainCamera.position - path.transform.position;
+        // offset = MainCamera.position - path.transform.position;
 
         if (path != null)
         {
