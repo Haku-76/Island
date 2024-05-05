@@ -6,8 +6,6 @@ using Yarn.Unity;
 public class GuideDialogRunner : MonoBehaviour
 {
     // Start is called before the first frame update
-
-    public YarnProject yarnProject;
     void Start()
     {
     }

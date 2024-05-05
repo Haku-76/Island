@@ -344,6 +344,7 @@ MonoBehaviour:
   targetNPC: {fileID: 0}
   isMovingToNPC: 1
   isMovingToNull: 0
+  openBag: {fileID: 0}
 --- !u!50 &670052405
 Rigidbody2D:
   serializedVersion: 4
@@ -1182,6 +1183,7 @@ GameObject:
   - component: {fileID: 1549565167}
   - component: {fileID: 1549565166}
   - component: {fileID: 1549565165}
+  - component: {fileID: 1549565170}
   m_Layer: 7
   m_Name: GuideMan
   m_TagString: NPC
@@ -1269,7 +1271,7 @@ MonoBehaviour:
   interactable: 1
   sprite: {fileID: 0}
   mat: {fileID: 0}
-  dialogueRunner: {fileID: 0}
+  dialogueRunner: {fileID: 1288664434}
   gameActions: {fileID: 0}
   blankAnimationClip: {fileID: 0}
   adapted_Alcohol: 5
@@ -1347,6 +1349,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.724}
+--- !u!114 &1549565170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549565164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc632150b13e5a488c22444b94857f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueRunner: {fileID: 1288664434}
 --- !u!1 &1926999023
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,50 +1453,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2145825501
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2145825502}
-  - component: {fileID: 2145825503}
-  m_Layer: 7
-  m_Name: GuideRoot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2145825502
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145825501}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.0063193897, w: 0.99998003}
-  m_LocalPosition: {x: -18.54, y: -1.74, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2145825503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145825501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f06d798efe288314a911cc69b732d436, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &572922864760820040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2800,5 +2771,4 @@ SceneRoots:
   - {fileID: 454654278}
   - {fileID: 670052408}
   - {fileID: 1288664432}
-  - {fileID: 2145825502}
   - {fileID: 1549565169}

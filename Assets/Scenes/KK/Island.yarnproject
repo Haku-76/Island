@@ -7,6 +7,6 @@
     "**/*~/*"
   ],
   "localisation": {},
-  "baseLanguage": "zh-CHS",
+  "baseLanguage": "zh",
   "compilerOptions": {}
 }
