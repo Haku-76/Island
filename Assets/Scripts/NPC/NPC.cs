@@ -253,7 +253,6 @@ public class NPC : MonoBehaviour
         {
             var alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime/burnDuration);
             mat.SetFloat("_Alpha", alpha);
-            Debug.Log(mat == null);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
@@ -321,7 +320,8 @@ public class NPC : MonoBehaviour
         {
             isInteracted = true;
             player.LockPlayer();
-            dialogueRunner.StartDialogue(dialogueStartNode);
+            // dialogueRunner.StartDialogue(dialogueStartNode);
+            DialogueManager.Instance.StartDialogue(dialogueStartNode);
             gameActions.currentNPC = this;
         }
     }
