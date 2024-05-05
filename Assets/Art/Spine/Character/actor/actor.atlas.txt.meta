@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Art/Spine/Character/actor/actor.atlas.txt.meta
 guid: 46798d58357873142852cfbd59581034
+========
+guid: b9ae4beae4a9c384d96ac1576100985c
+>>>>>>>> XY:Assets/Art/Spine/Character/Player1(千万别删！/actor.atlas.txt.meta
 TextScriptImporter:
   externalObjects: {}
   userData: 

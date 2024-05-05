@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using Yarn.Unity;
+using UnityEngine.EventSystems;
+using Spine.Unity;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,6 +21,9 @@ public class PlayerController : MonoBehaviour
 
     private bool isLocking;
 
+    [Space(15)]
+    public GameObject openBag;
+
     void Update()
     {
         if(isLocking)
@@ -28,19 +34,23 @@ public class PlayerController : MonoBehaviour
             FilpCharacter();
         }
 
-        if (isMovingToNPC)
+        if (isMovingToNPC || isMovingToNull)
         {
             MoveTowardsTarget();
         }
-
-        if (isMovingToNull)
+        else
         {
-            MoveTowardsTarget();
+            this.GetComponent<SkeletonAnimation>().AnimationName = null;
         }
     }
 
     private void HandleMouseClick()
     {
+        if (IsPointerOverUIObject())
+        {
+            return;
+        }
+
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
@@ -63,26 +73,39 @@ public class PlayerController : MonoBehaviour
             targetPosition = new Vector3(mousePos.x, this.transform.position.y, this.transform.position.z);
             targetNPC = null;
             isMovingToNull = true;
-            isMovingToNPC = false ;
+            isMovingToNPC = false;
         }
+    }
+
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = Input.mousePosition;
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+        foreach (RaycastResult result in results)
+        {
+            if (result.gameObject.GetComponent<PreventClickThrough>() != null)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void MoveTowardsTarget()
     {
         this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, moveSpeed * Time.deltaTime);
+        this.GetComponent<SkeletonAnimation>().AnimationName = "walk";
 
         if (Vector3.Distance(this.transform.position, targetPosition) < interactionDistance)
         {
             isMovingToNPC = false;
+            isMovingToNull = false;
             if (targetNPC != null)
             {
                 InteractWithNPC(targetNPC);
             }
-        }
-
-        else if (this.transform.position == targetPosition)
-        {
-            isMovingToNull = false;
         }
     }
 
@@ -92,11 +115,11 @@ public class PlayerController : MonoBehaviour
         {
             if (targetPosition.x > transform.position.x)
             {
-                transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+                transform.localScale = new Vector3(-0.1f, transform.localScale.y, transform.localScale.z);
             }
             else if (targetPosition.x < transform.position.x)
             {
-                transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+                transform.localScale = new Vector3(0.1f, transform.localScale.y, transform.localScale.z);
             }
         }
     }

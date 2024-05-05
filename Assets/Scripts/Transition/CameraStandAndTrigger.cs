@@ -13,7 +13,7 @@ public class CameraStandAndTrigger : MonoBehaviour
         Debug.Log($"Enter{this.name}Area");
         if(other.gameObject.CompareTag("Player"))
         {
-            TransitionManager.Instance.SetCamera(cameraStand);
+            TransitionManager.Instance.SetCamera(cameraStand, isFollowPlayer);
         } 
     }
 }

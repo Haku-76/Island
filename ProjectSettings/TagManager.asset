@@ -9,6 +9,8 @@ TagManager:
   - NPC
   - Item
   - TimeEvent
+  - Bed
+  - Bag
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - UI
   - Background
   - NPC
-  - 
+  - MapCollider
   - 
   - 
   - 

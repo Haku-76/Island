@@ -29,11 +29,13 @@ public class TransitionManager : MonoBehaviour
         currentCamera = mainCamera.ActiveVirtualCamera as CinemachineVirtualCamera;
     }
 
-    public void SetCamera(CinemachineVirtualCamera cameraStand)
+    public void SetCamera(CinemachineVirtualCamera cameraStand, bool isFollowPlayer)
     {
         currentCamera.Priority = 10;
         cameraStand.Priority = 100;
         currentCamera = cameraStand;
+        if(isFollowPlayer)
+            currentCamera.m_Follow = player.transform;
     }
 
     public void MovePlayerTo(Vector3 targetPos)
