@@ -5,12 +5,11 @@ using UnityEngine.Rendering.Universal;
 using static UnityEngine.ParticleSystem;
 using PathCreation;
 using System;
+using DG.Tweening;
 
 public class Sun : MonoBehaviour
 {
     public Light2D sunLight;
-    public Transform WeekPoint;
-    public Transform DayPoint;
 
     public float weekPoint;
     public float dayPoint;
@@ -81,7 +80,7 @@ public class Sun : MonoBehaviour
     {
         if (TimeEventSystem.instance.timeQuantum == TimeQuantum.DayTime)
         {
-            if (distanceTravelled < dayPoint)
+            if (Math.Abs(distanceTravelled - dayPoint) > 0.2f)
             {
                 if (path != null)
                 {
@@ -120,7 +119,7 @@ public class Sun : MonoBehaviour
             }
         }   
     
-        if(distanceTravelled > 25f)
+        if(distanceTravelled > 20f)
         {
             WeekDay();
         }
@@ -153,13 +152,8 @@ public class Sun : MonoBehaviour
         if (transform.position.y > horizonHeight)
         {
             float sunPos = (transform.position.x - path.transform.position.x - minX) / (maxX - minX);
-            
-            if(timeDef < 5f)
-            {
-                float def = timeDef / 5;
-                sunLight.intensity = Mathf.Lerp(sunLight.intensity, light_Intensity_DayTime, def);
-                timeDef += Time.deltaTime;
-            }
+            DOTween.To(()=>sunLight.intensity, x => sunLight.intensity = x, light_Intensity_DayTime, 4f);
+
 
             for (int i = 0; i < Stars.Length; i++)
             {
@@ -183,7 +177,7 @@ public class Sun : MonoBehaviour
         //     sunLight.intensity = Mathf.Lerp(sunLight.intensity, light_Intensity_WeekTime, def);
         //     timeDef += Time.deltaTime;
         // }
-
+        DOTween.To(()=>sunLight.intensity, x => sunLight.intensity = x, light_Intensity_WeekTime, 4f);
         
         for (int i = 0; i < Stars.Length; i++)
         {

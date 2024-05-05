@@ -295,9 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sunLight: {fileID: 319345991}
-  WeekPoint: {fileID: 19855363}
-  DayPoint: {fileID: 243097740}
-  weekPoint: 30
+  weekPoint: 35
   dayPoint: 7
   light_Intensity_DayTime: 1
   light_Intensity_WeekTime: 0.15
