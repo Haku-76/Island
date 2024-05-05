@@ -1,3 +1,4 @@
+using MainScene;
 using UnityEngine;
 
 public class OnClickEvent : MonoBehaviour

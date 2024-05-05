@@ -1,7 +1,7 @@
 {
   "projectFileVersion": 2,
   "sourceFiles": [
-    "Guitarist.yarn"
+    "**/*.yarn"
   ],
   "excludeFiles": [
     "**/*~/*"

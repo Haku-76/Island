@@ -1,24 +1,306 @@
-﻿title: Start
+﻿title: Guitarist_Start
 position: 0,0
 ---
-艾迪: 您好，请问您这里还需要驻唱吗？工资多少都可以，包吃就行。
--> 驻唱的话，我们的要求可不低哦，需要有一定经验和稳定性的人（间接拒绝）。
-    <<jump A21>>
--> 你有什么拿手的曲子吗，弹来听听我愿意给你这个机会（给机会）。
-    <<jump A22>>
--> 酒吧确实需要一些能活跃氛围的东西，欢迎你的加入（果断帮助）！
+<<Scene background>>
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 吉他手 吉他手 left bottom>>
+吉他手: 您好，请问您这里还需要驻唱吗？工资多少都可以，包吃就行。
+<<Act 主角 主角 right bottom>>
+-> 驻唱的话，我们的要求可不低哦，需要有一定经验和稳定性的人。
+    <<adjustEmotion -5>>
+    <<Hide 吉他手>>
+    <<Hide 主角>>
+    <<npcOver>>
+    <<exitBar>>
+    <<onDialogueEnd>>
+-> 你有什么拿手的曲子吗，弹来听听我愿意给你这个机会。
+    <<adjustEmotion +3>>
+    <<Hide 吉他手>>
+    <<Hide 主角>>
+    <<jump Guitarist_A2>>
+-> 酒吧确实需要一些能活跃氛围的东西，欢迎你的加入！
+    <<adjustEmotion +5>>
+    <<Hide 吉他手>>
+    <<Hide 主角>>
+    <<exitBar>>
+    <<onDialogueEnd>>
 ===
 
-
-title: A21
-position: -113,231
+title: Guitarist_A2
+position: 0,200
 ---
-洛德: 好，弹得真不错！这都快赶上专业的吉他手了吧？，你演奏的这种感觉让我想起了我大学那会儿玩乐队的时光，欢迎你的加入，对了能否告知一下你的姓名（肯定能力）？
-艾迪: 那我简单介绍一下我自己吧，我叫艾迪， 目前已经没上学了，在自己混饭吃的阶段，哈哈。
+// <<PlayAudio music_romantic>>
+<<plankSpankerPlayAni>>
+<<wait 5>>
+<<plankSpankerStopPlayAni>>
+-> 好，弹得真不错！这都快赶上专业的吉他手了吧？，你演奏的这种感觉让我想起了我大学那会儿玩乐队的时光，欢迎你的加入，对了能否告知一下你的姓名？
+    <<adjustEmotion +2>>
+    <<adjustAcceptance +5>>
+    吉他手: 那我简单介绍一下我自己吧，我叫艾迪， 目前已经没上学了，在自己混饭吃的阶段，哈哈。
+    <<Hide 吉他手>>
+    <<Hide 主角>>
+    <<exitBar>>
+    <<onDialogueEnd>>
+-> 嗯，你的风格可能不太适合。
+    <<Hide 吉他手>>
+    <<Hide 主角>>
+    <<npcOver>>
+    <<exitBar>>
+    <<onDialogueEnd>>
 ===
 
-title: A22
-position: 117,232
+title: Guitarist_FirstDay
+position: 0,400
 ---
-洛德: 嗯，你的风格可能不太适合（果断拒绝）。
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 主角 主角 right bottom>>
+主角: 怎么迟到了，知道吗，你没来这里都冷清了不少。
+<<Act 吉他手 吉他手 left bottom>>
+吉他手: 不好意思老板，我今天遇到了点麻烦，吉他弦断了，我去修了一下，抱歉耽误了一些时间。
+主角: 以后记得提前检查好，别再影响你的演出。 
+吉他手: 明白明白，这是我第一次迟到，也会是最后一次，老板你放心吧。
+主角: 好吧，相信你。
+<<plankSpankerStartWork>>
+<<unlock_player>>
+<<Hide 吉他手>>
+<<Hide 主角>>
+===
+
+title: Guitarist_SecondDay
+position: 0,600
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 吉他手 吉他手 left bottom>>
+吉他手:先生，今天有点嗓子不舒服，能不能少唱几首歌，或者换一些轻松一点的歌曲？
+<<Act 主角 主角 right bottom>>
+主角: 怎么了，是感冒了吗？
+吉他手:可能是昨天唱得太用力了，今天早上起来就觉得喉咙痛，感觉像是发炎了。
+主角: 那你今天就别勉强了，你去喝点柠檬水，或者吃点润喉糖缓解一下。今天的歌曲你就随便选一些你觉得舒服的，不用太在意客人的反应，我会替你解释的。
+吉他手: 谢谢老板，我会尽量把歌唱好的，不让你失望的。
+<<plankSpankerStartWork>>
+<<unlock_player>>
+<<Hide 吉他手>>
+<<Hide 主角>>
+===
+
+title: Guitarist_ThirdDay
+position: 0,800
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 主角 主角 right bottom>>
+主角: 你今天唱得不错，客人都很喜欢你的歌。
+<<Act 吉他手 吉他手 left bottom>>
+吉他手: 谢谢老板夸奖，我也很开心能在这里唱歌。
+主角: 你有没有什么想唱的歌，或者想学的歌，我可以帮你找伴奏。
+吉他手: 其实我最近想学一些爵士歌曲，我觉得那种风格很适合酒吧的氛围。
+主角: 爵士歌曲啊，那你得多练习一下你的节奏感和即兴能力，不过我觉得你有潜力。
+主角: 真的吗？还是感谢老板您给的这个机会。
+<<plankSpankerStartWork>>
+<<unlock_player>>
+<<Hide 吉他手>>
+<<Hide 主角>>
+===
+
+title: Guitarist_GuitaristMom
+position: 0,1000
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 吉他手母亲 吉他手妈妈 left bottom>>
+吉他手母亲: 您好，请问有个 20 多岁的吉他女孩有来过这里吗？
+<<Act 主角 主角 right bottom>>
+-> 不好意思，这里没出现过您说的吉他女孩。
+    <<adjustEmotion -5>>
+    <<jump Guitarist_A4>>
+-> 她在这里做驻唱，请问您有什么事吗？
+    <<adjustEmotion +5>>
+    <<jump Guitarist_A5>>
+===
+
+title: Guitarist_A4
+position: -150,1300
+---
+吉他手母亲: 我知道她在这里工作，我是她的母亲，她一直躲着我们。
+-> 这跟我有什么关系？她只是我的员工。
+    吉他手母亲: 不好意思打扰了，她之后应该不会再来了。
+    <<npcOver>>
+    <<exitBar>>
+    <<onDialogueEnd>>
+    <<Hide 吉他手母亲>>
+    <<Hide 主角>>
+-> 所以，是出什么事了吗？
+    <<jump Guitarist_A521>>
+===
+
+title: Guitarist_A5
+position: 150,1300
+---
+吉他手母亲: 我是她的母亲，她跟家里人吵架赌气离开了家，我听说她在您这里做驻唱，就过来找她，希望能带她回家。
+-> 她现在没在这里，你可以下次再来。
+    <<adjustEmotion -3>>
+    吉他手母亲: 对不起，打扰了，那我下次再来。
+    <<exitBar>>
+    <<onDialogueEnd>>
+    <<Hide 吉他手母亲>>
+    <<Hide 主角>>
+-> 她没在这里，我可以替你转达。
+    <<adjustEmotion +3>>
+    吉他手母亲: 我就是希望她能够回家，我们可以再商量。
+    -> 商量什么？能告诉我吗？
+        <<adjustEmotion +5>>
+        <<jump Guitarist_A521>>
+    -> 好的我会替你转达的。
+        <<adjustEmotion -5>>
+        吉他手母亲: 感谢，那我先离开了。
+        <<exitBar>>
+        <<onDialogueEnd>>
+        <<Hide 吉他手母亲>>
+        <<Hide 主角>>
+===
+
+title: Guitarist_A521
+position: 0,1600
+---
+吉他手母亲: 唉，这孩子从小就喜欢捣鼓吉他，你说那东西能当饭吃吗？学习成绩一塌糊涂，作为父母，我们真是操碎了心啊。
+吉他手母亲: 给她找补习班也不去整天都呆在家里玩。你说她那个年龄的孩子，不读书还有什么前途。
+吉他手母亲: 这不是跟她爸在家里大吵了一架跑出来了身上又没带钱，发现她在这里打工，老板你也是过来人，肯定知道读书的重要性，您能帮我们劝劝她吗？
+-> 那孩子......我跟她说说吧。
+    <<adjustEmotion -5>>
+    <<adjustAcceptance +5>>
+    <<exitBar>>
+    <<onDialogueEnd>>
+    <<Hide 吉他手母亲>>
+    <<Hide 主角>>
+-> 其实我觉得.....喜欢音乐也不见得是件坏事，我觉得她挺有天赋，搞不好未来能在这条路上获得成就。
+    <<adjustEmotion +5>>
+    <<adjustAcceptance +5>>
+    吉他手母亲: ... 
+    <<exitBar>>
+    <<onDialogueEnd>>
+    <<Hide 吉他手母亲>>
+    <<Hide 主角>>
+===
+
+title: Guitarist_A422
+position: 0,1800
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 主角 主角 right bottom>>
+主角: 你的母亲来找过我，我知道了你的事情，她让我劝你回去上学，我拒绝了她。
+<<Act 吉他手 吉他手 left bottom>>
+吉他手: 谢谢你先生。
+主角: 不过你老是在我这里打工也不是长久之计，我给你想了一条路....
+-> 隔壁市最近搞了一个歌手比赛，我觉得你的实力不错，可以拿这个比赛作为踏板向你的目标前进。
+    <<adjustEmotion +5>>
+    <<adjustAcceptance +5>>
+    吉他手: ...
+    <<plankSpankerStartWork>>
+-> 虽然我拒绝了你母亲的请求，但是从我过来人的角度来看，回学校是你最好的选择。
+    <<adjustEmotion -5>>
+    <<adjustAcceptance -5>>
+    吉他手: ...
+    <<exitBar>>
+<<onDialogueEnd>>
+<<Hide 吉他手>>
+<<Hide 主角>>
+
+===
+
+title: Guitarist_GuitaristMom_1
+position: 0,2000
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 吉他手母亲 吉他手妈妈 left bottom>>
+吉他手母亲: 您好，请问有个 20 多岁的吉他女孩有来过这里吗？
+<<Act 主角 主角 right bottom>>
+-> 不好意思，这里没出现过您说的吉他女孩。
+    主角: 请问您需要来一杯吗？
+    吉他手母亲: 来一杯吧。口味清爽一点的，酒精不要太重。
+    <<startBartten>>
+    <<moveToBartten>>
+-> 她在这里做驻唱，请问您有什么事吗？
+    <<adjustEmotion +5>>
+<<Hide 吉他手母亲>>
+<<Hide 主角>>
+===
+
+title: Guitarist_GuitaristMom_drink_0
+position: 0,2100
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 吉他手母亲 吉他手妈妈 left bottom>>
+<<Act 主角 主角 right bottom>>
+吉他手母亲: emmm，口感清爽，味道微甜，嗯，很好喝。
+主角: 谢谢惠顾。
+<<Hide 吉他手母亲>>
+<<Hide 主角>>
+<<exitBar>>
+<<onDialogueEnd>>
+===
+
+title: Guitarist_GuitaristMom_drink_1
+position: 0,2100
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 吉他手母亲 吉他手妈妈 left bottom>>
+<<Act 主角 主角 right bottom>>
+吉他手母亲: emmm，好晕，这酒太烈了，太差劲了。
+主角: 谢谢惠顾。
+<<Hide 吉他手母亲>>
+<<Hide 主角>>
+<<exitBar>>
+<<onDialogueEnd>>
+===
+
+title: Guitarist_GuitaristMom_drink_2
+position: 0,2100
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 吉他手母亲 吉他手妈妈 left bottom>>
+<<Act 主角 主角 right bottom>>
+吉他手母亲: emmm，一般般吧，没啥味儿，没感觉。
+主角: 谢谢惠顾。
+<<Hide 吉他手母亲>>
+<<Hide 主角>>
+<<exitBar>>
+<<onDialogueEnd>>
+===
+
+title: Guitarist_GuitaristMom_drink_3
+position: 0,2100
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 吉他手母亲 吉他手妈妈 left bottom>>
+<<Act 主角 主角 right bottom>>
+吉他手母亲: 啧，好酸，你在酒里加了什么？！
+主角: 不好意思。
+<<Hide 吉他手母亲>>
+<<Hide 主角>>
+<<exitBar>>
+<<onDialogueEnd>>
+===
+
+title: Guitarist_GuitaristMom_drink_4
+position: 0,2100
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 吉他手母亲 吉他手妈妈 left bottom>>
+<<Act 主角 主角 right bottom>>
+吉他手母亲: 噗，你调的都是些什么呀。
+主角: 不好意思。
+<<Hide 吉他手母亲>>
+<<Hide 主角>>
+<<exitBar>>
+<<onDialogueEnd>>
 ===

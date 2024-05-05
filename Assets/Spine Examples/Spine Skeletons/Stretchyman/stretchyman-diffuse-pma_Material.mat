@@ -12,9 +12,8 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _ALPHAPREMULTIPLY_ON
-  - _EMISSION
-  - _FIXED_NORMALS_VIEWSPACE
+  - _ALPHAPREMULTIPLY_VERTEX_ONLY
+  - _FULLRANGE_HARD_RAMP
   - _NORMALMAP
   m_InvalidKeywords:
   - _FIXED_NORMALS
@@ -70,9 +69,11 @@ Material:
     - _Cull: 0
     - _CustomRenderQueue: 0
     - _Cutoff: 0.1
+    - _DoubleSidedLighting: 0
     - _DstBlend: 10
     - _EmissionPower: 1
     - _EnableExternalAlpha: 0
+    - _FillPhase: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _Hue: 0
@@ -90,6 +91,7 @@ Material:
     - _SrcBlend: 1
     - _StencilComp: 8
     - _StencilRef: 1
+    - _StraightAlphaInput: 0
     - _ThresholdEnd: 0.25
     - _TintBlack: 0
     - _Use8Neighbourhood: 1
@@ -98,6 +100,7 @@ Material:
     - _Black: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FillColor: {r: 1, g: 1, b: 1, a: 1}
     - _FixedNormal: {r: 0, g: 0, b: 1, a: 1}
     - _OutlineColor: {r: 1, g: 1, b: 0, a: 1}
     - _OverlayColor: {r: 0, g: 0, b: 0, a: 0}

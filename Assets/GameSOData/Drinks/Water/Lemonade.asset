@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab68328618337204cadb2608e92b9a0c, type: 3}
   m_Name: Lemonade
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: -1255278208, guid: 9fd30942d88647f4ab37691e04654f0a, type: 3}
   drinkName: "\u67E0\u6AAC\u6C34"
   description: 
-  drinksType: 0
+  drinksType: 1
   alcohol: 0
   taste: 3

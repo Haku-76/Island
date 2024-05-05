@@ -5,12 +5,9 @@ using UnityEngine.UI;
 
 public class Bar_GameManager : MonoBehaviour
 {
-    
-    private bool isGameFinished = false;
-    
 #region Singleton
     private static Bar_GameManager _instance;
-    
+
     public static Bar_GameManager Instance{
         get => _instance;
     }
@@ -42,6 +39,8 @@ public class Bar_GameManager : MonoBehaviour
     public bool isAddWine;
     public bool isAddWater; 
 
+    private bool isOver = false;
+
     void Start()
     {
         isAddWater = false;
@@ -50,9 +49,9 @@ public class Bar_GameManager : MonoBehaviour
 
     void Update()
     {
-        if(isFinished && !isGameFinished)
+        if(isFinished && !isOver)
         {
-            isGameFinished = true;
+            isOver = true;
             StartCoroutine(FinishGame());
         }
     }
@@ -60,8 +59,8 @@ public class Bar_GameManager : MonoBehaviour
     IEnumerator FinishGame()
     {
         GameRoot.Instance.CallFinishGameEvent(wineGlass.GetResult());
-        yield return new WaitForSeconds(3f);
-
+        // yield return new WaitForSeconds(3f);
+        yield return null;
         GameRoot.Instance.CloseGame();
     }
 }
