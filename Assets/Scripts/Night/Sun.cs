@@ -12,6 +12,8 @@ public class Sun : MonoBehaviour
     public Transform WeekPoint;
     public Transform DayPoint;
 
+    public bool isArrive;
+
     [Header("曲线部分")]
     public AnimationCurve curve;
     public AnimationCurve StarNumCurve;
@@ -53,7 +55,7 @@ public class Sun : MonoBehaviour
         if (path != null)
         {
             //gameObject.transform.position= WeekPoint.position; 
-            path.pathUpdated +=OnPathChanged;
+            path.pathUpdated += OnPathChanged;
 
             horizonHeight = path.bezierPath.PathBounds.center.y;
 
@@ -68,6 +70,7 @@ public class Sun : MonoBehaviour
         {
             if (transform.position.x<DayPoint.position.x)
             {
+                isArrive = false;
                 if (path != null)
                 {
                     distanceTravelled += speed * Time.deltaTime * 1.2f;
@@ -78,6 +81,7 @@ public class Sun : MonoBehaviour
             }
             else
             {
+                isArrive = true;
                 //distanceTravelled = 0;
                 transform.position = DayPoint.position;
             }
@@ -87,6 +91,7 @@ public class Sun : MonoBehaviour
         {
             if (transform.position.x > WeekPoint.position.x)
             {
+                isArrive = false;
                 if (path != null)
                 {
                     distanceTravelled += speed * Time.deltaTime * 1.2f;
@@ -118,8 +123,6 @@ public class Sun : MonoBehaviour
     {
         if (transform.position.y > horizonHeight)
         {
-
-
             float sunPos = (transform.position.x - path.transform.position.x - minX) / (maxX - minX);
             sunLight.intensity = curve.Evaluate(sunPos);
 

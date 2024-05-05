@@ -384,7 +384,7 @@ MonoBehaviour:
   - {fileID: 288718107}
   Cloud: {fileID: 614460853}
   MaxStarNum: 1000
-  MainCamera: {fileID: 30122929}
+  MainCamera: {fileID: 2109345719}
   endOfPathInstruction: 0
   speed: 1
   path: {fileID: 2000654998}
