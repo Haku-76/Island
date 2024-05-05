@@ -9,7 +9,12 @@ public class TimeEventSystem : MonoBehaviour
     public static TimeEventSystem instance{get => _instance;}
 
 /// <summary>
-/// 时间更新时触发（更新过后的时间 Month, Day, TimeQuantum)
+/// 时间更新时触发 
+/// </summary>
+    public static event Action onTimeChanging;
+
+/// <summary>
+/// 时间更新完成后触发（更新过后的时间 Month, Day, TimeQuantum)
 /// </summary>
     public static event Action<int, int, TimeQuantum> onTimeChange;
 /// <summary>
@@ -65,8 +70,7 @@ public class TimeEventSystem : MonoBehaviour
     [ContextMenu("SkipTime")]
     public void SkipTime()
     {
-        onLastTimeEnd?.Invoke(Month, Day, timeQuantum);
-
+        onTimeChanging?.Invoke();
         switch (timeQuantum)
         {
             case TimeQuantum.DayTime:
@@ -82,14 +86,17 @@ public class TimeEventSystem : MonoBehaviour
                 }
                 break;
         }
-
-        onTimeChange?.Invoke(Month, Day, timeQuantum);
     }
 
     IEnumerator SkipRoutine()
     {
+        onLastTimeEnd?.Invoke(Month, Day, timeQuantum);
+        TransitionManager.Instance.StartSkipTime();
+        yield return new WaitForSeconds(1.5f);
         SkipTime();
-        yield return null;
+        yield return new WaitForSeconds(3f);
+        TransitionManager.Instance.EndSkipTime();
+        onTimeChange?.Invoke(Month, Day, timeQuantum);
     }
 
     public void Skip()

@@ -10,10 +10,9 @@ public class CameraStandAndTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log($"Enter{this.name}Area");
         if(other.gameObject.CompareTag("Player"))
         {
-            TransitionManager.Instance.SetCamera(cameraStand, isFollowPlayer);
+            TransitionManager.Instance.SetCameraWithTransition(cameraStand, isFollowPlayer);
         } 
     }
 }

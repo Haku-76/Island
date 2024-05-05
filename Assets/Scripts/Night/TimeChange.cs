@@ -11,17 +11,16 @@ public class TimeChange : MonoBehaviour
     private bool isbell = false;
     private void MouseRaycast(int Day, int Month, TimeQuantum timeQuantum)
     {
-            Vector2 rayOrigin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.zero);
+        Vector2 rayOrigin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.zero);
 
-            if (hit&&Input.GetMouseButtonDown(0))
+        if (hit&&Input.GetMouseButtonDown(0))
+        {
+            if (hit.collider.gameObject.CompareTag(targetTag))
             {
-                if (hit.collider.gameObject.CompareTag(targetTag))
-                {
-                    Debug.Log("Hit object with tag: " + targetTag);
-                    canChange = true;
-                }
+                canChange = true;
             }
+        }
         else
         {
             canChange = false;
@@ -33,7 +32,7 @@ public class TimeChange : MonoBehaviour
         MouseRaycast(TimeEventSystem.instance.Day, TimeEventSystem.instance.Month, TimeEventSystem.instance.timeQuantum);
         if (canChange&&isPlayer)
         {
-            TimeEventSystem.instance.SkipTime();
+            TimeEventSystem.instance.Skip();
         }
     }
 

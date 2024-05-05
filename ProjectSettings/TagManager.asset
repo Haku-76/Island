@@ -11,6 +11,7 @@ TagManager:
   - TimeEvent
   - Bed
   - Bag
+  - Bell
   layers:
   - Default
   - TransparentFX
