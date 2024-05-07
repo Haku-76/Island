@@ -6,6 +6,7 @@ position: 0,0
 <<Fade black 1.0 0.0 2.0>>
 <<Act 邮递员 邮递员 left bottom>>
 邮递员: 请问您是叫洛德吗？ 这里有你的一封信。
+<<Hide 邮递员>>
 <<jump Postman_Reply>>
 ===
 
@@ -112,6 +113,7 @@ position: 0,600
 <<onDialogueEnd>>
 <<exitBar>>
 ===
+
 
 title: Postman_GamePre
 position: 0,800

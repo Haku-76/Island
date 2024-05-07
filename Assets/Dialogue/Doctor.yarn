@@ -200,6 +200,7 @@ position: 0,600
     医生: ...也好。
 <<Hide 小孩>>
 <<Hide 主角>>
+<<Hide 医生>>
 <<onDialogueEnd>>
 <<exitBar>>
 <<npcExitBar Doctor>>
