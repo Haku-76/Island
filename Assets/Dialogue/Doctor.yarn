@@ -186,6 +186,7 @@ position: 0,400
 title: Doctor_Third2
 position: 0,600
 ---
+<<NPCEnter Doctor 100 1>>
 <<wait 3>>
 <<Scene background>>
 <<Fade black 0.0 1.0 2.0>>
