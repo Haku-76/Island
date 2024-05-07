@@ -26,9 +26,7 @@ public class NPC : MonoBehaviour
     [Header("组件")]
     protected Animator anim;
     [SerializeField]private GameObject sprite;
-    [SerializeField]private Material mat;
-    public DialogueRunner dialogueRunner;
-    public GameActions gameActions;
+    [SerializeField]protected Material mat;
 
     [Header("动画")]
     public AnimationClip blankAnimationClip;
@@ -140,6 +138,8 @@ public class NPC : MonoBehaviour
             if(matchSchedule != null)
             {
                 BuildPath(matchSchedule);
+
+
             }
         }
     }
@@ -163,27 +163,27 @@ public class NPC : MonoBehaviour
 
         if(isAlcoholRight && isTasteRight)
         {
-            dialogueRunner.StartDialogue(dialogueStartNodes_AfterDrinking[0]);
+            DialogueManager.Instance.StartDialogue(dialogueStartNodes_AfterDrinking[0]);
         }
         else if(!isAlcoholRight && !isTasteRight)
         {
-            dialogueRunner.StartDialogue(dialogueStartNodes_AfterDrinking[4]);
+            DialogueManager.Instance.StartDialogue(dialogueStartNodes_AfterDrinking[4]);
         }
         else if(!isAlcoholRight)
         {
             //酒精过多
             if((curAlcohol - adapted_Alcohol) > 0f)
             {
-                dialogueRunner.StartDialogue(dialogueStartNodes_AfterDrinking[1]);
+                DialogueManager.Instance.StartDialogue(dialogueStartNodes_AfterDrinking[1]);
             }
             else//酒精过少
             {
-                dialogueRunner.StartDialogue(dialogueStartNodes_AfterDrinking[2]);
+                DialogueManager.Instance.StartDialogue(dialogueStartNodes_AfterDrinking[2]);
             }
         }
         else if(!isTasteRight)
         {
-            dialogueRunner.StartDialogue(dialogueStartNodes_AfterDrinking[3]);
+            DialogueManager.Instance.StartDialogue(dialogueStartNodes_AfterDrinking[3]);
         }
     }
 
@@ -197,7 +197,7 @@ public class NPC : MonoBehaviour
 
 #endregion
 
-    private void SetNPCActive(bool value)
+    public void SetNPCActive(bool value)
     {
         sprite.SetActive(value);
         GetComponent<Collider2D>().enabled = value;
@@ -222,6 +222,11 @@ public class NPC : MonoBehaviour
         StartCoroutine(BurnNPC(() => {StartCoroutine(MoveRoutine(target, speed, () => {StartCoroutine(OnMoveEndEvent());}));}));
     }
 
+    protected virtual void SetMatAlpha(float target)
+    {
+        mat.SetFloat("_Alpha", target);
+    }
+
     private IEnumerator BurnNPC(System.Action onComplete)
     {
         npc_isActive = true;
@@ -236,13 +241,37 @@ public class NPC : MonoBehaviour
         while(elapsedTime < burnDuration)
         {
             var alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime/burnDuration);
-            mat.SetFloat("_Alpha", alpha);
+            SetMatAlpha(alpha);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        mat.SetFloat("_Alpha", targetAlpha);
+        SetMatAlpha(targetAlpha);
         onComplete?.Invoke();
     }
+
+    public void NPCEnter(int flag1, int flag2, TimeQuantum flag3)
+    {
+        int time = flag1 * 10000 + flag2 * 100 + (int)flag3;
+        
+        ScheduleDetails matchSchedule = null;
+        foreach(var schedule in scheduleSet)
+        {
+            if(schedule.Time == time)
+            {
+                matchSchedule = schedule;
+            }
+            // else if(schedule.Time > time)
+            // {
+            //     break;
+            // }
+        }
+
+        if(matchSchedule != null)
+        {
+            BuildPath(matchSchedule);
+        }
+    }   
+
     private IEnumerator NPCExit()
     {
         float startAlpha = 1;
@@ -252,11 +281,11 @@ public class NPC : MonoBehaviour
         while(elapsedTime < burnDuration)
         {
             var alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime/burnDuration);
-            mat.SetFloat("_Alpha", alpha);
+            SetMatAlpha(alpha);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        mat.SetFloat("_Alpha", targetAlpha);
+        SetMatAlpha(targetAlpha);
         // sprite.SetActive(false);
         SetNPCActive(false);
         npc_isActive = false;
@@ -296,6 +325,7 @@ public class NPC : MonoBehaviour
         targetPositions.Push(currentSchedule.targetPosition);
         startPosition = schedule.burnPosition;
         dialogueStartNode = schedule.dialogueStartNode;
+        interactable = schedule.interactable;
     }
 
     private IEnumerator OnMoveEndEvent()
@@ -318,11 +348,12 @@ public class NPC : MonoBehaviour
     {
         if(interactable && !isInteracted)
         {
+            
             isInteracted = true;
             player.LockPlayer();
             // dialogueRunner.StartDialogue(dialogueStartNode);
             DialogueManager.Instance.StartDialogue(dialogueStartNode);
-            gameActions.currentNPC = this;
+            GameActions.Instance.currentNPC = this;
         }
     }
 

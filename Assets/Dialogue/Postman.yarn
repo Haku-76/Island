@@ -7,6 +7,7 @@ position: 0,0
 <<Act 邮递员 邮递员 left bottom>>
 邮递员: 请问您是叫洛德吗？ 这里有你的一封信。
 <<Hide 邮递员>>
+<<jump Postman_Reply>>
 ===
 
 title: Postman_Reply
@@ -26,23 +27,24 @@ position: 0,200
     -> 怎么说？
         <<adjustEmotion +3>>
         邮递员: 下次来的时候再跟你说吧。我得先走了，还得去下一家呢。
-        <<unlock_player>>
         <<Hide 邮递员>>
         <<Hide 主角>>
-        <<jump Postman_Second>>
+        <<onDialogueEnd>>
+        <<exitBar>>
     -> 是啊......时代变了。
         <<set $choosedA111 to true>>
         <<adjustAcceptance +3>>
         邮递员: 哎...我先走了，还得赶往下一家呢。
-        <<unlock_player>>
         <<Hide 邮递员>>
         <<Hide 主角>>
-        <<jump Postman_Second>> 
+        <<onDialogueEnd>>
+        <<exitBar>>
 -> 谢谢，那我就先走了。
     <<adjustEmotion -5>>
     <<Hide 邮递员>>
     <<Hide 主角>>
-    <<unlock_player>>
+    <<onDialogueEnd>>
+    <<exitBar>>
 ===
 
 title: Postman_Second
@@ -61,7 +63,8 @@ position: 0,400
     邮递员: 不过今天是我最后一次来了，明天估计有邮局的人会上岛放一个邮箱，到时候会有专门的人来收。我还有点事就先走了。
     <<Hide 邮递员>>
     <<Hide 主角>>
-    <<unlock_player>>
+    <<onDialogueEnd>>
+    <<exitBar>>
 -> 这地方没信号，只能麻烦你跑这么远送信来。
     <<adjustEmotion +3>>
     邮递员: 没信号有时候也不见得是件坏事，现在的年轻人都沉迷网络，社会整体少了很多人情味儿。我们那会儿大家都住在四合院里吃大锅饭长大，关系都挺好的，不过我看你这个岛上人情味儿还蛮足的，每天都有人坐船来玩。
@@ -69,7 +72,8 @@ position: 0,400
     邮递员: 那也不错，哦对，我先走了，在市里还有事儿呢，明天再来找你聊。
     <<Hide 邮递员>>
     <<Hide 主角>>
-    <<unlock_player>>
+    <<onDialogueEnd>>
+    <<exitBar>>
 -> 上次您说时代变了，我也深有同感。<<if $choosedA111 == true>>
     <<adjustEmotion +3>>
     <<adjustAcceptance +2>>
@@ -79,7 +83,8 @@ position: 0,400
         邮递员: 没事儿，今天是我最后一次来了，明天估计有邮局的人会上岛放一个邮箱，到时候会有专门的人来收。我还有点事就先走了。
         <<Hide 邮递员>>
         <<Hide 主角>>
-        <<unlock_player>>
+        <<onDialogueEnd>>
+        <<exitBar>>
     -> 我这里离市区还是有相当长的距离，没网络信号，不过没网的生活反倒还更惬意了不少。
         <<adjustEmotion +3>>
         邮递员: 现在网上的人都太浮躁了，我们那会儿大家都住在四合院里吃大锅饭长大，关系都挺好的，现在的这些人都没啥人情味儿咯，不过我看你这个岛上还挺热闹，每天都有人坐船来玩。
@@ -87,7 +92,8 @@ position: 0,400
         邮递员: 我明儿再来找你聊，有你的东西我就顺便给你带过来。先拜拜了。
         <<Hide 邮递员>>
         <<Hide 主角>>
-        <<unlock_player>>
+        <<onDialogueEnd>>
+        <<exitBar>>
 ===
 
 title: Postman_Third
@@ -104,8 +110,10 @@ position: 0,600
 主角: 别胡乱说，你的身体硬朗着呢，肯定能长寿的。
 <<Hide 邮递员>>
 <<Hide 主角>>
-<<unlock_player>>
+<<onDialogueEnd>>
+<<exitBar>>
 ===
+
 
 title: Postman_GamePre
 position: 0,800
@@ -121,13 +129,13 @@ position: 0,800
     邮递员: 虽我不喝饮料，饮料和酒的勾兑我也不喝，那是年轻人喝的东西，一点儿味儿都没有。 
     <<Hide 邮递员>>
     <<Hide 主角>>
-    <<unlock_player>>
+    <<startBartten>>
 -> 呃，你确定你喝酒没事儿吗？
     <<adjustEmotion -5>>
     邮递员: 我跟你讲，我年轻那会儿特别能喝，现在老了反而家里人管着这不让干那不让干。
     <<Hide 邮递员>>
     <<Hide 主角>>
-    <<unlock_player>>
+    <<startBartten>>
 ===
 
 title: Postman_GameNoAlcohol
@@ -139,7 +147,8 @@ position: -200,1000
 <<Act 邮递员 邮递员 left bottom>>
 邮递员: 我不喜欢这个饮料的味道，不用担心，我要纯酒....纯酒！
 <<Hide 邮递员>>
-<<unlock_player>>
+<<onDialogueEnd>>
+<<exitBar>>
 ===
 
 title: Postman_GameAlcohol
@@ -156,13 +165,15 @@ position: 200,1000
     邮递员: 哈哈哈，我就说嘛这种酒的味道我永远都不会忘。
     <<Hide 邮递员>>
     <<Hide 主角>>
-    <<unlock_player>>
+    <<onDialogueEnd>>
+    <<exitBar>>
 -> 不是，我特别为你调的。
     <<adjustEmotion +5>>
     邮递员: 有点白兰地的感觉，还挺好喝的。。
     <<Hide 邮递员>>
     <<Hide 主角>>
-    <<unlock_player>>
+    <<onDialogueEnd>>
+    <<exitBar>>
 ===
 
 title: Postman_GamePost

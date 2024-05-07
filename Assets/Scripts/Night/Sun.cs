@@ -5,14 +5,17 @@ using UnityEngine.Rendering.Universal;
 using static UnityEngine.ParticleSystem;
 using PathCreation;
 using System;
+using DG.Tweening;
 
 public class Sun : MonoBehaviour
 {
     public Light2D sunLight;
-    public Transform WeekPoint;
-    public Transform DayPoint;
 
-    public bool isArrive;
+    public float weekPoint;
+    public float dayPoint;
+
+    public float light_Intensity_DayTime;
+    public float light_Intensity_WeekTime;
 
     [Header("曲线部分")]
     public AnimationCurve curve;
@@ -43,10 +46,7 @@ public class Sun : MonoBehaviour
 
     public PathCreator path;
 
-    void Awake()
-    {
-        sunLight = FindAnyObjectByType<Light2D>();
-    }
+    bool flag;
 
     private void Start()
     {
@@ -62,53 +62,74 @@ public class Sun : MonoBehaviour
             maxX = path.bezierPath.PathBounds.max.x;
             minX= path.bezierPath.PathBounds.min.x;
         }
+
+        
+    }
+
+    void OnEnable()
+    {
+        // TimeEventSystem.onTimeChanging += OnTimeChanging;
+    }
+
+    void OnDisable()
+    {
+        // TimeEventSystem.onTimeChanging -= OnTimeChanging;
     }
 
     private void Update()
     {
         if (TimeEventSystem.instance.timeQuantum == TimeQuantum.DayTime)
         {
-            if (transform.position.x<DayPoint.position.x)
+            if (Math.Abs(distanceTravelled - dayPoint) > 0.2f)
             {
-                isArrive = false;
                 if (path != null)
                 {
                     distanceTravelled += speed * Time.deltaTime * 1.2f;
+                    distanceTravelled %= path.path.length;
                     transform.position = path.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
                     Follow();
-                    Daytime();
                 }
             }
             else
             {
-                isArrive = true;
+                
                 //distanceTravelled = 0;
-                transform.position = DayPoint.position;
+                transform.position = path.path.GetPointAtDistance(dayPoint, endOfPathInstruction);
             }
         }
 
         if (TimeEventSystem.instance.timeQuantum == TimeQuantum.WeekHours)
         {
-            if (transform.position.x > WeekPoint.position.x)
+            if (Math.Abs(distanceTravelled - weekPoint) > 0.2f)
             {
-                isArrive = false;
                 if (path != null)
                 {
-                    distanceTravelled += speed * Time.deltaTime * 1.2f;
+                    distanceTravelled += speed * Time.deltaTime;
+                    distanceTravelled %= path.path.length;
                     transform.position = path.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
                     Follow();
-                    Daytime();
+                    
                 }
             }
             else
             {
-                distanceTravelled = 0;
-                transform.position = WeekPoint.position;
+                // distanceTravelled = 0;
+                transform.position = path.path.GetPointAtDistance(weekPoint, endOfPathInstruction);
             }
         }   
+    
+        if(distanceTravelled > 20f)
+        {
+            WeekDay();
+        }
+        else
+        {
+            Daytime();
+        }
     }
 
 
+    float timeDef = 0;
     void Follow()
     {
         path.transform.position = new Vector3(MainCamera.position.x + offset.x, path.transform.position.y, 0);//只会变化x保持摄像机运动;
@@ -119,17 +140,24 @@ public class Sun : MonoBehaviour
         distanceTravelled = path.path.GetClosestDistanceAlongPath(transform.position);
     }
 
+    void OnTimeChanging()
+    {
+        Debug.Log($"Sun_onLastTimeEnd");
+        timeDef = 0;
+    }
+
     void Daytime()
     {
         if (transform.position.y > horizonHeight)
         {
             float sunPos = (transform.position.x - path.transform.position.x - minX) / (maxX - minX);
-            sunLight.intensity = curve.Evaluate(sunPos);
+            DOTween.To(()=>sunLight.intensity, x => sunLight.intensity = x, light_Intensity_DayTime, 4f);
+
 
             for (int i = 0; i < Stars.Length; i++)
             {
                 MainModule main = Stars[i].main;
-                main.maxParticles = Mathf.Max(0, (int)(MaxStarNum * StarNumCurve.Evaluate(sunPos)));
+                main.maxParticles = 0;
             }
 
             // 计算云的颜色，根据您希望的变化速度进行调整
@@ -138,15 +166,18 @@ public class Sun : MonoBehaviour
             MainModule mainModule = Cloud.main;
             mainModule.startColor = cloudColor;
         }
-        else
-        {
-            WeekDay();
-        }
     }
 
     void WeekDay()
     {
-        sunLight.intensity = 0.08f;
+        // if(timeDef < 5f)
+        // {
+        //     float def = timeDef / 5;
+        //     sunLight.intensity = Mathf.Lerp(sunLight.intensity, light_Intensity_WeekTime, def);
+        //     timeDef += Time.deltaTime;
+        // }
+        DOTween.To(()=>sunLight.intensity, x => sunLight.intensity = x, light_Intensity_WeekTime, 4f);
+        
         for (int i = 0; i < Stars.Length; i++)
         {
             MainModule main = Stars[i].main;

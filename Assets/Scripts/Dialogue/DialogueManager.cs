@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour
     private static DialogueManager _instance;
     public static DialogueManager Instance{get => _instance;}
 
+
     void Awake()
     {
         if(_instance != null)
@@ -20,10 +21,15 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    public PlayerController player;
     public DialogueRunner dialogueRunner;
+
+    public bool isDialoguing;
 
     public void StartDialogue(string startNode)
     {
+        isDialoguing = true;
         dialogueRunner.StartDialogue(startNode);
+        player.LockPlayer();
     }
 }

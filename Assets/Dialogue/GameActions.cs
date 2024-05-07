@@ -3,20 +3,25 @@ using UnityEngine;
 using Yarn.Unity;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Spine.Unity;
+using System;
 
-public class GameActions : MonoBehaviour
+public class GameActions : Singleton<GameActions>
 {
     private GameObject player;
     public DialogueRunner dialogueRunner;
     public TextMeshProUGUI emotionTip;
     public TextMeshProUGUI acceptanceTip;
     public Value value;
+    public Item novelistLetter;
+    public static int letterCount;
     public float displayTime = 1.0f;
     public float fadeTime = 0.5f;
     public NPC currentNPC;
 
     void Awake()
     {
+        base.Awake();
         dialogueRunner.AddCommandHandler<string>("adjustEmotion", AdjustEmotion);
         dialogueRunner.AddCommandHandler<string>("adjustAcceptance", AdjustAcceptance);
         dialogueRunner.AddCommandHandler<string>("changeScene", ChangeScene);
@@ -25,14 +30,20 @@ public class GameActions : MonoBehaviour
         dialogueRunner.AddCommandHandler("onDialogueEnd", OnDialogueEnd);
         dialogueRunner.AddCommandHandler("startBartten", StartBartten);
 
+        dialogueRunner.AddCommandHandler<string, int, int>("NPCEnter", NPCEnter);
         dialogueRunner.AddCommandHandler("moveToBartten", MoveToBartten);
+        dialogueRunner.AddCommandHandler("exitBartten", ExitBartten);
 
         dialogueRunner.AddCommandHandler("exitBar", ExitBar);
+        dialogueRunner.AddCommandHandler<string>("npcExitBar", NPCExitBar);
         dialogueRunner.AddCommandHandler("npcOver", NPCOver);
         
         dialogueRunner.AddCommandHandler("plankSpankerPlayAni", PlankSpanker_PlayRecital);
         dialogueRunner.AddCommandHandler("plankSpankerStopPlayAni", PlankSpanker_StopPlayRecital);
         dialogueRunner.AddCommandHandler("plankSpankerStartWork", PlankSpanker_StartWork);
+
+        novelistLetter = Resources.Load<Item>("Novelist_1");
+        //dialogueRunner.AddCommandHandler("getNovelistLetter", GetNovelistLetter);
 
         player = GameObject.FindWithTag("Player");
     }
@@ -45,6 +56,18 @@ public class GameActions : MonoBehaviour
     void OnDisable()
     {
         GameRoot.FinishGameEvent -= OnFinishGameEvent;
+    }
+
+    void Update()
+    {
+        letterCount = novelistLetter.itemHeld;
+    }
+
+    [YarnFunction("getNovelistLetter")]
+    public static int GetNovelistLetter()
+    {
+        print(letterCount);
+        return letterCount;
     }
 
     private void OnFinishGameEvent(MixedWine_Data wine_data)
@@ -74,14 +97,35 @@ public class GameActions : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    private void NPCEnter(string name, int flag1, int flag2)
+    {
+        NPCManager.Instance.NPCEnter(name, flag1, flag2);
+    }
+
     private void StartBartten()
     {
         GameRoot.Instance.CallEnterGameEvent();
+        MoveToBartten();
     }
 
     private void MoveToBartten()
     {
         player.transform.position = Position_Data.Bartten_Pos;
+        EnterBartten();
+    }
+
+    private void EnterBartten()
+    {
+        var renderer = player.GetComponent<Renderer>();
+        renderer.sortingLayerName = "Item";
+        renderer.sortingOrder = 1;
+    }
+
+    private void ExitBartten()
+    {
+        var renderer = player.GetComponent<Renderer>();
+        renderer.sortingLayerName = "Player";
+        renderer.sortingOrder = 1;
     }
 
     private void LockPlayer()
@@ -92,6 +136,7 @@ public class GameActions : MonoBehaviour
     private void OnDialogueEnd()
     {
         UnLockPlayer();
+        DialogueManager.Instance.isDialoguing = false;
     }
 
     private void UnLockPlayer()
@@ -126,6 +171,11 @@ public class GameActions : MonoBehaviour
     private void ExitBar()
     {
         currentNPC.exitBar();
+    }
+
+    private void NPCExitBar(string name)
+    {
+        NPCManager.Instance.NPCExit(name);
     }
 
     private void NPCOver()

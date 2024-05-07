@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    [SceneName]
     public string newSceneName;
 
     public void LoadNewScene()
     {
-        SceneManager.LoadScene(newSceneName);
+        ScenesManager.Instance.GoToMainScene(new Vector3(0,-1.25f,0));
     }
 }

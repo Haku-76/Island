@@ -2,18 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIPanelManager
+public class UIPanelManager:Singleton<UIPanelManager>
 {
-    private static UIPanelManager instance = new UIPanelManager();
-    public static UIPanelManager Instance => instance;
-
     private Dictionary<string, BasePanel> panelDic = new Dictionary<string, BasePanel>();
 
-    private Transform canvasTransform;
 
-    private UIPanelManager()
+    void Awake()
     {
-        canvasTransform = GameObject.Find("Canvas").transform;
+        base.Awake();
+
     }
 
     public T showPanel<T>(bool isdynamic = true) where T : BasePanel
@@ -25,7 +22,7 @@ public class UIPanelManager
             if (!panelDic.ContainsKey(panelName))
             {
                 GameObject panelObj = GameObject.Instantiate(Resources.Load<GameObject>(path));
-                panelObj.transform.SetParent(canvasTransform, false);
+                panelObj.transform.SetParent(transform, false);
 
                 T panel = panelObj.GetComponent<T>();
                 panelDic.Add(panelName, panel);
@@ -37,7 +34,7 @@ public class UIPanelManager
         }
         else
         {
-            T panel =  canvasTransform.Find(panelName).GetComponent<T>();
+            T panel =  transform.Find(panelName).GetComponent<T>();
             panel.Show();
             return panel;
         }
@@ -72,7 +69,7 @@ public class UIPanelManager
         {
             return panelDic[panelName] as T;
         }
-        Debug.Log("Œ¥‘⁄◊÷µ‰÷–’“µΩ∂‘”¶√Ê∞Â");
+        //Debug.Log("Œ¥ÔøΩÔøΩÔøΩ÷µÔøΩÔøΩÔøΩÔøΩ“µÔøΩÔøΩÔøΩ”¶ÔøΩÊ∞ÅE);
         return null;
     }
 }
