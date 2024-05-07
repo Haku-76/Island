@@ -32,6 +32,7 @@ public class NPCManager : MonoBehaviour
         foreach(var npc in npcList)
         {
             npcdic.Add(npc.GetType().Name, npc);
+            npc.SetNPCActive(false);
         }
     }
     

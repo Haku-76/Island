@@ -236,7 +236,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.15
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 000000006d49cfd9f5db57079b836b61591ae86ac5ea31f5190e8d80
@@ -485,7 +485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2273447275349712871, guid: f8704c99ec3745d41b88aa3aa4f91f07, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2273447275349712871, guid: f8704c99ec3745d41b88aa3aa4f91f07, type: 3}
       propertyPath: m_SortingOrder
@@ -588,7 +588,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1017658813256937967, guid: e381103374cb21845b0801dacc49577d, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1017658813256937967, guid: e381103374cb21845b0801dacc49577d, type: 3}
       propertyPath: m_SortingOrder
@@ -866,6 +866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947bdab980608ed42821c0391d1a55bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcList: []
 --- !u!4 &1228821638
 Transform:
   m_ObjectHideFlags: 0
@@ -903,9 +904,13 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2919371628551788430, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
+      propertyPath: novelistLetter
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e3ae5feca7aac2428de466afc469f7b, type: 2}
     - target: {fileID: 5279350309467548309, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
       propertyPath: startNode
-      value: NormalGuest_1
+      value: Novelist_Letter
       objectReference: {fileID: 0}
     - target: {fileID: 5279350309467548309, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
       propertyPath: startAutomatically
@@ -918,11 +923,11 @@ PrefabInstance:
     - target: {fileID: 7361255235096831017, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: ecab14a50691ac049a2023ac244b9fce, type: 2}
+      objectReference: {fileID: 11400000, guid: b6c8d3621fd247943b382b3deb2652f7, type: 2}
     - target: {fileID: 7361255235096831017, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2200132102344065627, guid: ecab14a50691ac049a2023ac244b9fce, type: 2}
+      objectReference: {fileID: 2200132102344065627, guid: b6c8d3621fd247943b382b3deb2652f7, type: 2}
     - target: {fileID: 7361255235096831017, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -1087,6 +1092,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimeManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8699770346947356717, guid: 64a84b832e5ed419aa9d0479e3769e60, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1122,6 +1131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar_Game: {fileID: 3542217038133824042, guid: 3c647cd8dc1511d4da13e9099c8b49a0, type: 3}
+  gameCameraStand: {fileID: 0}
 --- !u!4 &1926999025
 Transform:
   m_ObjectHideFlags: 0
@@ -1168,6 +1178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1116781244}
   player: {fileID: 670052403}
+  panoramaCam: {fileID: 0}
 --- !u!4 &1989179408
 Transform:
   m_ObjectHideFlags: 0
@@ -1771,8 +1782,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u80CC\u5305"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ecab14a50691ac049a2023ac244b9fce, type: 2}
-  m_sharedMaterial: {fileID: 2200132102344065627, guid: ecab14a50691ac049a2023ac244b9fce, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6c8d3621fd247943b382b3deb2652f7, type: 2}
+  m_sharedMaterial: {fileID: 2200132102344065627, guid: b6c8d3621fd247943b382b3deb2652f7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2496,8 +2507,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Mail
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ecab14a50691ac049a2023ac244b9fce, type: 2}
-  m_sharedMaterial: {fileID: 2200132102344065627, guid: ecab14a50691ac049a2023ac244b9fce, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6c8d3621fd247943b382b3deb2652f7, type: 2}
+  m_sharedMaterial: {fileID: 2200132102344065627, guid: b6c8d3621fd247943b382b3deb2652f7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

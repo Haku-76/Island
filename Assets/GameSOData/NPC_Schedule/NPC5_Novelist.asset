@@ -12,4 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b44548de357e7640800a9481f053fce, type: 3}
   m_Name: NPC5_Novelist
   m_EditorClassIdentifier: 
-  scheduleList: []
+  scheduleList:
+  - month: 7
+    day: 3
+    time: 1
+    priority: 1
+    burnPosition: {x: -19, y: -1.5, z: 0}
+    targetPosition: {x: -0.13, y: -1.51, z: 0}
+    clipAfterArive: {fileID: -3852187944133783205, guid: a6f8a49709f18fc43b36fdf5338da572, type: 2}
+    dialogueStartNode: Novelist_Start
+    interactable: 1
+  - month: 7
+    day: 6
+    time: 1
+    priority: 1
+    burnPosition: {x: -19, y: -1.5, z: 0}
+    targetPosition: {x: -0.13, y: -1.51, z: 0}
+    clipAfterArive: {fileID: -3852187944133783205, guid: a6f8a49709f18fc43b36fdf5338da572, type: 2}
+    dialogueStartNode: Novelist_Second
+    interactable: 1

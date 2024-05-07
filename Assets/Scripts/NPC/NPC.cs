@@ -197,7 +197,7 @@ public class NPC : MonoBehaviour
 
 #endregion
 
-    private void SetNPCActive(bool value)
+    public void SetNPCActive(bool value)
     {
         sprite.SetActive(value);
         GetComponent<Collider2D>().enabled = value;
