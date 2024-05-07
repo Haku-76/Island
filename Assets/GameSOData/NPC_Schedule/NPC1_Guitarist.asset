@@ -13,22 +13,15 @@ MonoBehaviour:
   m_Name: NPC1_Guitarist
   m_EditorClassIdentifier: 
   scheduleList:
-  - month: 6
-    day: 30
+  - month: 7
+    day: 1
     time: 1
     priority: 1
     burnPosition: {x: -19, y: -1.5, z: 0}
     targetPosition: {x: 2, y: -1.5, z: 0}
     clipAfterArive: {fileID: 7838799202339853923, guid: 7e5d03e800f67e84db9de241001d191c, type: 2}
     dialogueStartNode: Guitarist_Start
-  - month: 7
-    day: 1
-    time: 1
-    priority: 1
-    burnPosition: {x: -19, y: -1.5, z: 0}
-    targetPosition: {x: -3.67, y: -1.5, z: 0}
-    clipAfterArive: {fileID: 0}
-    dialogueStartNode: Guitarist_FirstDay
+    interactable: 0
   - month: 7
     day: 2
     time: 1
@@ -36,7 +29,8 @@ MonoBehaviour:
     burnPosition: {x: -19, y: -1.5, z: 0}
     targetPosition: {x: -3.67, y: -1.5, z: 0}
     clipAfterArive: {fileID: 0}
-    dialogueStartNode: Guitarist_SecondDay
+    dialogueStartNode: Guitarist_FirstDay
+    interactable: 0
   - month: 7
     day: 3
     time: 1
@@ -44,7 +38,8 @@ MonoBehaviour:
     burnPosition: {x: -19, y: -1.5, z: 0}
     targetPosition: {x: -3.67, y: -1.5, z: 0}
     clipAfterArive: {fileID: 0}
-    dialogueStartNode: Guitarist_ThirdDay
+    dialogueStartNode: Guitarist_SecondDay
+    interactable: 0
   - month: 7
     day: 4
     time: 1
@@ -52,4 +47,14 @@ MonoBehaviour:
     burnPosition: {x: -19, y: -1.5, z: 0}
     targetPosition: {x: -3.67, y: -1.5, z: 0}
     clipAfterArive: {fileID: 0}
+    dialogueStartNode: Guitarist_ThirdDay
+    interactable: 0
+  - month: 7
+    day: 5
+    time: 1
+    priority: 1
+    burnPosition: {x: -19, y: -1.5, z: 0}
+    targetPosition: {x: -3.67, y: -1.5, z: 0}
+    clipAfterArive: {fileID: 0}
     dialogueStartNode: Guitarist_A422
+    interactable: 0

@@ -77,14 +77,20 @@ position: 150,300
         小说家: 说的有点多了，感谢你年轻人可以陪我聊天，期待下次见面。
         <<Hide 小说家>>
         <<Hide 主角>>
+        <<onDialogueEnd>>
+        <<exitBar>>
     -> 相信她也不希望您现在继续沉沦下去吧。
         小说家: 但愿吧。
         <<Hide 小说家>>
         <<Hide 主角>>
+        <<onDialogueEnd>>
+        <<exitBar>>
 -> 那她现在在哪呢？
     小说家: 我的妻子是我唯一的亲人，也是我活下去的全部动力了。可现在就连她也离我而去了，抱歉说的有点多了。
     <<Hide 小说家>>
     <<Hide 主角>>
+    <<onDialogueEnd>>
+    <<exitBar>>
 ===
 
 title: Novelist_Second
@@ -123,9 +129,13 @@ position: 0,700
                 小说家: 或许你是对的，我不该继续在这里继续沉沦下去了。
             <<Hide 小说家>>
             <<Hide 主角>>
+            <<onDialogueEnd>>
+            <<exitBar>>
 -> 靠那种地方干什么，我们这边不提供这种服务。
     <<Hide 小说家>>
     <<Hide 主角>>
+    <<onDialogueEnd>>
+    <<exitBar>>
 ===
 
 title: Novelist_A121
@@ -140,4 +150,6 @@ position: 0,900
     小说家: 感谢你的祝福，年轻人！
 <<Hide 小说家>>
 <<Hide 主角>>
+<<onDialogueEnd>>
+<<exitBar>>
 ===
