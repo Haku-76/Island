@@ -5,33 +5,38 @@ position: 0,0
 <<Fade black 0.0 1.0 2.0>>
 <<Fade black 1.0 0.0 2.0>>
 <<Act GuideMan GuideMan left bottom>>
-GuideMan: 欢迎游玩Island，接下来进行新手教程
-GuideMan: 目前您所处位置是位于Island的酒馆，您是该店的拥有者
+<<lock_player>>
+GuideMan: 欢迎游玩Haven Of Rode，接下来进行新手教程
+GuideMan: 目前您所处位置为酒馆，您是该酒馆的拥有者
 GuideMan: 左键点击即可位移到鼠标指定位置
+GuideMan: 右上角可打开背包，所获得的道具将储存于背包里
+<<unlock_player>>
 <<Hide GuideMan>>
+<<onDialogueEnd>>
 ===
 
 title: UpStairsGuide
 position: 0,0
 ---
 <<Scene background>>
-<<Fade black 0.0 1.0 2.0>>
-<<Fade black 1.0 0.0 2.0>>
+<<lock_player>>
 <<Act GuideMan GuideMan left bottom>>
 GuideMan: 靠近门时可点击箭头进行相应上下楼操作
 <<Hide GuideMan>>
+<<unlock_player>>
 ===
 
 title: GoOutGuide
 position: 0,0
 ---
 <<Scene background>>
-<<Fade black 0.0 1.0 2.0>>
-<<Fade black 1.0 0.0 2.0>>
 <<Act GuideMan GuideMan left bottom>>
+<<lock_player>>
 GuideMan: 位移至酒馆场景外时，将展示整座Island的风貌
 GuideMan: 您将在这里接待你的第一名客人
 <<Hide GuideMan>>
+<<unlock_player>>
+===
 
 title: MakeWineGuide
 position: 0,0
@@ -43,6 +48,7 @@ position: 0,0
 GuideMan: 来一杯清新一点的鸡尾酒
 <<startBartten>>
 <<moveToBartten>>
+<<lock_player>>
 ===
 
 title: DrinkGuide_01
@@ -52,14 +58,14 @@ position: 0,0
 <<Fade black 0.0 1.0 2.0>>
 <<Fade black 1.0 0.0 2.0>>
 <<Act GuideMan GuideMan left bottom>>
-GuideMan: 谢谢
+GuideMan: 谢谢,我要的就是这个
 <<adjustEmotion +2>>
 <<Hide GuideMan>>
 <<Act 主角 主角 right bottom>>
 主角: 原来调出顾客们喜欢的鸡尾酒，能让他们如此满足
 主角：。。。
 <<Hide 主角>>
-<<jump TimeGuide>>
+<<unlock_player>>
 ===
 
 title: DrinkGuide_02
@@ -71,22 +77,23 @@ position: 0,0
 <<Act GuideMan GuideMan left bottom>>
 GuideMan: 我要的不是这个
 <<Hide GuideMan>>
+<<startBartten>>
 ===
 
 title: TimeGuide
 position: 0,0
 ---
 <<Scene background>>
-<<Fade black 0.0 1.0 2.0>>
-<<Fade black 1.0 0.0 2.0>>
 <<Act 主角 主角 right bottom>>
+<<lock_player>>
 主角: 似乎只有6:30大家下班的时候才会来这里玩
 主角: 这么晚了应该没有新的客人了
 主角: 先睡觉吧
 <<Hide 主角>>
-<<Act GuideMan GuideMan right bottom>>
+<<Act GuideMan GuideMan left bottom>>
 GuideMan: 游戏中的时间会逐渐流失，具体时间将会显示在屏幕左上角
 GuideMan: 于不同的时间您将有不同的事务需要处理
+<<unlock_player>>
 <<Hide GuideMan>>
 ===
 
@@ -94,11 +101,22 @@ title: SleepGuide
 position: 0,0
 ---
 <<Scene background>>
-<<Fade black 0.0 1.0 2.0>>
-<<Fade black 1.0 0.0 2.0>>
-<<Act GuideMan GuideMan right bottom>>
-GuideMan: 点击床铺即可睡觉，进入下一天
+<<Act GuideMan GuideMan left bottom>>
+GuideMan: 点击床铺即可进入梦乡
+GuideMan: 进入下一天
+GuideMan: 祝您游玩愉快
 <<Hide GuideMan>>
 ===
 
+title: MailboxGuide
+position: 0,0
+---
+<<Scene background>>
+<<Act GuideMan GuideMan left bottom>>
+<<lock_player>>
+GuideMan: 靠近信箱可点击信箱查看所收信件
+GuideMan: 记得时常查询邮件
+<<unlock_player>>
+<<Hide GuideMan>>
+===
 
