@@ -13,6 +13,8 @@ public class GameActions : Singleton<GameActions>
     public TextMeshProUGUI emotionTip;
     public TextMeshProUGUI acceptanceTip;
     public Value value;
+    public Item novelistLetter;
+    public static int letterCount;
     public float displayTime = 1.0f;
     public float fadeTime = 0.5f;
     public NPC currentNPC;
@@ -40,6 +42,9 @@ public class GameActions : Singleton<GameActions>
         dialogueRunner.AddCommandHandler("plankSpankerStopPlayAni", PlankSpanker_StopPlayRecital);
         dialogueRunner.AddCommandHandler("plankSpankerStartWork", PlankSpanker_StartWork);
 
+        novelistLetter = Resources.Load<Item>("Novelist_1");
+        //dialogueRunner.AddCommandHandler("getNovelistLetter", GetNovelistLetter);
+
         player = GameObject.FindWithTag("Player");
     }
 
@@ -51,6 +56,18 @@ public class GameActions : Singleton<GameActions>
     void OnDisable()
     {
         GameRoot.FinishGameEvent -= OnFinishGameEvent;
+    }
+
+    void Update()
+    {
+        letterCount = novelistLetter.itemHeld;
+    }
+
+    [YarnFunction("getNovelistLetter")]
+    public static int GetNovelistLetter()
+    {
+        print(letterCount);
+        return letterCount;
     }
 
     private void OnFinishGameEvent(MixedWine_Data wine_data)

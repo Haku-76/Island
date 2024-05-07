@@ -72,7 +72,7 @@ public class UIPanelManager
         {
             return panelDic[panelName] as T;
         }
-        Debug.Log("未在字典中找到对应面板");
+        //Debug.Log("未在字典中找到对应面皝E);
         return null;
     }
 }

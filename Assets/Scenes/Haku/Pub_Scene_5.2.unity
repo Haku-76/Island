@@ -294,8 +294,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sunLight: {fileID: 0}
-  WeekPoint: {fileID: 19855363}
-  DayPoint: {fileID: 243097740}
+  weekPoint: 0
+  dayPoint: 0
+  light_Intensity_DayTime: 0
+  light_Intensity_WeekTime: 0
   curve:
     serializedVersion: 2
     m_Curve:
@@ -6408,7 +6410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &467812887
 Transform:
   m_ObjectHideFlags: 0
@@ -14210,7 +14212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1483771629
 Transform:
   m_ObjectHideFlags: 0
