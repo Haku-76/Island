@@ -23,7 +23,7 @@ position: 0,0
                 医生: 或许你是对的，让我再想想吧，可以给我调杯酒吗？我不是很能喝酒。
                 <<Hide 医生>>
                 <<Hide 主角>>
-                <<unlock_player>>
+                <<onDialogueEnd>>
                 <<startBartten>>
             -> 父母他们那一代人走过的路要比我们长，我们要走的弯路，他们早都走过了，提的建议自然是相对好的。
                 医生: 我觉得也是，这也是我来到这儿打杂工的最主要的一点，所以可以给我一份工作吗？
@@ -34,7 +34,7 @@ position: 0,0
                 医生: 那就有劳了，我平时因为随准备出诊都没怎么喝过酒，也不是很能喝酒。
                 <<Hide 医生>>
                 <<Hide 主角>>
-                <<unlock_player>>
+                <<onDialogueEnd>>
                 <<startBartten>>
             -> 人成家就有了牵挂了，需要顾虑的东西就更多了，对你而言也未必是一件好事，而且看你的样子不像是会缺伴侣的人啊？
                 医生: 原来确实有过女朋友，但是因为我大多时间都泡在医院陪着患者给他们看病，最后分了，后来就再也没谈过了。
@@ -42,7 +42,7 @@ position: 0,0
                 医生: 那就有劳了，我平时因为随准备出诊都没怎么喝过酒，也不是很能喝酒。
                 <<Hide 医生>>
                 <<Hide 主角>>
-                <<unlock_player>>
+                <<onDialogueEnd>>
                 <<startBartten>>
         -> 得得得，我觉得就是你不够相信自己。
             医生: 哎，要怪只能怪自己学艺不精，作为医生竟然对自己病患的病无可奈何。
@@ -50,13 +50,13 @@ position: 0,0
             医生: 说的也是，让我再想想吧，可以给我调杯酒吗？但我不是很能喝度数高的酒。
             <<Hide 医生>>
             <<Hide 主角>>
-            <<unlock_player>>
+            <<onDialogueEnd>>
             <<startBartten>>
     -> 长话短说，我赶时间。
         医生: 没...没什么。
         <<Hide 医生>>
         <<Hide 主角>>
-        <<unlock_player>>
+        <<onDialogueEnd>>
         <<exitBar>>
 -> 抱歉，我这地方也不大，暂时容不下这么多人。
     <<Hide 医生>>
@@ -89,7 +89,8 @@ position: 0,200
     医生: 也是，我可能还是没法从那件事情中走出来吧。
     <<Hide 医生>>
     <<Hide 主角>>
-    <<unlock_player>>
+    <<onDialogueEnd>>
+    <<exitBar>>
 -> 没有，我还是比较尊重每个顾客的任何隐私的。
 -> 说起来不好意思，有点好奇还是打开看了一下。
 医生: 看过也无所谓，写信的是个朝气十足的小男孩，算是我在医院里的最后一个患者，不出意外的话也将会是我医生生涯的最后一个。
@@ -101,20 +102,20 @@ position: 0,200
             医生: 我想我知道接下来该怎么做了。
             <<Hide 医生>>
             <<Hide 主角>>
-            <<unlock_player>>
+            <<onDialogueEnd>>
             <<exitBar>>
         -> 你问我啊？我也不知道。
             医生: 口嗨谁不会。
             <<Hide 医生>>
             <<Hide 主角>>
-            <<unlock_player>>
+            <<onDialogueEnd>>
             <<exitBar>>
     -> 逃避虽然可耻但是很有用。
         医生: 虽然不愿承认，但现在的我的确是这样的。 希望可以从其他的地方另寻工作。
         主角: 祝你好运，我的朋友。
         <<Hide 医生>>
         <<Hide 主角>>
-        <<unlock_player>>
+        <<onDialogueEnd>>
         <<exitBar>>
 -> 相信我，不会的。我看人很准的，我觉得在你不会真的放不下医生这个职业。
     医生: 真的吗？但是我每当我回想想到我无法回应他人的期待，我就觉得自己有愧于身上的那件自己引以为豪的白大衣。
@@ -122,13 +123,13 @@ position: 0,200
         医生: 或许我知道该怎么做了。
         <<Hide 医生>>
         <<Hide 主角>>
-        <<unlock_player>>
+        <<onDialogueEnd>>
         <<exitBar>>
     -> 每个人都是有极限的，有的时候适当躺平也不错，就当给自己放个小假，之后再回到自己岗位上或许是个不错的选择。
         医生: 或许我知道该怎么做了。
         <<Hide 医生>>
         <<Hide 主角>>
-        <<unlock_player>>
+        <<onDialogueEnd>>
         <<exitBar>>
 ===
 
@@ -146,7 +147,7 @@ position: 0,400
 -> 18？我才不信呢，谁带来的也不行，我这可不是什么小孩子的游乐场。
     <<Hide 小孩>>
     <<Hide 主角>>
-    <<unlock_player>>
+    <<onDialogueEnd>>
     <<exitBar>>
 -> 迪伦？医生小哥啊，那你一定是他经常提的小朋友吧！
     小孩: 以前他有提过我吗？
@@ -156,14 +157,13 @@ position: 0,400
             小孩: 咳咳咳……我会的。
             <<Hide 小孩>>
             <<Hide 主角>>
-            <<unlock_player>>
+            <<onDialogueEnd>>
             <<exitBar>>
         -> 其实，他和你一样都在克服困难的道路上。相信我，他会走出来的。
             小孩: 和迪伦哥说的一样，您真是一个十分温柔的人。
             主角: 多谢夸奖。
             <<Hide 小孩>>
             <<Hide 主角>>
-            <<unlock_player>>
             <<jump Doctor_Third2>>
     -> 他多次提起说很抱歉对你的病束手无策。
         小孩: 这件事情我多少也能察觉到，但是我也不希望任何人会因我的离去而感到悲伤。
@@ -174,19 +174,19 @@ position: 0,400
             主角: 当然了，我们是朋友。我们会一起面对这一切的。
             <<Hide 小孩>>
             <<Hide 主角>>
-            <<unlock_player>>
             <<jump Doctor_Third2>>
         -> 孩子还是就要有个小孩子的模样，成天这么想难怪病好不了。
             小孩: 可能吧，但我不觉得自己有错。
             <<Hide 小孩>>
             <<Hide 主角>>
-            <<unlock_player>>
+            <<onDialogueEnd>>
             <<exitBar>>
 ===
 
 title: Doctor_Third2
 position: 0,600
 ---
+<<wait 3>>
 <<Scene background>>
 <<Fade black 0.0 1.0 2.0>>
 <<Fade black 1.0 0.0 2.0>>
@@ -199,8 +199,9 @@ position: 0,600
     医生: ...也好。
 <<Hide 小孩>>
 <<Hide 主角>>
-<<unlock_player>>
+<<onDialogueEnd>>
 <<exitBar>>
+<<npcExitBar Doctor>>
 ===
 
 title: Doctor_Repeat
@@ -212,7 +213,7 @@ position: 0,800
 <<Act 医生 医生 left bottom>>
 医生: 我想我也该振作起来了。
 <<Hide 医生>>
-<<unlock_player>>
+<<onDialogueEnd>>
 ===
 
 

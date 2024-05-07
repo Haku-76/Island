@@ -248,6 +248,30 @@ public class NPC : MonoBehaviour
         SetMatAlpha(targetAlpha);
         onComplete?.Invoke();
     }
+
+    public void NPCEnter(int flag1, int flag2, TimeQuantum flag3)
+    {
+        int time = flag1 * 10000 + flag2 * 100 + (int)flag3;
+        
+        ScheduleDetails matchSchedule = null;
+        foreach(var schedule in scheduleSet)
+        {
+            if(schedule.Time == time)
+            {
+                matchSchedule = schedule;
+            }
+            // else if(schedule.Time > time)
+            // {
+            //     break;
+            // }
+        }
+
+        if(matchSchedule != null)
+        {
+            BuildPath(matchSchedule);
+        }
+    }   
+
     private IEnumerator NPCExit()
     {
         float startAlpha = 1;
@@ -301,6 +325,7 @@ public class NPC : MonoBehaviour
         targetPositions.Push(currentSchedule.targetPosition);
         startPosition = schedule.burnPosition;
         dialogueStartNode = schedule.dialogueStartNode;
+        interactable = schedule.interactable;
     }
 
     private IEnumerator OnMoveEndEvent()

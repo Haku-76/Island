@@ -8,6 +8,8 @@ public class NPCManager : MonoBehaviour
     private static NPCManager _instance;
     public static NPCManager Instance{get => _instance;}
     private Dictionary<NPCCourse, bool> npcCourseList = new();
+    private Dictionary<string, NPC> npcdic = new();
+    public List<NPC> npcList = new();
 
     private void Awake()
     {
@@ -26,6 +28,11 @@ public class NPCManager : MonoBehaviour
         {
             npcCourseList.Add(npc, true);
         }
+
+        foreach(var npc in npcList)
+        {
+            npcdic.Add(npc.GetType().Name, npc);
+        }
     }
     
     public void SetNPCCourseOver(NPCCourse name)
@@ -37,4 +44,16 @@ public class NPCManager : MonoBehaviour
         return npcCourseList[name];
     }
 
+    public void NPCEnter(string name, int flag1, int flag2)
+    {
+        var npc = npcdic[name];
+        Debug.Log(npc.name);
+        npc.NPCEnter(flag1, flag2, TimeQuantum.DayTime);
+    }
+
+    public void NPCExit(string name)
+    {
+        var npc = npcdic[name];
+        npc.exitBar();
+    }
 }

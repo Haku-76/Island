@@ -18,6 +18,7 @@ public class ScheduleDetails : IComparable<ScheduleDetails>
 
     public AnimationClip clipAfterArive;
     public string dialogueStartNode;
+    public bool interactable;
     
 
     public ScheduleDetails(int day, TimeQuantum time, int priority, Vector3 burnPosition, Vector3 targetPosition,string dialogueStartNode)

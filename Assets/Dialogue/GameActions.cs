@@ -28,10 +28,12 @@ public class GameActions : Singleton<GameActions>
         dialogueRunner.AddCommandHandler("onDialogueEnd", OnDialogueEnd);
         dialogueRunner.AddCommandHandler("startBartten", StartBartten);
 
+        dialogueRunner.AddCommandHandler<string, int, int>("NPCEnter", NPCEnter);
         dialogueRunner.AddCommandHandler("moveToBartten", MoveToBartten);
         dialogueRunner.AddCommandHandler("exitBartten", ExitBartten);
 
         dialogueRunner.AddCommandHandler("exitBar", ExitBar);
+        dialogueRunner.AddCommandHandler<string>("npcExitBar", NPCExitBar);
         dialogueRunner.AddCommandHandler("npcOver", NPCOver);
         
         dialogueRunner.AddCommandHandler("plankSpankerPlayAni", PlankSpanker_PlayRecital);
@@ -76,6 +78,11 @@ public class GameActions : Singleton<GameActions>
     {
         Debug.Log($"Changing to scene: {sceneName}");
         SceneManager.LoadScene(sceneName);
+    }
+
+    private void NPCEnter(string name, int flag1, int flag2)
+    {
+        NPCManager.Instance.NPCEnter(name, flag1, flag2);
     }
 
     private void StartBartten()
@@ -147,6 +154,11 @@ public class GameActions : Singleton<GameActions>
     private void ExitBar()
     {
         currentNPC.exitBar();
+    }
+
+    private void NPCExitBar(string name)
+    {
+        NPCManager.Instance.NPCExit(name);
     }
 
     private void NPCOver()

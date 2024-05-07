@@ -55,7 +55,7 @@ public class TimeEventSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            SkipTime();
+            Skip();
         }
     }
 
@@ -67,8 +67,7 @@ public class TimeEventSystem : MonoBehaviour
         }
     }
 
-    [ContextMenu("SkipTime")]
-    public void SkipTime()
+    private void SkipTime()
     {
         onTimeChanging?.Invoke();
         switch (timeQuantum)
