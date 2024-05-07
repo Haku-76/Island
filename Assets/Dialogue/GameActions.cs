@@ -30,9 +30,12 @@ public class GameActions : Singleton<GameActions>
         dialogueRunner.AddCommandHandler("onDialogueEnd", OnDialogueEnd);
         dialogueRunner.AddCommandHandler("startBartten", StartBartten);
 
+        dialogueRunner.AddCommandHandler<int, string>("sendLetter", SendLetter);
+        dialogueRunner.AddCommandHandler<string>("leftLetter", LeftLetter);
+        dialogueRunner.AddCommandHandler<string>("getLetter", GetLetter);
+
         dialogueRunner.AddCommandHandler<string, int, int>("NPCEnter", NPCEnter);
         dialogueRunner.AddCommandHandler("moveToBartten", MoveToBartten);
-        dialogueRunner.AddCommandHandler("exitBartten", ExitBartten);
 
         dialogueRunner.AddCommandHandler("exitBar", ExitBar);
         dialogueRunner.AddCommandHandler<string>("npcExitBar", NPCExitBar);
@@ -73,6 +76,11 @@ public class GameActions : Singleton<GameActions>
     private void OnFinishGameEvent(MixedWine_Data wine_data)
     {
         currentNPC.OnFinishGameEvent(wine_data);
+    }
+
+    private void SendLetter(int afterDay, string letter_name)
+    {
+        MailManager.Instance.SendLetter(afterDay, letter_name);
     }
 
     private void AdjustEmotion(string changeValue)
@@ -121,13 +129,6 @@ public class GameActions : Singleton<GameActions>
         renderer.sortingOrder = 1;
     }
 
-    private void ExitBartten()
-    {
-        var renderer = player.GetComponent<Renderer>();
-        renderer.sortingLayerName = "Player";
-        renderer.sortingOrder = 1;
-    }
-
     private void LockPlayer()
     {
         player.GetComponent<PlayerController>().LockPlayer();
@@ -168,6 +169,15 @@ public class GameActions : Singleton<GameActions>
     }
 
 #region NPC_Actions
+
+    private void GetLetter(string letter_name)
+    {
+        InventoryManager.AddLetterToBag(letter_name);
+    }
+    private void LeftLetter(string letter_name)
+    {
+        MailManager.Instance.LeftLetter(letter_name);
+    }
     private void ExitBar()
     {
         currentNPC.exitBar();

@@ -192,7 +192,7 @@ public class NPC : MonoBehaviour
     public void exitBar()
     {
         spAnimation = false;
-        StartCoroutine(MoveRoutine(startPosition, move_Speed, () => {StartCoroutine(NPCExit());}));
+        StartCoroutine(MoveRoutine(Position_Data.Boat_Pos, move_Speed, () => {StartCoroutine(NPCExit());}));
     } 
 
 #endregion

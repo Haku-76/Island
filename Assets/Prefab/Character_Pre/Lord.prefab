@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5199356382252442063}
   - component: {fileID: 52636888055665830}
   - component: {fileID: 8100287001802872967}
+  - component: {fileID: 5944602853047200816}
   m_Layer: 3
   m_Name: Lord
   m_TagString: Player
@@ -88,7 +89,7 @@ Rigidbody2D:
   m_Mass: 1000000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -112,10 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1001deec19c394f4fa02fba942bb2e5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueRunner: {fileID: 0}
   canMoveToNonNPC: 1
   moveSpeed: 5
-  interactionDistance: 1
+  interactionDistance: 0.1
   targetPosition: {x: 0, y: 0, z: 0}
   targetNPC: {fileID: 0}
   isMovingToNPC: 0
@@ -232,3 +232,15 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679241494685420946}
   m_Mesh: {fileID: 0}
+--- !u!210 &5944602853047200816
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679241494685420946}
+  m_Enabled: 1
+  m_SortingLayerID: 1793595993
+  m_SortingLayer: 4
+  m_SortingOrder: 1
+  m_SortAtRoot: 0

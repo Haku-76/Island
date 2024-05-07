@@ -34,6 +34,23 @@ public class InventoryManager : MonoBehaviour
         instance.itemInformation.text = itemDescription;
     }
 
+    public static void AddLetterToBag(string letter_name)
+    {
+        var letter = Resources.Load<Item>(letter_name);
+        Debug.Log(letter.name);
+        if(!instance.myBag.itemList.Contains(letter))
+            instance.myBag.itemList.Add(letter);
+        RefreshItem();
+    }
+    public static void AddItemIntoBag(Item item, GameObject obj)
+    {
+        if(!instance.myBag.itemList.Contains(item))
+            instance.myBag.itemList.Add(item);
+        RefreshItem();
+
+        Destroy(obj);
+    }
+
     public static void CreateNewItem(Item item)
     {
         Slot newItem = Instantiate(instance.slotPrefab, instance.slotGrid.transform.position, Quaternion.identity);

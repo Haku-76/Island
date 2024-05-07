@@ -9,7 +9,7 @@ public class TimeChange : MonoBehaviour
     private bool isPlayer = false;
     private bool isBed = false;
     private bool isbell = false;
-    private void MouseRaycast(int Day, int Month, TimeQuantum timeQuantum)
+    private void MouseRaycast()
     {
         Vector2 rayOrigin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.zero);
@@ -18,6 +18,7 @@ public class TimeChange : MonoBehaviour
         {
             if (hit.collider.gameObject.CompareTag(targetTag))
             {
+                Debug.Log(111);
                 canChange = true;
             }
         }
@@ -29,7 +30,7 @@ public class TimeChange : MonoBehaviour
 
     public virtual void Update()
     {
-        MouseRaycast(TimeEventSystem.instance.Day, TimeEventSystem.instance.Month, TimeEventSystem.instance.timeQuantum);
+        MouseRaycast();
         if (canChange&&isPlayer)
         {
             TimeEventSystem.instance.Skip();

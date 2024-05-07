@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimeEventSystem : MonoBehaviour
 {
@@ -41,12 +42,23 @@ public class TimeEventSystem : MonoBehaviour
 
     public void OnEnable()
     {
-        Day = 30;
-        Month = 6;
+        Day = 7;
+        Month = 7;
         timeQuantum = TimeQuantum.DayTime;
+
+        ScenesManager.GameStartEvent += OnGameStart;
+    }
+    private void OnDisable()
+    {
+        if(_instance == this)
+        {
+            _instance = null;
+        }
+
+        ScenesManager.GameStartEvent -= OnGameStart;
     }
 
-    void Start()
+    private void OnGameStart()
     {
         onTimeChange?.Invoke(Month, Day, timeQuantum);
     }
@@ -59,13 +71,6 @@ public class TimeEventSystem : MonoBehaviour
         }
     }
 
-    private void OnDisable()
-    {
-        if(_instance == this)
-        {
-            _instance = null;
-        }
-    }
 
     private void SkipTime()
     {

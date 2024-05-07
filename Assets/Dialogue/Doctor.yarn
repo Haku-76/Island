@@ -56,11 +56,13 @@ position: 0,0
         医生: 没...没什么。
         <<Hide 医生>>
         <<Hide 主角>>
+        <<npcOver>>
         <<onDialogueEnd>>
         <<exitBar>>
 -> 抱歉，我这地方也不大，暂时容不下这么多人。
     <<Hide 医生>>
     <<Hide 主角>>
+    <<npcOver>>
     <<onDialogueEnd>>
     <<exitBar>>
 ===
@@ -87,10 +89,6 @@ position: 0,200
 医生: 没错，你应该没有打开看过里面的东西吧。
 -> 我看没看过有关系吗，如果不看里面的我怎么能确定是你的。
     医生: 也是，我可能还是没法从那件事情中走出来吧。
-    <<Hide 医生>>
-    <<Hide 主角>>
-    <<onDialogueEnd>>
-    <<exitBar>>
 -> 没有，我还是比较尊重每个顾客的任何隐私的。
 -> 说起来不好意思，有点好奇还是打开看了一下。
 医生: 看过也无所谓，写信的是个朝气十足的小男孩，算是我在医院里的最后一个患者，不出意外的话也将会是我医生生涯的最后一个。
@@ -231,7 +229,7 @@ position: 0,800
 主角: 谢谢惠顾。
 <<Hide 医生>>
 <<Hide 主角>>
-<<exitBartten>>
+<<leftLetter Doctor_1>>
 <<exitBar>>
 <<onDialogueEnd>>
 ===
@@ -249,7 +247,7 @@ position: 0,800
 主角: 喂，可别在我这里耍酒疯啊。
 <<Hide 医生>>
 <<Hide 主角>>
-<<exitBartten>>
+<<leftLetter Doctor_1>>
 <<exitBar>>
 <<onDialogueEnd>>
 ===
@@ -268,7 +266,7 @@ position: 0,800
 主角: 谢谢惠顾。
 <<Hide 医生>>
 <<Hide 主角>>
-<<exitBartten>>
+<<leftLetter Doctor_1>>
 <<exitBar>>
 <<onDialogueEnd>>
 ===
@@ -286,7 +284,7 @@ position: 0,800
 主角: 不好意思。
 <<Hide 医生>>
 <<Hide 主角>>
-<<exitBartten>>
+<<leftLetter Doctor_1>>
 <<exitBar>>
 <<onDialogueEnd>>
 ===
@@ -304,7 +302,7 @@ position: 0,800
 主角: 会赢的！
 <<Hide 医生>>
 <<Hide 主角>>
-<<exitBartten>>
+<<leftLetter Doctor_1>>
 <<exitBar>>
 <<onDialogueEnd>>
 ===

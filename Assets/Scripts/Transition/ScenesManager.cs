@@ -15,6 +15,8 @@ public class ScenesManager : Singleton<ScenesManager>
 
     private CanvasGroup fadeCanvasGroup;
     private bool isFade;
+
+    public static event Action GameStartEvent;
     protected override void Awake()
     {
         base.Awake();
@@ -47,7 +49,7 @@ public class ScenesManager : Singleton<ScenesManager>
         yield return LoadSceneSetActive(mainSceneName);
         TransitionManager.Instance.ResetPlayer();
         yield return Fade(0);
-
+        GameStartEvent?.Invoke();
     }
     
     private IEnumerator Transition(string sceneName, Vector3 targetPosition)
