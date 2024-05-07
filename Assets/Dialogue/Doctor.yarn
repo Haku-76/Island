@@ -24,7 +24,7 @@ position: 0,0
                 <<Hide 医生>>
                 <<Hide 主角>>
                 <<unlock_player>>
-                <<changeScene BartendGame>>
+                <<startBartten>>
             -> 父母他们那一代人走过的路要比我们长，我们要走的弯路，他们早都走过了，提的建议自然是相对好的。
                 医生: 我觉得也是，这也是我来到这儿打杂工的最主要的一点，所以可以给我一份工作吗？
                 -> 我觉得你还需要一段时间冷静冷静，考虑清楚了，会给你工作的。
@@ -35,7 +35,7 @@ position: 0,0
                 <<Hide 医生>>
                 <<Hide 主角>>
                 <<unlock_player>>
-                <<changeScene BartendGame>>
+                <<startBartten>>
             -> 人成家就有了牵挂了，需要顾虑的东西就更多了，对你而言也未必是一件好事，而且看你的样子不像是会缺伴侣的人啊？
                 医生: 原来确实有过女朋友，但是因为我大多时间都泡在医院陪着患者给他们看病，最后分了，后来就再也没谈过了。
                 主角: 事业固然重要，但家庭也是人生不可或缺的一环啊。而且我听你描述并不觉得你是那种不负责人的人，工作的事儿我建议你再想想。既然来都来了，我就请你喝点我调的酒好了，你口味如何？
@@ -43,7 +43,7 @@ position: 0,0
                 <<Hide 医生>>
                 <<Hide 主角>>
                 <<unlock_player>>
-                <<changeScene BartendGame>>
+                <<startBartten>>
         -> 得得得，我觉得就是你不够相信自己。
             医生: 哎，要怪只能怪自己学艺不精，作为医生竟然对自己病患的病无可奈何。
             主角: 你看我说什么来着，你又来，未来不确定的事太多了给自己增加烦恼。未来的事儿就交给未来的自己吧。
@@ -51,16 +51,18 @@ position: 0,0
             <<Hide 医生>>
             <<Hide 主角>>
             <<unlock_player>>
-            <<changeScene BartendGame>>
+            <<startBartten>>
     -> 长话短说，我赶时间。
         医生: 没...没什么。
         <<Hide 医生>>
         <<Hide 主角>>
         <<unlock_player>>
+        <<exitBar>>
 -> 抱歉，我这地方也不大，暂时容不下这么多人。
     <<Hide 医生>>
     <<Hide 主角>>
-    <<unlock_player>>
+    <<onDialogueEnd>>
+    <<exitBar>>
 ===
 
 title: Doctor_Again
@@ -199,4 +201,90 @@ position: 0,800
 医生: 我想我也该振作起来了。
 <<Hide 医生>>
 <<unlock_player>>
+===
+
+
+title: Doctor_drink_0
+position: 0,800
+---
+<<Scene background>>
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 医生 医生 left bottom>>
+医生: 真好喝，微醺的感觉，真好啊，能短暂逃离现实。
+主角: 谢谢惠顾。
+<<Hide 医生>>
+<<Hide 主角>>
+<<exitBartten>>
+<<exitBar>>
+<<onDialogueEnd>>
+===
+
+
+title: Doctor_drink_1
+position: 0,800
+---
+<<Scene background>>
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 医生 医生 left bottom>>
+医生: 呜。。。 喝！，再来一杯！
+主角: 喂，可别在我这里耍酒疯啊。
+<<Hide 医生>>
+<<Hide 主角>>
+<<exitBartten>>
+<<exitBar>>
+<<onDialogueEnd>>
+===
+
+
+
+title: Doctor_drink_2
+position: 0,800
+---
+<<Scene background>>
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 医生 医生 left bottom>>
+医生: 啧，你给我的是白水吗？
+主角: 谢谢惠顾。
+<<Hide 医生>>
+<<Hide 主角>>
+<<exitBartten>>
+<<exitBar>>
+<<onDialogueEnd>>
+===
+
+
+title: Doctor_drink_3
+position: 0,800
+---
+<<Scene background>>
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 医生 医生 left bottom>>
+医生: 啧，好酸，就好像生活苦涩的味道，哎，这种感觉也不赖。
+主角: 不好意思。
+<<Hide 医生>>
+<<Hide 主角>>
+<<exitBartten>>
+<<exitBar>>
+<<onDialogueEnd>>
+===
+
+
+title: Doctor_drink_4
+position: 0,800
+---
+<<Scene background>>
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 医生 医生 left bottom>>
+医生: 哎，这样的生活到底什么时候是个头啊，就好像这杯中苦涩一样
+主角: 会赢的！
+<<Hide 医生>>
+<<Hide 主角>>
+<<exitBartten>>
+<<exitBar>>
+<<onDialogueEnd>>
 ===

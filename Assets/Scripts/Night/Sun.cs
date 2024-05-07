@@ -100,7 +100,6 @@ public class Sun : MonoBehaviour
 
         if (TimeEventSystem.instance.timeQuantum == TimeQuantum.WeekHours)
         {
-            Debug.Log(distanceTravelled);
             if (Math.Abs(distanceTravelled - weekPoint) > 0.2f)
             {
                 if (path != null)

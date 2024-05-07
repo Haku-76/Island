@@ -3,6 +3,7 @@ using UnityEngine;
 using Yarn.Unity;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Spine.Unity;
 
 public class GameActions : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class GameActions : MonoBehaviour
         dialogueRunner.AddCommandHandler("startBartten", StartBartten);
 
         dialogueRunner.AddCommandHandler("moveToBartten", MoveToBartten);
+        dialogueRunner.AddCommandHandler("exitBartten", ExitBartten);
 
         dialogueRunner.AddCommandHandler("exitBar", ExitBar);
         dialogueRunner.AddCommandHandler("npcOver", NPCOver);
@@ -77,11 +79,27 @@ public class GameActions : MonoBehaviour
     private void StartBartten()
     {
         GameRoot.Instance.CallEnterGameEvent();
+        MoveToBartten();
     }
 
     private void MoveToBartten()
     {
         player.transform.position = Position_Data.Bartten_Pos;
+        EnterBartten();
+    }
+
+    private void EnterBartten()
+    {
+        var renderer = player.GetComponent<Renderer>();
+        renderer.sortingLayerName = "Item";
+        renderer.sortingOrder = 1;
+    }
+
+    private void ExitBartten()
+    {
+        var renderer = player.GetComponent<Renderer>();
+        renderer.sortingLayerName = "Player";
+        renderer.sortingOrder = 1;
     }
 
     private void LockPlayer()

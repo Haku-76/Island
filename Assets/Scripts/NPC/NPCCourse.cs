@@ -3,7 +3,9 @@
 /// </summary>
 public enum NPCCourse
 {
+    Normal,
     Guitarist, 
+    Doctor,
     
     
 }

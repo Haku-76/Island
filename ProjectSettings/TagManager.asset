@@ -55,14 +55,14 @@ TagManager:
   - name: SceneProps
     uniqueID: 123198453
     locked: 0
+  - name: Item
+    uniqueID: 4113689285
+    locked: 0
   - name: NPC
     uniqueID: 1634435995
     locked: 0
   - name: Player
     uniqueID: 1793595993
-    locked: 0
-  - name: Item
-    uniqueID: 4113689285
     locked: 0
   - name: Front
     uniqueID: 2156727833

@@ -223,7 +223,6 @@ position: 0,2000
     主角: 请问您需要来一杯吗？
     吉他手母亲: 来一杯吧。口味清爽一点的，酒精不要太重。
     <<startBartten>>
-    <<moveToBartten>>
 -> 她在这里做驻唱，请问您有什么事吗？
     <<adjustEmotion +5>>
 <<Hide 吉他手母亲>>
@@ -241,6 +240,7 @@ position: 0,2100
 主角: 谢谢惠顾。
 <<Hide 吉他手母亲>>
 <<Hide 主角>>
+<<exitBartten>>
 <<exitBar>>
 <<onDialogueEnd>>
 ===
@@ -256,6 +256,7 @@ position: 0,2100
 主角: 谢谢惠顾。
 <<Hide 吉他手母亲>>
 <<Hide 主角>>
+<<exitBartten>>
 <<exitBar>>
 <<onDialogueEnd>>
 ===
@@ -271,6 +272,7 @@ position: 0,2100
 主角: 谢谢惠顾。
 <<Hide 吉他手母亲>>
 <<Hide 主角>>
+<<exitBartten>>
 <<exitBar>>
 <<onDialogueEnd>>
 ===
@@ -286,6 +288,7 @@ position: 0,2100
 主角: 不好意思。
 <<Hide 吉他手母亲>>
 <<Hide 主角>>
+<<exitBartten>>
 <<exitBar>>
 <<onDialogueEnd>>
 ===
@@ -301,6 +304,7 @@ position: 0,2100
 主角: 不好意思。
 <<Hide 吉他手母亲>>
 <<Hide 主角>>
+<<exitBartten>>
 <<exitBar>>
 <<onDialogueEnd>>
 ===

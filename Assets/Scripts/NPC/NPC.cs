@@ -27,7 +27,6 @@ public class NPC : MonoBehaviour
     protected Animator anim;
     [SerializeField]private GameObject sprite;
     [SerializeField]private Material mat;
-    public DialogueRunner dialogueRunner;
     public GameActions gameActions;
 
     [Header("动画")]
@@ -163,27 +162,27 @@ public class NPC : MonoBehaviour
 
         if(isAlcoholRight && isTasteRight)
         {
-            dialogueRunner.StartDialogue(dialogueStartNodes_AfterDrinking[0]);
+            DialogueManager.Instance.StartDialogue(dialogueStartNodes_AfterDrinking[0]);
         }
         else if(!isAlcoholRight && !isTasteRight)
         {
-            dialogueRunner.StartDialogue(dialogueStartNodes_AfterDrinking[4]);
+            DialogueManager.Instance.StartDialogue(dialogueStartNodes_AfterDrinking[4]);
         }
         else if(!isAlcoholRight)
         {
             //酒精过多
             if((curAlcohol - adapted_Alcohol) > 0f)
             {
-                dialogueRunner.StartDialogue(dialogueStartNodes_AfterDrinking[1]);
+                DialogueManager.Instance.StartDialogue(dialogueStartNodes_AfterDrinking[1]);
             }
             else//酒精过少
             {
-                dialogueRunner.StartDialogue(dialogueStartNodes_AfterDrinking[2]);
+                DialogueManager.Instance.StartDialogue(dialogueStartNodes_AfterDrinking[2]);
             }
         }
         else if(!isTasteRight)
         {
-            dialogueRunner.StartDialogue(dialogueStartNodes_AfterDrinking[3]);
+            DialogueManager.Instance.StartDialogue(dialogueStartNodes_AfterDrinking[3]);
         }
     }
 
