@@ -16,5 +16,6 @@ public class ScenesManager : MonoBehaviour
         _instance = this;
     }
 
-    
+    [SceneName]
+    public string sceneName;
 }
