@@ -12,6 +12,7 @@ TagManager:
   - Bed
   - Bag
   - Bell
+  - Light
   layers:
   - Default
   - TransparentFX
