@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b44548de357e7640800a9481f053fce, type: 3}
+  m_Name: NPC11_Girl
+  m_EditorClassIdentifier: 
+  scheduleList:
+  - month: 0
+    day: 0
+    time: 0
+    priority: 1
+    burnPosition: {x: -19, y: -1.5, z: 0}
+    targetPosition: {x: -0.13, y: -1.51, z: 0}
+    clipAfterArive: {fileID: 4480107106075565430, guid: 4a124a180b3e242448c38aa505a9cb77, type: 2}
+    dialogueStartNode: Girl_drink
+    interactable: 1

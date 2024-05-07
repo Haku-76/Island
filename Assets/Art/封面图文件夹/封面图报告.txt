@@ -1,0 +1,33 @@
+创建的报告: 
+	4/5/2024	下午4:39:44
+
+项目名: 封面图.aep
+
+将源文件收集到: 
+	C:\Users\Baiel\Desktop\封面图文件夹
+
+收集的源文件: 全部
+
+收集的合成: 
+	合成 1
+	海面
+	海面效果
+	云
+	海鸥
+	
+收集的文件数: 185
+
+收集的文件大小: 3.7 MB
+
+收集的源文件: 
+	C:\Users\Baiel\Desktop\cusga-scene01\sence03\doorplate@2x.png
+	C:\Users\Baiel\Desktop\cusga-scene01\sence03\sky@2x.png
+	C:\Users\Baiel\Desktop\cusga-scene01\sence03\小调整\cloud.png
+	C:\Users\Baiel\Desktop\cusga-scene01\UI\starticon-03.png
+	C:\Users\Baiel\Desktop\cusga-scene01\UI\title-02.png
+	位于“C:\Users\Baiel\Desktop\cusga-scene01\波浪”处的具有 179 个文件和 0 个辅助文件的序列“海面_{00001-00179}.png”
+	C:\Users\Baiel\Desktop\cusga-scene01\界面\游戏场景(1).png
+	
+渲染增效工具:
+	经典 3D
+	

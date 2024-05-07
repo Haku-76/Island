@@ -59,11 +59,14 @@ TagManager:
   - name: Item
     uniqueID: 4113689285
     locked: 0
-  - name: NPC
-    uniqueID: 1634435995
-    locked: 0
   - name: Player
     uniqueID: 1793595993
+    locked: 0
+  - name: Desk
+    uniqueID: 2323520045
+    locked: 0
+  - name: NPC
+    uniqueID: 1634435995
     locked: 0
   - name: Front
     uniqueID: 2156727833

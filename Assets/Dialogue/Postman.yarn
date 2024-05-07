@@ -7,6 +7,7 @@ position: 0,0
 <<Act 邮递员 邮递员 left bottom>>
 邮递员: 请问您是叫洛德吗？ 这里有你的一封信。
 <<Hide 邮递员>>
+<<getLetter Postman_1>>
 <<jump Postman_Reply>>
 ===
 
@@ -55,6 +56,7 @@ position: 0,400
 <<Fade black 1.0 0.0 2.0>>
 <<Act 邮递员 邮递员 left bottom>>
 邮递员: 来了啊。这是你的信件。
+<<getLetter Postman_2>>
 <<Act 主角 主角 right bottom>>
 -> 我这信件挺少的，以后我可以自己去取，不用麻烦送了。
     <<adjustEmotion -3>>
@@ -138,7 +140,7 @@ position: 0,800
     <<startBartten>>
 ===
 
-title: Postman_GameNoAlcohol
+title: Postman_drink_2
 position: -200,1000
 ---
 <<Scene background>>
@@ -151,7 +153,7 @@ position: -200,1000
 <<exitBar>>
 ===
 
-title: Postman_GameAlcohol
+title: Postman_drink_0
 position: 200,1000
 ---
 <<Scene background>>
@@ -172,8 +174,7 @@ position: 200,1000
     邮递员: 有点白兰地的感觉，还挺好喝的。。
     <<Hide 邮递员>>
     <<Hide 主角>>
-    <<onDialogueEnd>>
-    <<exitBar>>
+    <<jump Postman_GamePost>>
 ===
 
 title: Postman_GamePost
@@ -195,18 +196,22 @@ position: 0,1200
         邮递员: 我该走了，跟你聊的很开心。哈哈。
         <<Hide 邮递员>>
         <<Hide 主角>>
-        <<unlock_player>>
+        <<sendLetter 7 Postman_3>>
+        <<exitBar>>
+        <<onDialogueEnd>>
     -> 工作没啥意义，只是为了赚钱。也是最近才攒够了钱能在这里买块地修这个酒吧。
         <<adjustEmotion -5>>
         <<adjustAcceptance -5>>
         邮递员: 说的也是，哈哈哈，好了我该走了，明天估计会有邮局的人会上岛放一个邮箱，信件到时候会有专门的人来收。
         <<Hide 邮递员>>
         <<Hide 主角>>
-        <<unlock_player>>
+        <<exitBar>>
+        <<onDialogueEnd>>
 -> 到了该退休的年纪也该退休休息休息了。
     <<adjustEmotion -5>>
     邮递员: 说的也是，哈哈哈哈哈。不想那些乱七八糟的事情了，感谢你今天的款待，明天估计会有邮局的人会上岛放一个邮箱，信件到时候会有专门的人来收。
     <<Hide 邮递员>>
     <<Hide 主角>>
-    <<unlock_player>>
+    <<exitBar>>
+    <<onDialogueEnd>>
 ===

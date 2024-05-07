@@ -21,7 +21,7 @@ MonoBehaviour:
     targetPosition: {x: 2, y: -1.5, z: 0}
     clipAfterArive: {fileID: 7838799202339853923, guid: 7e5d03e800f67e84db9de241001d191c, type: 2}
     dialogueStartNode: Guitarist_Start
-    interactable: 0
+    interactable: 1
   - month: 7
     day: 9
     time: 1
@@ -30,7 +30,7 @@ MonoBehaviour:
     targetPosition: {x: -3.67, y: -1.5, z: 0}
     clipAfterArive: {fileID: 0}
     dialogueStartNode: Guitarist_FirstDay
-    interactable: 0
+    interactable: 1
   - month: 7
     day: 10
     time: 1
@@ -39,7 +39,7 @@ MonoBehaviour:
     targetPosition: {x: -3.67, y: -1.5, z: 0}
     clipAfterArive: {fileID: 0}
     dialogueStartNode: Guitarist_SecondDay
-    interactable: 0
+    interactable: 1
   - month: 7
     day: 11
     time: 1
@@ -48,13 +48,13 @@ MonoBehaviour:
     targetPosition: {x: -3.67, y: -1.5, z: 0}
     clipAfterArive: {fileID: 0}
     dialogueStartNode: Guitarist_ThirdDay
-    interactable: 0
+    interactable: 1
   - month: 7
-    day: 12
+    day: 13
     time: 1
     priority: 1
     burnPosition: {x: -19, y: -1.5, z: 0}
     targetPosition: {x: -3.67, y: -1.5, z: 0}
     clipAfterArive: {fileID: 0}
     dialogueStartNode: Guitarist_A422
-    interactable: 0
+    interactable: 1

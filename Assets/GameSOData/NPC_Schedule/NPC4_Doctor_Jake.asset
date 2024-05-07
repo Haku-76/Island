@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: NPC4_Doctor_Jake
   m_EditorClassIdentifier: 
   scheduleList:
-  - month: 6
-    day: 30
+  - month: 7
+    day: 16
     time: 1
     priority: 1
     burnPosition: {x: -19, y: -1.5, z: 0}

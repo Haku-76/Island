@@ -31,7 +31,6 @@ public class ClickDetection : MonoBehaviour
         {
             if (hit.collider.gameObject == this.gameObject)
             {
-                Debug.Log("111");
                 if(letter != null)
                 {
                     AddNewItem();
@@ -51,6 +50,8 @@ public class ClickDetection : MonoBehaviour
         {
             letter.itemHeld += 1;
         }
+        letter = null;
+        ExclamationMark.SetActive(false);
 
         InventoryManager.RefreshItem();
     }

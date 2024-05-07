@@ -63,7 +63,7 @@ position: 0,400
 吉他手: 明白明白，这是我第一次迟到，也会是最后一次，老板你放心吧。
 主角: 好吧，相信你。
 <<plankSpankerStartWork>>
-<<unlock_player>>
+<<onDialogueEnd>>
 <<Hide 吉他手>>
 <<Hide 主角>>
 ===
@@ -81,7 +81,7 @@ position: 0,600
 主角: 那你今天就别勉强了，你去喝点柠檬水，或者吃点润喉糖缓解一下。今天的歌曲你就随便选一些你觉得舒服的，不用太在意客人的反应，我会替你解释的。
 吉他手: 谢谢老板，我会尽量把歌唱好的，不让你失望的。
 <<plankSpankerStartWork>>
-<<unlock_player>>
+<<onDialogueEnd>>
 <<Hide 吉他手>>
 <<Hide 主角>>
 ===
@@ -99,8 +99,9 @@ position: 0,800
 吉他手: 其实我最近想学一些爵士歌曲，我觉得那种风格很适合酒吧的氛围。
 主角: 爵士歌曲啊，那你得多练习一下你的节奏感和即兴能力，不过我觉得你有潜力。
 主角: 真的吗？还是感谢老板您给的这个机会。
+<<sendLetter 1 Guitarist_1>>
 <<plankSpankerStartWork>>
-<<unlock_player>>
+<<onDialogueEnd>>
 <<Hide 吉他手>>
 <<Hide 主角>>
 ===
@@ -196,6 +197,8 @@ position: 0,1800
 吉他手: 谢谢你先生。
 主角: 不过你老是在我这里打工也不是长久之计，我给你想了一条路....
 -> 隔壁市最近搞了一个歌手比赛，我觉得你的实力不错，可以拿这个比赛作为踏板向你的目标前进。
+    <<sendLetter 2 Guitarist_2>>
+    <<sendLetter 4 Guitarist_3>>
     <<adjustEmotion +5>>
     <<adjustAcceptance +5>>
     吉他手: ...
@@ -211,23 +214,6 @@ position: 0,1800
 
 ===
 
-title: Guitarist_GuitaristMom_1
-position: 0,2000
----
-<<Fade black 0.0 1.0 2.0>>
-<<Fade black 1.0 0.0 2.0>>
-<<Act 吉他手母亲 吉他手妈妈 left bottom>>
-吉他手母亲: 您好，请问有个 20 多岁的吉他女孩有来过这里吗？
-<<Act 主角 主角 right bottom>>
--> 不好意思，这里没出现过您说的吉他女孩。
-    主角: 请问您需要来一杯吗？
-    吉他手母亲: 来一杯吧。口味清爽一点的，酒精不要太重。
-    <<startBartten>>
--> 她在这里做驻唱，请问您有什么事吗？
-    <<adjustEmotion +5>>
-<<Hide 吉他手母亲>>
-<<Hide 主角>>
-===
 
 title: Guitarist_GuitaristMom_drink_0
 position: 0,2100
@@ -240,7 +226,6 @@ position: 0,2100
 主角: 谢谢惠顾。
 <<Hide 吉他手母亲>>
 <<Hide 主角>>
-<<exitBartten>>
 <<exitBar>>
 <<onDialogueEnd>>
 ===
@@ -256,7 +241,6 @@ position: 0,2100
 主角: 谢谢惠顾。
 <<Hide 吉他手母亲>>
 <<Hide 主角>>
-<<exitBartten>>
 <<exitBar>>
 <<onDialogueEnd>>
 ===
@@ -272,7 +256,6 @@ position: 0,2100
 主角: 谢谢惠顾。
 <<Hide 吉他手母亲>>
 <<Hide 主角>>
-<<exitBartten>>
 <<exitBar>>
 <<onDialogueEnd>>
 ===
@@ -288,7 +271,6 @@ position: 0,2100
 主角: 不好意思。
 <<Hide 吉他手母亲>>
 <<Hide 主角>>
-<<exitBartten>>
 <<exitBar>>
 <<onDialogueEnd>>
 ===
@@ -304,7 +286,103 @@ position: 0,2100
 主角: 不好意思。
 <<Hide 吉他手母亲>>
 <<Hide 主角>>
-<<exitBartten>>
+<<exitBar>>
+<<onDialogueEnd>>
+===
+
+
+
+
+
+title: Girl_drink
+position: 0,1000
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 分手女孩 分手女孩 left bottom>>
+分手女孩: 您好，请给我一杯伏特加，加一片柠檬，谢谢。
+<<Act 主角 主角 right bottom>>
+主角: 好的，请稍等。
+<<Hide 分手女孩>>
+<<Hide 主角>>
+<<startBartten>>
+===
+
+
+title: Girl_drink_0
+position: 0,1000
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 分手女孩 分手女孩 left bottom>>
+分手女孩: 您的手艺真不错，有兴趣做我的男朋友吗
+<<Act 主角 主角 right bottom>>
+主角: 哈哈，您可真爱开玩笑，谢谢惠顾。
+<<Hide 分手女孩>>
+<<Hide 主角>>
+<<exitBar>>
+<<onDialogueEnd>>
+===
+
+title: Girl_drink_1
+position: 0,1000
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 分手女孩 分手女孩 left bottom>>
+分手女孩: 哎，这杯中苦涩，只有我才能体会了吧。
+<<Act 主角 主角 right bottom>>
+主角: 谢谢惠顾。
+<<Hide 分手女孩>>
+<<Hide 主角>>
+<<exitBar>>
+<<onDialogueEnd>>
+===
+
+
+title: Girl_drink_2
+position: 0,1000
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 分手女孩 分手女孩 left bottom>>
+分手女孩: 啧，想在和白水一样。
+<<Act 主角 主角 right bottom>>
+主角: 谢谢惠顾。
+<<Hide 分手女孩>>
+<<Hide 主角>>
+<<exitBar>>
+<<onDialogueEnd>>
+===
+
+
+title: Girl_drink_3
+position: 0,1000
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 分手女孩 分手女孩 left bottom>>
+分手女孩: 哎，我要的柠檬呢？
+<<Act 主角 主角 right bottom>>
+主角: 不好意思。
+<<Hide 分手女孩>>
+<<Hide 主角>>
+<<exitBar>>
+<<onDialogueEnd>>
+===
+
+
+title: Girl_drink_4
+position: 0,1000
+---
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 分手女孩 分手女孩 left bottom>>
+分手女孩: 哎，老板，你给我做错了吧。
+<<Act 主角 主角 right bottom>>
+主角: 不好意思。
+<<Hide 分手女孩>>
+<<Hide 主角>>
 <<exitBar>>
 <<onDialogueEnd>>
 ===

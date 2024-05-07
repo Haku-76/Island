@@ -34,12 +34,17 @@ position: -150,300
     小说家: ...
     <<Hide 小说家>>
     <<Hide 主角>>
+    <<exitBar>>
+    <<onDialogueEnd>>
+    <<npcOver>>
 -> 不好意思，是我唐突了，我为我刚才的言语道歉。
     <<adjustEmotion +3>>
     小说家: 那可是我唯一的牵挂了。
     <<Hide 小说家>>
     <<Hide 主角>>
-    <<jump Novelist_Letter>>
+    <<exitBar>>
+    <<onDialogueEnd>>
+    <<leftLetter Novelist_1>>
 
 ===
 
@@ -148,6 +153,9 @@ position: 0,900
     小说家: 感谢，那可真是太好了！
 -> 我相信您一定能在别处完成这个愿望的。
     小说家: 感谢你的祝福，年轻人！
+    <<sendLetter 2 Novelist_2>>
+    <<sendLetter 4 Novelist_3>>
+    <<sendLetter 6 Novelist_4>>
 <<Hide 小说家>>
 <<Hide 主角>>
 <<onDialogueEnd>>
