@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scheduleList:
   - month: 7
-    day: 1
+    day: 8
     time: 1
     priority: 1
     burnPosition: {x: -19, y: -1.5, z: 0}
@@ -23,7 +23,7 @@ MonoBehaviour:
     dialogueStartNode: Guitarist_Start
     interactable: 0
   - month: 7
-    day: 2
+    day: 9
     time: 1
     priority: 1
     burnPosition: {x: -19, y: -1.5, z: 0}
@@ -32,7 +32,7 @@ MonoBehaviour:
     dialogueStartNode: Guitarist_FirstDay
     interactable: 0
   - month: 7
-    day: 3
+    day: 10
     time: 1
     priority: 1
     burnPosition: {x: -19, y: -1.5, z: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
     dialogueStartNode: Guitarist_SecondDay
     interactable: 0
   - month: 7
-    day: 4
+    day: 11
     time: 1
     priority: 1
     burnPosition: {x: -19, y: -1.5, z: 0}
@@ -50,7 +50,7 @@ MonoBehaviour:
     dialogueStartNode: Guitarist_ThirdDay
     interactable: 0
   - month: 7
-    day: 5
+    day: 12
     time: 1
     priority: 1
     burnPosition: {x: -19, y: -1.5, z: 0}
