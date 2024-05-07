@@ -8,6 +8,8 @@ public class DialogueManager : MonoBehaviour
     private static DialogueManager _instance;
     public static DialogueManager Instance{get => _instance;}
 
+    public PlayerController player;
+
     void Awake()
     {
         if(_instance != null)
@@ -25,5 +27,6 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(string startNode)
     {
         dialogueRunner.StartDialogue(startNode);
+        player.LockPlayer();
     }
 }

@@ -27,7 +27,6 @@ public class NPC : MonoBehaviour
     protected Animator anim;
     [SerializeField]private GameObject sprite;
     [SerializeField]private Material mat;
-    public GameActions gameActions;
 
     [Header("动画")]
     public AnimationClip blankAnimationClip;
@@ -139,6 +138,8 @@ public class NPC : MonoBehaviour
             if(matchSchedule != null)
             {
                 BuildPath(matchSchedule);
+
+
             }
         }
     }
@@ -321,7 +322,7 @@ public class NPC : MonoBehaviour
             player.LockPlayer();
             // dialogueRunner.StartDialogue(dialogueStartNode);
             DialogueManager.Instance.StartDialogue(dialogueStartNode);
-            gameActions.currentNPC = this;
+            GameActions.Instance.currentNPC = this;
         }
     }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [Serializable]
 public class ScheduleDetails : IComparable<ScheduleDetails>
@@ -17,7 +18,6 @@ public class ScheduleDetails : IComparable<ScheduleDetails>
 
     public AnimationClip clipAfterArive;
     public string dialogueStartNode;
-
     
 
     public ScheduleDetails(int day, TimeQuantum time, int priority, Vector3 burnPosition, Vector3 targetPosition,string dialogueStartNode)

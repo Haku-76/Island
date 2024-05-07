@@ -4,8 +4,9 @@ using Yarn.Unity;
 using TMPro;
 using UnityEngine.SceneManagement;
 using Spine.Unity;
+using System;
 
-public class GameActions : MonoBehaviour
+public class GameActions : Singleton<GameActions>
 {
     private GameObject player;
     public DialogueRunner dialogueRunner;
@@ -18,6 +19,7 @@ public class GameActions : MonoBehaviour
 
     void Awake()
     {
+        base.Awake();
         dialogueRunner.AddCommandHandler<string>("adjustEmotion", AdjustEmotion);
         dialogueRunner.AddCommandHandler<string>("adjustAcceptance", AdjustAcceptance);
         dialogueRunner.AddCommandHandler<string>("changeScene", ChangeScene);
