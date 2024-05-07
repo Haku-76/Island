@@ -29,6 +29,10 @@ public class NPCManager : MonoBehaviour
             npcCourseList.Add(npc, true);
         }
 
+    }
+
+    void Start()
+    {
         foreach(var npc in npcList)
         {
             npcdic.Add(npc.GetType().Name, npc);

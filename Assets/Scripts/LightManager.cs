@@ -28,21 +28,54 @@ public class LightManager : MonoBehaviour
         }
     }
 
+    void OnEnable()
+    {
+        TimeEventSystem.onTimeChange += SwitchTime;
+    }
+
+    void OnDisable()
+    {
+        TimeEventSystem.onTimeChange -= SwitchTime;
+    }
+
+    void Start()
+    {
+        TurnLightsOff();
+    }
+
+    void Update()
+    {
+        // if(TimeEventSystem.instance.timeQuantum == TimeQuantum.WeekHours && !lightsOn)
+        // {
+        //     TurnLightsOn();
+        // }
+        // if(TimeEventSystem.instance.timeQuantum == TimeQuantum.DayTime && lightsOn)
+        // {
+        //     TurnLightsOff();
+        // }
+    }
+
+    private void SwitchTime(int month, int day, TimeQuantum timeQuantum)
+    {
+        if(TimeEventSystem.instance.timeQuantum == TimeQuantum.WeekHours && !lightsOn)
+        {
+            TurnLightsOn();
+        }
+        if(TimeEventSystem.instance.timeQuantum == TimeQuantum.DayTime && lightsOn)
+        {
+            TurnLightsOff();
+        }
+    }
+
     public void TurnLightsOn()
     {
-        if (!lightsOn)
-        {
-            lightsOn = true;
-            environmentLight.SetActive(true);
-        }
+        lightsOn = true;
+        environmentLight.SetActive(true);
     }
 
     public void TurnLightsOff()
     {
-        if (lightsOn)
-        {
-            lightsOn = false;
-            environmentLight.SetActive(false);
-        }
+        lightsOn = false;
+        environmentLight.SetActive(false);
     }
 }
