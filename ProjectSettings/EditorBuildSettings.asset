@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
+    path: Assets/Scenes/BETA/5.5_Persistent.unity
+    guid: b04e8a6c40653044692c04d5e4ccc415
+  - enabled: 1
     path: Assets/Scenes/Demo/Scene_01.unity
     guid: f1762226c6ee8954bb62adab2de9719a
   - enabled: 1
-    path: Assets/Scenes/BETA/Pub_Scene_5.1.unity
-    guid: ee01a86fc7379374db5886917ff0d5e1
+    path: Assets/Scenes/BETA/Pub_Scene_5.5.unity
+    guid: 836ef901bd34af14d8f5090f19b7c116
   m_configObjects: {}

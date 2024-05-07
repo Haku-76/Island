@@ -31,6 +31,7 @@ public class TransitionManager : MonoBehaviour
 
     void Start()
     {
+        player.gameObject.SetActive(false);
         currentCamera = mainCamera.ActiveVirtualCamera as CinemachineVirtualCamera;
     }
 

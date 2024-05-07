@@ -6,7 +6,6 @@ using Spine.Unity;
 
 public class PlayerController : MonoBehaviour
 {
-    public DialogueRunner dialogueRunner;
     public bool canMoveToNonNPC;
 
     [Space(15)]
