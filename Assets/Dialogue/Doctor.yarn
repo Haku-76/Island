@@ -147,6 +147,7 @@ position: 0,400
     <<Hide 小孩>>
     <<Hide 主角>>
     <<unlock_player>>
+    <<exitBar>>
 -> 迪伦？医生小哥啊，那你一定是他经常提的小朋友吧！
     小孩: 以前他有提过我吗？
     -> 他说你是他见过最乐观最勇敢的小朋友了。
@@ -156,6 +157,7 @@ position: 0,400
             <<Hide 小孩>>
             <<Hide 主角>>
             <<unlock_player>>
+            <<exitBar>>
         -> 其实，他和你一样都在克服困难的道路上。相信我，他会走出来的。
             小孩: 和迪伦哥说的一样，您真是一个十分温柔的人。
             主角: 多谢夸奖。
@@ -179,6 +181,7 @@ position: 0,400
             <<Hide 小孩>>
             <<Hide 主角>>
             <<unlock_player>>
+            <<exitBar>>
 ===
 
 title: Doctor_Third2

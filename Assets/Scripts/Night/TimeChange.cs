@@ -14,7 +14,7 @@ public class TimeChange : MonoBehaviour
         Vector2 rayOrigin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.zero);
 
-        if (hit&&Input.GetMouseButtonDown(0))
+        if (hit&&Input.GetMouseButtonDown(0)&&!DialogueManager.Instance.isDialoguing)
         {
             if (hit.collider.gameObject.CompareTag(targetTag))
             {

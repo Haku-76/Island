@@ -6,6 +6,7 @@ public enum NPCCourse
     Normal,
     Guitarist, 
     Doctor,
-    
+    Novelist,
+    Postman
     
 }

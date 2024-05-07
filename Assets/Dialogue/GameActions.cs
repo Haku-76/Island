@@ -112,6 +112,7 @@ public class GameActions : Singleton<GameActions>
     private void OnDialogueEnd()
     {
         UnLockPlayer();
+        DialogueManager.Instance.isDialoguing = false;
     }
 
     private void UnLockPlayer()

@@ -26,7 +26,7 @@ public class NPC : MonoBehaviour
     [Header("组件")]
     protected Animator anim;
     [SerializeField]private GameObject sprite;
-    [SerializeField]private Material mat;
+    [SerializeField]protected Material mat;
 
     [Header("动画")]
     public AnimationClip blankAnimationClip;
@@ -222,6 +222,11 @@ public class NPC : MonoBehaviour
         StartCoroutine(BurnNPC(() => {StartCoroutine(MoveRoutine(target, speed, () => {StartCoroutine(OnMoveEndEvent());}));}));
     }
 
+    protected virtual void SetMatAlpha(float target)
+    {
+        mat.SetFloat("_Alpha", target);
+    }
+
     private IEnumerator BurnNPC(System.Action onComplete)
     {
         npc_isActive = true;
@@ -236,11 +241,11 @@ public class NPC : MonoBehaviour
         while(elapsedTime < burnDuration)
         {
             var alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime/burnDuration);
-            mat.SetFloat("_Alpha", alpha);
+            SetMatAlpha(alpha);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        mat.SetFloat("_Alpha", targetAlpha);
+        SetMatAlpha(targetAlpha);
         onComplete?.Invoke();
     }
     private IEnumerator NPCExit()
@@ -252,11 +257,11 @@ public class NPC : MonoBehaviour
         while(elapsedTime < burnDuration)
         {
             var alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime/burnDuration);
-            mat.SetFloat("_Alpha", alpha);
+            SetMatAlpha(alpha);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        mat.SetFloat("_Alpha", targetAlpha);
+        SetMatAlpha(targetAlpha);
         // sprite.SetActive(false);
         SetNPCActive(false);
         npc_isActive = false;
@@ -318,6 +323,7 @@ public class NPC : MonoBehaviour
     {
         if(interactable && !isInteracted)
         {
+            
             isInteracted = true;
             player.LockPlayer();
             // dialogueRunner.StartDialogue(dialogueStartNode);
