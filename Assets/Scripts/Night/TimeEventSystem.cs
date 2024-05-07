@@ -96,6 +96,7 @@ public class TimeEventSystem : MonoBehaviour
         yield return new WaitForSeconds(3f);
         TransitionManager.Instance.EndSkipTime();
         onTimeChange?.Invoke(Month, Day, timeQuantum);
+
     }
 
     public void Skip()
