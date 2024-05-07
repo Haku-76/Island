@@ -88,4 +88,14 @@ public class TransitionManager : MonoBehaviour
         ReturnPreCamera();
         player.UnLockPlayer();
     }
+
+    public void HidePlayer()
+    {
+        player.gameObject.SetActive(false);
+    }
+
+    public void ResetPlayer()
+    {
+        player.gameObject.SetActive(true);
+    }
 }

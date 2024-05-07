@@ -539,6 +539,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lord (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 679241494685420946, guid: 69e46b56585f07a4a860d42259c603bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1939267752161379565, guid: 69e46b56585f07a4a860d42259c603bf, type: 3}
       propertyPath: m_GravityScale
       value: 0
@@ -1346,7 +1350,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 24.16
+  orthographic size: 4.35
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1371,7 +1375,7 @@ Transform:
   m_GameObject: {fileID: 1116781239}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.6, y: 12.9, z: -14.734173}
+  m_LocalPosition: {x: -1.19, y: 0.57, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2122,7 +2126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1573843913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2139,7 +2143,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 1000
+  m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
@@ -2207,7 +2211,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd8bd8aa7954203489ecccb085343294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleSceneName: SampleScene
   startSceneName: Scene_01
+  mainSceneName: Pub_Scene_5.5
 --- !u!4 &1635966780
 Transform:
   m_ObjectHideFlags: 0
