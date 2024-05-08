@@ -35,8 +35,8 @@ MonoBehaviour:
     day: 10
     time: 1
     priority: 1
-    burnPosition: {x: -19, y: -1.5, z: 0}
-    targetPosition: {x: -4.04, y: -1.51, z: 0}
-    clipAfterArive: {fileID: 0}
+    burnPosition: {x: -18, y: -1.5, z: 0}
+    targetPosition: {x: 4.35, y: -1.46, z: 0}
+    clipAfterArive: {fileID: 7405161341242900978, guid: 3e858cacaa6b2b641b22052ec1399932, type: 2}
     dialogueStartNode: Postman_Third
     interactable: 1

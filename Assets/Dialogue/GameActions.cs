@@ -46,7 +46,7 @@ public class GameActions : Singleton<GameActions>
         dialogueRunner.AddCommandHandler("plankSpankerStartWork", PlankSpanker_StartWork);
 
         novelistLetter = Resources.Load<Item>("Novelist_1");
-        //dialogueRunner.AddCommandHandler("getNovelistLetter", GetNovelistLetter);
+        dialogueRunner.AddCommandHandler("getNovelistLetter", () => GetNovelistLetter());
 
         player = GameObject.FindWithTag("Player");
     }

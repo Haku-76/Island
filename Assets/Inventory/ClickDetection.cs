@@ -6,6 +6,11 @@ public class ClickDetection : MonoBehaviour
     public Inventory playerInventory;
     public Item letter;
 
+    void Start()
+    {
+        ExclamationMark.SetActive(false);
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))

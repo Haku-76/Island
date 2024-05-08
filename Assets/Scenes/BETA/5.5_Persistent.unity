@@ -513,7 +513,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &246780131
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -536,6 +536,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 679241494685420946, guid: 69e46b56585f07a4a860d42259c603bf, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3711496733088419211, guid: 69e46b56585f07a4a860d42259c603bf, type: 3}
+      propertyPath: interactionDistance
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8100287001802872967, guid: 69e46b56585f07a4a860d42259c603bf, type: 3}
@@ -1155,6 +1159,10 @@ PrefabInstance:
       value: -1.11
       objectReference: {fileID: 0}
     - target: {fileID: 1612983768864757354, guid: e381103374cb21845b0801dacc49577d, type: 3}
+      propertyPath: move_Speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612983768864757354, guid: e381103374cb21845b0801dacc49577d, type: 3}
       propertyPath: gameActions
       value: 
       objectReference: {fileID: 1288664433}
@@ -1501,7 +1509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scheduleData: {fileID: 11400000, guid: c956bc6dc7f5271439f9d750e6164346, type: 2}
   npc_Course: 4
-  move_Speed: 3
+  move_Speed: 2.5
   interactable: 1
   sprite: {fileID: 1701288315}
   mat: {fileID: 2100000, guid: 484f7438b4ababf4db9ae4daaaec3e71, type: 2}
@@ -3292,7 +3300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &2159301755256807781
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3313,6 +3321,7 @@ GameObject:
   - component: {fileID: 5354633027031088827}
   - component: {fileID: 6967838179369985120}
   - component: {fileID: 5013211554934424666}
+  - component: {fileID: 6967838179369985121}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -3638,8 +3647,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u80CC\u5305"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ecab14a50691ac049a2023ac244b9fce, type: 2}
+  m_sharedMaterial: {fileID: 2200132102344065627, guid: ecab14a50691ac049a2023ac244b9fce, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3926,6 +3935,7 @@ GameObject:
   - component: {fileID: 5970702294733586432}
   - component: {fileID: 4030922225763738057}
   - component: {fileID: 4458126709196885064}
+  - component: {fileID: 5970702294733586433}
   m_Layer: 5
   m_Name: OpenBag
   m_TagString: Untagged
@@ -3997,6 +4007,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5756030703518987409}
   m_CullTransparentMesh: 1
+--- !u!114 &5970702294733586433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5756030703518987409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4956595a4e06745468ba0d3a9ca59002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5976772543007048652
 GameObject:
   m_ObjectHideFlags: 0
@@ -4093,6 +4115,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6967838179369985121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196247551292607130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4956595a4e06745468ba0d3a9ca59002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7390777768950314633
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4185,6 +4219,7 @@ GameObject:
   - component: {fileID: 4167142818723984970}
   - component: {fileID: 5073012049442196961}
   - component: {fileID: 8765061807280741234}
+  - component: {fileID: 8765061807280741235}
   m_Layer: 5
   m_Name: Grid
   m_TagString: Untagged
@@ -4323,6 +4358,18 @@ MonoBehaviour:
   m_Spacing: {x: 140, y: 43}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &8765061807280741235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8269998162567650287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4956595a4e06745468ba0d3a9ca59002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8797111862274696408
 MonoBehaviour:
   m_ObjectHideFlags: 0

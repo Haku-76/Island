@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Yarn.Unity;
 using UnityEngine.EventSystems;
 using Spine.Unity;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,6 +24,18 @@ public class PlayerController : MonoBehaviour
     [Space(15)]
     public GameObject openBag;
 
+    void OnEnable()
+    {
+        TimeEventSystem.onLastTimeEnd += OnLastTimeEndEvent;
+        TimeEventSystem.onTimeChange += OnTimeChangeEvent;
+    }
+
+    void OnDisable()
+    {
+        TimeEventSystem.onLastTimeEnd -= OnLastTimeEndEvent;
+        TimeEventSystem.onTimeChange -= OnTimeChangeEvent;
+    }
+
     void Update()
     {
         if(isLocking)
@@ -39,8 +52,29 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            this.GetComponent<SkeletonAnimation>().AnimationName = "idle";
+            this.GetComponent<SkeletonAnimation>().AnimationName = null;
         }
+    }
+
+    private Vector3 pre_Pos;
+    private void OnLastTimeEndEvent(int month, int day, TimeQuantum timeQuantum)
+    {
+        // pre_Pos = transform.position;
+        // transform.position = Position_Data.Bed_Pos;
+        // transform.GetComponent<SkeletonAnimation>().AnimationName = "down";
+    }
+
+    private void OnTimeChangeEvent(int month, int day ,TimeQuantum timeQuantum)
+    {
+        // StartCoroutine(GetUpCoroutine());
+    }
+
+    IEnumerator GetUpCoroutine()
+    {
+        transform.GetComponent<SkeletonAnimation>().AnimationName = "getup";
+        yield return new WaitForSeconds(1f);
+        transform.position = pre_Pos;
+        pre_Pos = Vector3.zero;
     }
 
     private void HandleMouseClick()
@@ -131,6 +165,7 @@ public class PlayerController : MonoBehaviour
     public void LockPlayer()
     {
         isLocking = true;
+        this.GetComponent<SkeletonAnimation>().AnimationName = null;
     }
     public void UnLockPlayer()
     {

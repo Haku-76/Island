@@ -22,6 +22,11 @@ public class InventoryManager : MonoBehaviour
         instance = this;
     }
 
+    void Start()
+    {
+        myBag.itemList.Clear();
+    }
+
 
     private void OnEnable()
     {

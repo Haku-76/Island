@@ -77,12 +77,14 @@ public class NPC : MonoBehaviour
     {
         TimeEventSystem.onTimeChange += OnTimeUpdateEvent;
         TimeEventSystem.onLastTimeEnd += OnLastTimeEnd;
+        TimeEventSystem.onGameStart += OnGameStartEvent;
     }
 
     void OnDisable()
     {
         TimeEventSystem.onTimeChange -= OnTimeUpdateEvent;
         TimeEventSystem.onLastTimeEnd -= OnLastTimeEnd;
+        TimeEventSystem.onGameStart -= OnGameStartEvent;
     }
 
     void Update()
@@ -114,6 +116,11 @@ public class NPC : MonoBehaviour
     public void Test2()
     {
        // OnTimeUpdateEvent(7, 1, TimeQuantum.Dusk);
+    }
+
+    private void OnGameStartEvent(int month, int day, TimeQuantum timeQuantum)
+    {
+        OnTimeUpdateEvent(month, day, timeQuantum);
     }
 
     private void OnTimeUpdateEvent(int month, int day, TimeQuantum timeQuantum)

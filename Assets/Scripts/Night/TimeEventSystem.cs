@@ -23,6 +23,8 @@ public class TimeEventSystem : MonoBehaviour
 /// </summary>
     public static event Action<int, int, TimeQuantum> onLastTimeEnd;
 
+    public static event Action<int, int, TimeQuantum> onGameStart;
+
     public int Day { get; private set; }
     public int Month { get; private set; }
     public TimeQuantum timeQuantum { get; set; }
@@ -42,7 +44,7 @@ public class TimeEventSystem : MonoBehaviour
 
     public void OnEnable()
     {
-        Day = 7;
+        Day = 17;
         Month = 7;
         timeQuantum = TimeQuantum.DayTime;
 
@@ -60,7 +62,7 @@ public class TimeEventSystem : MonoBehaviour
 
     private void OnGameStart()
     {
-        onTimeChange?.Invoke(Month, Day, timeQuantum);
+        onGameStart?.Invoke(Month, Day, timeQuantum);
     }
 
     private void Update()
