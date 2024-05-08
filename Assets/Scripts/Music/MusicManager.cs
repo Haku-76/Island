@@ -44,7 +44,6 @@ public class MusicManager : MonoBehaviour
     public void BrMusic()
     {
         _instance.barMusic.clip = BarMusic;
-        _instance.barMusic.loop = true;
         _instance.barMusic.Play();
     }
 }
