@@ -30,7 +30,7 @@ public class MusicManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        //BgMusic();
+        BgMusic();
     }
 
     public void BgMusic()
