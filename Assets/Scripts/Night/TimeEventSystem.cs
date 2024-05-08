@@ -44,7 +44,7 @@ public class TimeEventSystem : MonoBehaviour
 
     public void OnEnable()
     {
-        Day = 17;
+        Day = 7;
         Month = 7;
         timeQuantum = TimeQuantum.DayTime;
 

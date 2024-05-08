@@ -6,11 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class ScenesManager : Singleton<ScenesManager>
 {
-    [SceneName]
     public string titleSceneName;
-    [SceneName]
     public string startSceneName;
-    [SceneName]
     public string mainSceneName;
 
     private CanvasGroup fadeCanvasGroup;
