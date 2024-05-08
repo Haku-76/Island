@@ -1,0 +1,10 @@
+﻿title: Normal
+position: 0,0
+---
+<<Scene background>>
+<<Fade black 0.0 1.0 2.0>>
+<<Fade black 1.0 0.0 2.0>>
+<<Act 赌徒 赌徒 left bottom>>
+老板，来杯酒。
+<<Hide 分手女孩>>
+===
