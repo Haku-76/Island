@@ -12,14 +12,16 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         TimeEventSystem.onTimeChange += UpDateTimeUI;
+        TimeEventSystem.onGameStart += OnGameStart;
     }
 
     private void OnDisable()
     {
         TimeEventSystem.onTimeChange -= UpDateTimeUI;
+        TimeEventSystem.onGameStart += OnGameStart;
     }
 
-    private void UpDateTimeUI(int Day,int Month,TimeQuantum timeQuantum)
+    private void UpDateTimeUI(int Month,int Day,TimeQuantum timeQuantum)
     {
         if (TimeEventSystem.instance.timeQuantum == TimeQuantum.DayTime)
         {
@@ -35,6 +37,9 @@ public class UIManager : MonoBehaviour
                                                                            TimeEventSystem.instance.Day,
                                                                            TimeEventSystem.instance.timeQuantum);
     }
-
-
+    
+    private void OnGameStart(int month, int day, TimeQuantum timeQuantum)
+    {
+        UpDateTimeUI(month, day, timeQuantum);
+    }
 }
