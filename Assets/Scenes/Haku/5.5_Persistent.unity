@@ -5766,6 +5766,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 52636888055665830, guid: 69e46b56585f07a4a860d42259c603bf, type: 3}
+      propertyPath: skeletonDataAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 4d02ae64401d1c942adb2a28675e5553, type: 2}
     - target: {fileID: 679241494685420946, guid: 69e46b56585f07a4a860d42259c603bf, type: 3}
       propertyPath: m_Name
       value: Lord (1)
@@ -5774,6 +5778,10 @@ PrefabInstance:
       propertyPath: interactionDistance
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5199356382252442063, guid: 69e46b56585f07a4a860d42259c603bf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4748a06bfe22c614da027ce52f27cd83, type: 2}
     - target: {fileID: 8100287001802872967, guid: 69e46b56585f07a4a860d42259c603bf, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -10958,7 +10966,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1634435995
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &721816717
@@ -11098,7 +11106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2273447275349712871, guid: f8704c99ec3745d41b88aa3aa4f91f07, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2273447275349712871, guid: f8704c99ec3745d41b88aa3aa4f91f07, type: 3}
       propertyPath: m_SortingOrder
@@ -11212,7 +11220,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1017658813256937967, guid: e381103374cb21845b0801dacc49577d, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1017658813256937967, guid: e381103374cb21845b0801dacc49577d, type: 3}
       propertyPath: m_SortingOrder
@@ -11655,7 +11663,7 @@ SortingGroup:
   m_GameObject: {fileID: 242965736}
   m_Enabled: 1
   m_SortingLayerID: 1793595993
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_SortAtRoot: 0
 --- !u!1001 &1288664432
@@ -11666,53 +11674,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1376612480220551310, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: ecab14a50691ac049a2023ac244b9fce, type: 2}
-    - target: {fileID: 2032827565740458963, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: ecab14a50691ac049a2023ac244b9fce, type: 2}
-    - target: {fileID: 2032827565740458963, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4177294032883503085, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
-      propertyPath: loadSprites.Array.data[7]
-      value: 
-      objectReference: {fileID: 21300000, guid: 273f52cc0bc8e7f4e9d1ece885f6c943, type: 3}
-    - target: {fileID: 5279350309467548309, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
-      propertyPath: startNode
-      value: Guitarist_Start
-      objectReference: {fileID: 0}
-    - target: {fileID: 5279350309467548309, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
-      propertyPath: startAutomatically
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7361255235096831017, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
-      propertyPath: m_text
-      value: "\u5BF9\u8BDD\u6D4B\u8BD5"
-      objectReference: {fileID: 0}
-    - target: {fileID: 7361255235096831017, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: ecab14a50691ac049a2023ac244b9fce, type: 2}
-    - target: {fileID: 7361255235096831017, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2200132102344065627, guid: ecab14a50691ac049a2023ac244b9fce, type: 2}
-    - target: {fileID: 7361255235096831017, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7813097577455993914, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
       propertyPath: m_Name
       value: VisualNovelPrefab Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 7813097577455993914, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7817719813151339392, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11752,14 +11716,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7817719813151339392, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7924442520693360932, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-    - target: {fileID: 7925152140589286190, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
-      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8030855222925397018, guid: e6e6768e89ad15a45a90efac8fa36052, type: 3}
@@ -11947,7 +11903,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1634435995
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1292068942
@@ -12200,7 +12156,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1634435995
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1549660027
@@ -12419,7 +12375,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1634435995
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1701288320
@@ -13639,8 +13595,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u80CC\u5305"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b6c8d3621fd247943b382b3deb2652f7, type: 2}
-  m_sharedMaterial: {fileID: 2200132102344065627, guid: b6c8d3621fd247943b382b3deb2652f7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14346,8 +14302,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Mail
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b6c8d3621fd247943b382b3deb2652f7, type: 2}
-  m_sharedMaterial: {fileID: 2200132102344065627, guid: b6c8d3621fd247943b382b3deb2652f7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

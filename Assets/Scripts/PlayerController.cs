@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            this.GetComponent<SkeletonAnimation>().AnimationName = null;
+            this.GetComponent<SkeletonAnimation>().AnimationName = "idle";
         }
     }
 
