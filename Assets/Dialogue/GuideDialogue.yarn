@@ -4,8 +4,11 @@ position: 0,0
 <<Scene background>>
 <<Fade black 0.0 1.0 2.0>>
 <<Fade black 1.0 0.0 2.0>>
-<<Act GuideMan GuideMan left bottom>>
+<<Act 主角 主角 left bottom>>
 <<lock_player>>
+主角: 开始今天的营业吧
+<<Hide 主角>> 
+<<Act GuideMan GuideMan left bottom>>
 GuideMan: 欢迎游玩Haven Of Rode，接下来进行新手教程
 GuideMan: 目前您所处位置为酒馆，您是该酒馆的拥有者
 GuideMan: 左键点击即可位移到鼠标指定位置
@@ -30,10 +33,14 @@ title: GoOutGuide
 position: 0,0
 ---
 <<Scene background>>
+<<Act 主角 主角 left bottom>>
+主角: 多么美丽的风景，一定会有不少的人于此寻以慰藉吧
+<<Hide 主角>>
 <<Act GuideMan GuideMan left bottom>>
 <<lock_player>>
 GuideMan: 位移至酒馆场景外时，将展示整座Island的风貌
 GuideMan: 您将在这里接待你的第一名客人
+GuideMan: 点击客人即可与之展开对话
 <<Hide GuideMan>>
 <<unlock_player>>
 ===
@@ -65,6 +72,14 @@ GuideMan: 谢谢,我要的就是这个
 主角: 原来调出顾客们喜欢的鸡尾酒，能让他们如此满足
 主角：。。。
 <<Hide 主角>>
+<<Act GuideMan GuideMan left bottom>>
+GuideMan: 顾客在品尝到想要的鸡尾酒后会提升自身情绪和接受度的数值
+GuideMan: 相反，如果品尝到了不想要的鸡尾酒，则不会获得相应数值甚至减少数值
+GuideMan: 同时，不同的对话分支会影响角色的数值
+GuideMan: 而数值则会影响角色的后期剧情
+GuideMan: 可能会因为一句话改变他的人生，也可能会一句话使其远离此岛
+GuideMan: 还请酌情考虑进行选择
+<<Hide GuideMan>>
 <<unlock_player>>
 ===
 

@@ -152,7 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc632150b13e5a488c22444b94857f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1257030944}
   dialogueRunner: {fileID: 1288664434}
+  isDialoguing: 0
 --- !u!4 &237023364
 Transform:
   m_ObjectHideFlags: 0
@@ -446,7 +448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1001deec19c394f4fa02fba942bb2e5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueRunner: {fileID: 0}
   canMoveToNonNPC: 1
   moveSpeed: 5
   interactionDistance: 1.5
@@ -556,7 +557,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1793595993
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -801,11 +802,17 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &1257030939 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 679241494685420946, guid: 69e46b56585f07a4a860d42259c603bf, type: 3}
+--- !u!114 &1257030944 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3711496733088419211, guid: 69e46b56585f07a4a860d42259c603bf, type: 3}
   m_PrefabInstance: {fileID: 353312851}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1001deec19c394f4fa02fba942bb2e5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1288664432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1104,8 +1111,6 @@ MonoBehaviour:
   interactable: 1
   sprite: {fileID: 0}
   mat: {fileID: 0}
-  dialogueRunner: {fileID: 0}
-  gameActions: {fileID: 0}
   blankAnimationClip: {fileID: 0}
   adapted_Alcohol: 0.5
   adapted_Taste: 1
@@ -1115,6 +1120,7 @@ MonoBehaviour:
   - DrinkGuide_02
   - DrinkGuide_02
   - DrinkGuide_02
+  isTimeGuideTriggered: 0
 --- !u!212 &1727088241
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1154,7 +1160,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1634435995
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 10000
   m_Sprite: {fileID: 21300000, guid: 2d6333902351d8c409fec10c799f2cea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1224,6 +1230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar_Game: {fileID: 3542217038133824042, guid: 3c647cd8dc1511d4da13e9099c8b49a0, type: 3}
+  gameCameraStand: {fileID: 0}
 --- !u!4 &1926999025
 Transform:
   m_ObjectHideFlags: 0
@@ -1269,7 +1276,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1116781244}
-  player: {fileID: 1257030939}
+  player: {fileID: 1257030944}
+  panoramaCam: {fileID: 0}
 --- !u!4 &1989179408
 Transform:
   m_ObjectHideFlags: 0
