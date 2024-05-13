@@ -53,12 +53,12 @@ public class GameActions : Singleton<GameActions>
 
     void OnEnable()
     {
-        GameRoot.FinishGameEvent += OnFinishGameEvent;
+        EventHandler.FinishGameEvent += OnFinishGameEvent;
     }
 
     void OnDisable()
     {
-        GameRoot.FinishGameEvent -= OnFinishGameEvent;
+        EventHandler.FinishGameEvent -= OnFinishGameEvent;
     }
 
     void Update()
@@ -112,7 +112,7 @@ public class GameActions : Singleton<GameActions>
 
     private void StartBartten()
     {
-        GameRoot.Instance.CallEnterGameEvent();
+        GameRoot.Instance.EnterGame();
         MoveToBartten();
     }
 

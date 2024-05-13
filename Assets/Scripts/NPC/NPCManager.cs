@@ -3,25 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCManager : MonoBehaviour
+public class NPCManager : Singleton<NPCManager>
 {
-    private static NPCManager _instance;
-    public static NPCManager Instance{get => _instance;}
     private Dictionary<NPCCourse, bool> npcCourseList = new();
     private Dictionary<string, NPC> npcdic = new();
     public List<NPC> npcList = new();
 
     private void Awake()
     {
-        if(_instance != null)
-        {
-            Destroy(_instance);
-        }
-        else
-        {
-            _instance = this;
-        }
-
+        base.Awake();
         NPCCourse[] courses = (NPCCourse[])Enum.GetValues(typeof(NPCCourse));
 
         foreach(var npc in courses)

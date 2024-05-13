@@ -18,12 +18,12 @@ public class SettlementPanel : MonoBehaviour
 
     void OnEnable()
     {
-        GameRoot.FinishGameEvent += Settle;
+        EventHandler.FinishGameEvent += Settle;
     }
 
     void OnDisable()
     {
-        GameRoot.FinishGameEvent -= Settle;
+        EventHandler.FinishGameEvent -= Settle;
     }
 
     void Start()
