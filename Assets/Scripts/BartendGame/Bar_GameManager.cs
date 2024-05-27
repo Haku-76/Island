@@ -11,6 +11,7 @@ public class Bar_GameManager : Singleton<Bar_GameManager>
     public ProgressUI progressUI;
 
     public WineGlass wineGlass;
+    public Canvas gameCanvas;
 
     
     public bool isFinished => isAddWine & isAddWater;
@@ -22,6 +23,7 @@ public class Bar_GameManager : Singleton<Bar_GameManager>
 
     void Start()
     {
+        gameCanvas.worldCamera = Camera.main;
         isAddWater = false;
         isAddWine = false;
     }

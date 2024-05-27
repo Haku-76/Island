@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar_Game: {fileID: 3542217038133824042, guid: 3c647cd8dc1511d4da13e9099c8b49a0, type: 3}
+  gameCameraStand: {fileID: 0}
 --- !u!4 &365056212
 Transform:
   m_ObjectHideFlags: 0
@@ -559,7 +560,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 365056211}
         m_TargetAssemblyTypeName: GameRoot, Assembly-CSharp
-        m_MethodName: CallEnterGameEvent
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -18,7 +18,8 @@ public class Bottle : MonoBehaviour
 
     public void OnMouseDrag()
     {
-        Bar_GameManager.Instance.drinks_DragUI.transform.position = Input.mousePosition;
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Bar_GameManager.Instance.drinks_DragUI.transform.position = new Vector3(mousePosition.x, mousePosition.y, 5);
     }
 
     public void OnMouseUp()
@@ -38,6 +39,7 @@ public class Bottle : MonoBehaviour
 
     IEnumerator FillGlass(WineGlass target)
     {
+        Bar_GameManager.Instance.drinks_DragUI.SetUIPos(target.bottlePos.position);
         Bar_GameManager.Instance.drinks_DragUI.PourOut();
         yield return new WaitForSeconds(0.5f);
         target.FillGlass(drinksData);

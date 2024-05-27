@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2138239463
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -731578916, guid: 52a1e41a8c3408944a5d230e90dcefe2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -302,7 +302,7 @@ Canvas:
   m_GameObject: {fileID: 2721141072461903112}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: 9163825835890498210}
   - component: {fileID: 1938687726696751723}
   - component: {fileID: 6630412791940332966}
+  - component: {fileID: 8901643752316807287}
   m_Layer: 5
   m_Name: Drinks_DragImage
   m_TagString: Untagged
@@ -467,6 +468,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 0}
+--- !u!210 &8901643752316807287
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914977043756794603}
+  m_Enabled: 1
+  m_SortingLayerID: -2138239463
+  m_SortingLayer: 7
+  m_SortingOrder: 10
+  m_SortAtRoot: 0
 --- !u!1 &3387870930024678381
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,8 +800,40 @@ MonoBehaviour:
   drinks_DragUI: {fileID: 6630412791940332966}
   progressUI: {fileID: 8813277436371356893}
   wineGlass: {fileID: 5626652865379500145}
+  gameCanvas: {fileID: 5680511737371700979}
   isAddWine: 0
   isAddWater: 0
+--- !u!1 &4263909845190696054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 605799635021477415}
+  m_Layer: 0
+  m_Name: BottlePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &605799635021477415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4263909845190696054}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.87, y: 1.49, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6676987881189646941}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6116786879313823333
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,7 +982,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2138239463
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e766bc25936c8d049be0943ad51c9e34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1211,7 +1256,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2138239463
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 176e64cc84213fb4791a13506659c4cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1750,6 +1795,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+    - target: {fileID: 1441326938332281004, guid: 15c888414e6927a42ad30d009a8657e6, type: 3}
+      propertyPath: bottlePos
+      value: 
+      objectReference: {fileID: 605799635021477415}
     - target: {fileID: 2421090749754804210, guid: 15c888414e6927a42ad30d009a8657e6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5245902
@@ -1792,7 +1841,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 485281364933581440, guid: 15c888414e6927a42ad30d009a8657e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 605799635021477415}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15c888414e6927a42ad30d009a8657e6, type: 3}
 --- !u!114 &5626652865379500145 stripped
@@ -2139,7 +2191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2741070754804361143, guid: 8d514c1cb59a87743a6eaecdba7f0522, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.708
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2741070754804361143, guid: 8d514c1cb59a87743a6eaecdba7f0522, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -2175,7 +2227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7180960186613684180, guid: 8d514c1cb59a87743a6eaecdba7f0522, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.38
+      value: 1.71
       objectReference: {fileID: 0}
     - target: {fileID: 7180960186613684180, guid: 8d514c1cb59a87743a6eaecdba7f0522, type: 3}
       propertyPath: m_LocalPosition.z

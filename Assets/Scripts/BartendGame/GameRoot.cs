@@ -29,6 +29,11 @@ public class GameRoot : Singleton<GameRoot>
         TransitionManager.Instance.SetCameraWithOutTransition(gameCameraStand, false);
     }
 
+    public void StartGame()
+    {
+        barGame_instance = Instantiate(bar_Game, transform);
+    }
+
     void OnFinishGameEvent(MixedWine_Data data)
     {
         TransitionManager.Instance.ReturnPreCamera();

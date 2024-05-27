@@ -7,6 +7,7 @@ public class WineGlass : MonoBehaviour
 {
     [SerializeField]private float alcohol;
     [SerializeField]private WaterTag taste;
+    public Transform bottlePos;
 
     void OnMouseDown()
     {
