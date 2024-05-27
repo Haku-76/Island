@@ -9,6 +9,8 @@ public class NPCManager : Singleton<NPCManager>
     private Dictionary<string, NPC> npcdic = new();
     public List<NPC> npcList = new();
 
+    public List<Normal_NPC> npc_withoutStory_list = new();
+
     private void Awake()
     {
         base.Awake();

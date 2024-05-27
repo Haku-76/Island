@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 public class Bottle : MonoBehaviour
 {
     public DrinksDataSO drinksData;
+
+    [HideInInspector]public bool addWineOver = false;
     
     public void OnMouseDown()
     {
@@ -42,6 +44,8 @@ public class Bottle : MonoBehaviour
         Bar_GameManager.Instance.drinks_DragUI.SetUIPos(target.bottlePos.position);
         Bar_GameManager.Instance.drinks_DragUI.PourOut();
         yield return new WaitForSeconds(0.5f);
+        Bar_GameManager.Instance.StartQTE(2, this);
+        yield return new WaitUntil(() => addWineOver);
         target.FillGlass(drinksData);
         Bar_GameManager.Instance.drinks_DragUI.image.enabled = false;
         Bar_GameManager.Instance.drinks_DragUI.EndPourOut();

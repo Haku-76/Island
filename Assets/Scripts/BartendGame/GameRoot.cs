@@ -7,7 +7,7 @@ using Cinemachine;
 public class GameRoot : Singleton<GameRoot>
 {
     public GameObject bar_Game;
-    private GameObject barGame_instance;
+    // private GameObject barGame_instance;
 
     public CinemachineVirtualCamera gameCameraStand; 
 
@@ -24,14 +24,14 @@ public class GameRoot : Singleton<GameRoot>
 
     public void EnterGame()
     {
-        barGame_instance = Instantiate(bar_Game, transform);
+        bar_Game.SetActive(true);
         Debug.Log($"EnterGame");
         TransitionManager.Instance.SetCameraWithOutTransition(gameCameraStand, false);
     }
 
     public void StartGame()
     {
-        barGame_instance = Instantiate(bar_Game, transform);
+        bar_Game.SetActive(true);
     }
 
     void OnFinishGameEvent(MixedWine_Data data)
@@ -41,10 +41,7 @@ public class GameRoot : Singleton<GameRoot>
 
     public void CloseGame()
     {
-        if(barGame_instance != null)
-        {
-            Destroy(barGame_instance);
-        }
+        bar_Game.SetActive(false);
     }
 
 
