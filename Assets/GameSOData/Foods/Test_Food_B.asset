@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab68328618337204cadb2608e92b9a0c, type: 3}
-  m_Name: agave
+  m_Script: {fileID: 11500000, guid: 594b372e285eea0489b291189f898134, type: 3}
+  m_Name: Test_Food_B
   m_EditorClassIdentifier: 
-  item_name: "\u9F99\u820C\u5170"
-  icon: {fileID: 1386075830, guid: df0ac3ccf5b70d94fae2a871e2caf25f, type: 3}
-  description: 
-  drinksType: 0
-  alcohol: 0.55
-  taste: 0
+  item_name: B
+  icon: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  description: Food B.

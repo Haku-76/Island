@@ -1,12 +1,8 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DrinksData", menuName = "Drinks/DrinksData")]
-public class DrinksDataSO : ScriptableObject
+public class DrinksDataSO : DragItem_Data
 {
-    public Sprite icon;
-    public string drinkName;
-    [TextArea]
-    public string description;
     public DrinksType drinksType;
     public float alcohol;
     public WaterTag taste;

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab68328618337204cadb2608e92b9a0c, type: 3}
   m_Name: Sprite
   m_EditorClassIdentifier: 
+  item_name: "\u96EA\u78A7"
   icon: {fileID: -1812462837, guid: b4eb21d4dcf9c1e4ca176ac031da213c, type: 3}
-  drinkName: "\u96EA\u78A7"
   description: "\u4E00\u74F6\u96EA\u78A7"
   drinksType: 1
   alcohol: 0

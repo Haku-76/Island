@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab68328618337204cadb2608e92b9a0c, type: 3}
   m_Name: Soda
   m_EditorClassIdentifier: 
+  item_name: "\u82CF\u6253\u6C34"
   icon: {fileID: 969345766, guid: 188506302d798244aa855fc7db9befd8, type: 3}
-  drinkName: "\u82CF\u6253\u6C34"
   description: 
   drinksType: 1
   alcohol: 0

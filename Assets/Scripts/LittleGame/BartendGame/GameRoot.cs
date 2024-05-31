@@ -10,6 +10,8 @@ public class GameRoot : Singleton<GameRoot>
     // private GameObject barGame_instance;
 
     public CinemachineVirtualCamera gameCameraStand; 
+    
+    public DrinksUI drinks_DragUI;
 
     void OnEnable()
     {

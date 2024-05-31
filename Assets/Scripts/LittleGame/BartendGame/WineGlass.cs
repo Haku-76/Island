@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class WineGlass : MonoBehaviour
+public class WineGlass : DragTarget
 {
     [SerializeField]private float alcohol;
     [SerializeField]private WaterTag taste;
@@ -42,7 +42,7 @@ public class WineGlass : MonoBehaviour
             {
                 taste = drinksData.taste;
                 Bar_GameManager.Instance.progressUI.AddWater();
-                Debug.Log("添加了 " + drinksData.drinkName);
+                Debug.Log("添加了 " + drinksData.item_name);
             }
             else
             {

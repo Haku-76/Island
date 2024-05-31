@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Bar_GameManager : Singleton<Bar_GameManager>
 {
 
-    public DrinksUI drinks_DragUI;
 
     public ProgressUI progressUI;
 

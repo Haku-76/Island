@@ -25,7 +25,6 @@ public class ProgressUI : MonoBehaviour
 
     public void AddWine()
     {
-        Debug.Log(1);
         unit_1.enabled = true;
         Bar_GameManager.Instance.isAddWine = true;
     }

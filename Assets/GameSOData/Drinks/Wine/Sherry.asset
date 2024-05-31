@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab68328618337204cadb2608e92b9a0c, type: 3}
   m_Name: Sherry
   m_EditorClassIdentifier: 
+  item_name: "\u96EA\u8389"
   icon: {fileID: 0}
-  drinkName: "\u96EA\u8389\u9152"
   description: 
   drinksType: 0
   alcohol: 0.2
+  taste: 0
