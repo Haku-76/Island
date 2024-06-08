@@ -1454,7 +1454,6 @@ GameObject:
   - component: {fileID: 1062341656}
   - component: {fileID: 1062341658}
   - component: {fileID: 1062341657}
-  - component: {fileID: 1062341659}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1519,18 +1518,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062341655}
   m_CullTransparentMesh: 1
---- !u!114 &1062341659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062341655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4956595a4e06745468ba0d3a9ca59002, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1116781239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,6 +1980,7 @@ MonoBehaviour:
   - {fileID: 101375327}
   - {fileID: 1818295823}
   - {fileID: 1147599849}
+  npc_withoutStory_list: []
 --- !u!4 &1228821638
 Transform:
   m_ObjectHideFlags: 0
@@ -4341,6 +4329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4956595a4e06745468ba0d3a9ca59002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetSceneName: 5.5_Persistent
 --- !u!1 &5976772543007048652
 GameObject:
   m_ObjectHideFlags: 0
@@ -4431,6 +4420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4956595a4e06745468ba0d3a9ca59002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetSceneName: Scene2
 --- !u!224 &7390777768950314633
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4674,6 +4664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4956595a4e06745468ba0d3a9ca59002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetSceneName: Scene2
 --- !u!114 &8797111862274696408
 MonoBehaviour:
   m_ObjectHideFlags: 0
